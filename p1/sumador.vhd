@@ -21,11 +21,11 @@ library ieee;
 use	ieee.std_logic_1164.all;	
 use	ieee.numeric_std.all;	
 entity	sumador	is
-		port	(op1	:	in		std_logic_vector	(3	downto	0);	
-								op2	:	in		std_logic_vector	(3	downto	0);	
-								res	:	out std_logic_vector	(3	downto	0));	
+		port	(a	:	in		std_logic_vector	(3	downto	0);	
+				 b	:	in		std_logic_vector	(3	downto	0);	
+				 c	:	out std_logic_vector	(3	downto	0));	
 end	sumador;	
-architecture rtl	of	sumador	is
+architecture Behaviural	of	sumador	is
 begin
-		res	<=	std_logic_vector(unsigned(op1)+unsigned(op2));	
-end rtl;	
+		c	<=	std_logic_vector(unsigned(a)+unsigned(b));	
+end Behaviural;	

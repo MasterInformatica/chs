@@ -16,7 +16,7 @@ end tb_sumador_4bits;
 architecture beh of tb_sumador_4bits is
 
 -- Declaracion del componente que vamos a simular
-  component sumador_4bits
+  component sumador
     port(
       a : in  std_logic_vector(3 downto 0);
       b : in  std_logic_vector(3 downto 0);
@@ -36,7 +36,7 @@ architecture beh of tb_sumador_4bits is
 begin
 
 -- Instanciacion de la unidad a simular 
-  dut : sumador_4bits port map (
+  dut : sumador port map (
     a => a,
     b => b,
     c => c

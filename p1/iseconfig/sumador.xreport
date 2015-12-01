@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-12-01T15:39:51</DateModified>
+  <DateModified>2015-12-01T16:10:03</DateModified>
   <ModuleName>sumador</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-12-01T16:04:51</SummaryTimeStamp>
   <SavedFilePath>C:/hlocal/chs/p1/iseconfig/sumador.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/hlocal/chs/p1</ImplementationReportsDirectory>
-  <DateInitialized>2015-12-01T15:35:43</DateInitialized>
+  <DateInitialized>2015-12-01T15:55:19</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
