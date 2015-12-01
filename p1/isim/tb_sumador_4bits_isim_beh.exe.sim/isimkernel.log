@@ -1,0 +1,28 @@
+Command line:
+   tb_sumador_4bits_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  1609
+
+Thu Nov 26 16:38:05 2015
+
+
+ Elaboration Time: 0.0468 sec
+
+ Current Memory Usage: 826.315 Meg
+
+ Total Signals          : 4
+ Total Nets             : 16
+ Total Signal Drivers   : 3
+ Total Blocks           : 4
+ Total Primitive Blocks : 4
+ Total Processes        : 1
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 499
+
+ Total Simulation Time: 0.078 sec
+
+ Current Memory Usage: 1140.89 Meg
+
+Thu Nov 26 16:39:15 2015
+

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/hlocal/chs/p1/tb_sumador_4bits_isim_beh.exe" -prj "C:/hlocal/chs/p1/tb_sumador_4bits_beh.prj" "work.tb_sumador_4bits" 

@@ -1,0 +1,20 @@
+Running: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/hlocal/chs/p1/tb_sumador_4bits_isim_beh.exe -prj C:/hlocal/chs/p1/tb_sumador_4bits_beh.prj work.tb_sumador_4bits 
+ISim P.15xf (signature 0xc3576ebc)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/hlocal/chs/p1/simsum.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "C:/hlocal/chs/p1/simsum.vhd" Line 39: <sumador_4bits> remains a black-box since it has no binding entity.
+Completed static elaboration
+WARNING:Simulator:648 - "C:/hlocal/chs/p1/simsum.vhd" Line 39. Instance sumador_4bits is unbound
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package textio
+Compiling architecture beh of entity tb_sumador_4bits
+Time Resolution for simulation is 1ps.
+Compiled 5 VHDL Units
+Built simulation executable C:/hlocal/chs/p1/tb_sumador_4bits_isim_beh.exe
+Fuse Memory Usage: 36780 KB
+Fuse CPU Usage: 358 ms
