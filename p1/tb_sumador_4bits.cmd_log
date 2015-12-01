@@ -1,1 +1,0 @@
-xst -intstyle ise -ifn "C:/hlocal/chs/p1/tb_sumador_4bits.xst" -ofn "C:/hlocal/chs/p1/tb_sumador_4bits.syr" 
