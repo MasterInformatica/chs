@@ -1,0 +1,2 @@
+vhdl work "C:\hlocal\HelloWorldMicroBlaze\ipcore_dir\microblaze_mcs.vhd"
+vhdl work "C:\hlocal\HelloWorldMicroBlaze\mcs_top.vhd"

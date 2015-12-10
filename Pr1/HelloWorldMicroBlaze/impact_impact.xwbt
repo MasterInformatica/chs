@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=C:\hlocal\HelloWorldMicroBlaze\impact.xsl
+OUTFILE=C:\hlocal\HelloWorldMicroBlaze\impact.xsl
+FAMILY=None
+PART=None
+WORKINGDIR=C:\hlocal\HelloWorldMicroBlaze
+LICENSE=iMPACT
+USER_INFO=iMPACT
