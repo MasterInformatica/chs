@@ -1,0 +1,15 @@
+!SESSION 2015-12-15 15:40:27.992 -----------------------------------------------
+eclipse.buildId=Release 14.1 Build SDK_P.15xf
+java.version=1.6.0_21
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-12-15 15:44:45.111
+!MESSAGE Indexed 'standalone_bsp_0' (0 sources, 8 headers) in 0,20 sec: 0 declarations; 0 references; 8 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-12-15 15:46:15.245
+!MESSAGE Indexed 'hello_world_bsp_0' (38 sources, 38 headers) in 0,39 sec: 1.159 declarations; 5.799 references; 24 unresolved inclusions; 0 syntax errors; 97 unresolved names (1,37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-12-15 15:46:15.510
+!MESSAGE Indexed 'hello_world_0' (2 sources, 31 headers) in 0,26 sec: 1.076 declarations; 1.103 references; 3 unresolved inclusions; 0 syntax errors; 1 unresolved names (0,05%)
