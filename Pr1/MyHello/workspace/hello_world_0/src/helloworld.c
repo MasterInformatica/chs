@@ -52,7 +52,7 @@ int main()
 	const int count = 14;
 	int index = 0;
 	while (index < count) {
-		data = XIOModule_Send(&iomodule, &msg[index], count - index);
+		data = XIOModule_SendByte(&iomodule, &msg[index], count - index);
 		index += data;
 	}
 	xil_printf("\n\rThe number of bytes sent was %d\n\r", index);
@@ -88,26 +88,29 @@ int main()
 #include "xparameters.h" // add
 #include "xiomodule.h" // add
 void print(char *str);
+
+unsigned volatile int DIRLEDS = 0xC0000001;
+unsigned volatile int DIRSWIT = 0xC0000002;
+
 int main()
 {
 	init_platform();
 	u32 data;
-	XIOModule gpi;
-	XIOModule gpo;
+
+	XIOModule iomodule;
 	xil_printf("Reading switches and writing to LED port\n\r");
-	data = XIOModule_Initialize(&gpi, XPAR_IOMODULE_0_DEVICE_ID);
-	data = XIOModule_Start(&gpi);
-	data = XIOModule_Initialize(&gpo, XPAR_IOMODULE_0_DEVICE_ID);
-	data = XIOModule_Start(&gpo);
+	data = XIOModule_Initialize(&iomodule, XPAR_IOMODULE_0_DEVICE_ID);
+	data = XIOModule_Start(&iomodule);
+
 	while (1)
 	{
-		data = XIOModule_DiscreteRead(&gpi, 1); // read switches (channel 1)
-		XIOModule_DiscreteWrite(&gpo, 1, data); // turn on LEDs (channel 1)
+		data = DIRSWIT;
+		DIRLEDS = data;
 	}
 	cleanup_platform();
 	return 0;
 }
-/*/
+/* /
 //Basico
 #include <stdio.h>
 #include "platform.h"

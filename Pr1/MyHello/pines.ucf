@@ -14,14 +14,14 @@ NET Clk PERIOD = 10ns HIGH 50%;
 
 	#switches placa extendida
 
-NET GPI1<0> LOC=P12;
-NET GPI1<1> LOC=J1;
-NET GPI1<2> LOC=H1;
-NET GPI1<3> LOC=H3;
-NET GPI1<4> LOC=G2;
-NET GPI1<5> LOC=K15;
-NET GPI1<6> LOC=K16;
-NET GPI1<7> LOC=F15;
+NET Switches<0> LOC=P12;
+NET Switches<1> LOC=J1;
+NET Switches<2> LOC=H1;
+NET Switches<3> LOC=H3;
+NET Switches<4> LOC=G2;
+NET Switches<5> LOC=K15;
+NET Switches<6> LOC=K16;
+NET Switches<7> LOC=F15;
 
 #
 	#push buttons placa superior
@@ -37,16 +37,16 @@ NET Reset LOC=E11;
 
 #barra de leds placa extendida
 
-NET GPO1<0> LOC=L5;
-NET GPO1<1> LOC=N2;
-NET GPO1<2> LOC=M3;
-NET GPO1<3> LOC=N1;
-NET GPO1<4> LOC=T13;
-NET GPO1<5> LOC=L15;
-NET GPO1<6> LOC=J13;
-NET GPO1<7> LOC=H15;
-NET GPO1<8> LOC=J16;
-NET GPO1<9> LOC=J14;
+NET Leds<0> LOC=L5;
+NET Leds<1> LOC=N2;
+NET Leds<2> LOC=M3;
+NET Leds<3> LOC=N1;
+NET Leds<4> LOC=T13;
+NET Leds<5> LOC=L15;
+NET Leds<6> LOC=J13;
+NET Leds<7> LOC=H15;
+NET Leds<8> LOC=J16;
+NET Leds<9> LOC=J14;
 
  
 
