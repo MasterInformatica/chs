@@ -32,145 +32,145 @@
 <msg type="warning" file="Xst" num="795" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/./microblaze_v8_30_a/pcores/microblaze_v8_30_a/hdl/vhdl/microblaze_primitives.vhd</arg>&quot; line <arg fmt="%d" index="2">31811</arg>: Size of operands are different : result is &lt;false&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">UART_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">UART_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT1_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT1_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT1_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT1_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT2_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT2_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT2_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT2_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT3_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT3_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT3_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT3_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT4_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT4_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT4_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">FIT4_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT1_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT1_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT1_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT1_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT1_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT1_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT2_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT2_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT2_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT2_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT2_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT2_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT3_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT3_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT3_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT3_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT3_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT3_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT4_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">PIT4_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT4_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT4_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT4_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">PIT4_Toggle</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO1</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO1</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO2</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO2</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO3</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO3</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO4</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">GPO4</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI1</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI1</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI2</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI2</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI3</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI3</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI4</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">GPI4</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="752" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">INTC_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
+<msg type="warning" file="Xst" num="752" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected input port &apos;<arg fmt="%s" index="3">INTC_Interrupt</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos; is tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">INTC_IRQ</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">INTC_IRQ</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Instruction</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Instruction</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Valid_Instr</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Valid_Instr</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_PC</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_PC</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Reg_Write</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Reg_Write</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Reg_Addr</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Reg_Addr</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_MSR_Reg</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_MSR_Reg</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_New_Reg_Value</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_New_Reg_Value</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Jump_Taken</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Jump_Taken</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Delay_Slot</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Delay_Slot</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Address</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Address</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Access</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Access</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Read</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Read</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Write</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Write</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Write_Value</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Write_Value</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Byte_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_Data_Byte_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_MB_Halted</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">188</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">Trace_MB_Halted</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
 <msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/tmp/./_cg/_dbg/./microblaze_mcs_v1_1/hdl/microblaze_mcs.vhd</arg>&quot; line <arg fmt="%d" index="2">1610</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">MB_Halted</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze</arg>&apos;.
@@ -3102,7 +3102,7 @@
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">gpi2_in</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">gpi1_in</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">gpi1_in</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">Div_By_Zero</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -4416,19 +4416,19 @@
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">microblaze_0_mdm_bus_Dbg_TDO</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="524" delta="new" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I1</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
+<msg type="warning" file="Xst" num="524" delta="old" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I1</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
 This instance will be removed from the design along with all underlying logic
 </msg>
 
-<msg type="warning" file="Xst" num="524" delta="new" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I2</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
+<msg type="warning" file="Xst" num="524" delta="old" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I2</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
 This instance will be removed from the design along with all underlying logic
 </msg>
 
-<msg type="warning" file="Xst" num="524" delta="new" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I3</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
+<msg type="warning" file="Xst" num="524" delta="old" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I3</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
 This instance will be removed from the design along with all underlying logic
 </msg>
 
-<msg type="warning" file="Xst" num="524" delta="new" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I4</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
+<msg type="warning" file="Xst" num="524" delta="old" >All outputs of the instance &lt;<arg fmt="%s" index="1">GPI_I4</arg>&gt; of the block &lt;<arg fmt="%s" index="2">GPI_Module</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">iomodule_core</arg>&gt;.
 This instance will be removed from the design along with all underlying logic
 </msg>
 
