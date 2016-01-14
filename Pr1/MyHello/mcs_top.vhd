@@ -31,7 +31,16 @@ architecture rtl of mcs_top is
     UART_Tx : OUT STD_LOGIC
   );
 END COMPONENT;
-	
+		COMPONENT divisor
+	PORT(
+		CLKIN_IN : IN std_logic;
+		RST_IN : IN std_logic;          
+		CLKDV_OUT : OUT std_logic;
+		CLKIN_IBUFG_OUT : OUT std_logic;
+		CLK0_OUT : OUT std_logic;
+		LOCKED_OUT : OUT std_logic
+		);
+	END COMPONENT;
 	COMPONENT register_n
 		generic (n: integer :=8);
 		Port ( 
@@ -42,8 +51,8 @@ END COMPONENT;
          OutD : out  STD_LOGIC_vector(n-1 downto 0)
 		);
 	END COMPONENT;
-	constant DIRLEDS : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000001";
-	constant DIRSWIT : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000002";
+	constant DIRLEDS : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000000";
+	constant DIRSWIT : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000004";
 	
 	SIGNAL Reset_n : STD_LOGIC;
 	
@@ -53,7 +62,7 @@ END COMPONENT;
 	SIGNAL in_Leds : STD_LOGIC_VECTOR(9 downto 0);
 	
 	
-	
+	signal CLKO : std_logic;
 	-- mcb signals
 	signal addr_ready : STD_LOGIC;
 	signal ld_ready : std_logic;
@@ -69,15 +78,24 @@ begin
 
 Reset_n <= NOT Reset;
 
+Inst_divisor: divisor PORT MAP(
+		CLKIN_IN => Clk ,
+		RST_IN => Reset_n,
+		CLKDV_OUT => CLKO,
+		CLKIN_IBUFG_OUT => open,
+		CLK0_OUT => open,
+		LOCKED_OUT => open
+	);
+
 mcs_0: microblaze_mcs
   PORT MAP (
-    Clk => Clk,
-    Reset => Reset,
+    Clk => CLKO,
+    Reset => Reset_n,
     IO_Addr_Strobe => addr_ready,
     IO_Read_Strobe => ld_ready,
 	 IO_Write_Strobe => st_ready,
     IO_Address => addr,
-    --IO_Byte_Enable => IO_Byte_Enable,
+    IO_Byte_Enable => open,
     IO_Write_Data => write_D,
     IO_Read_Data => read_D,
     IO_Ready => ready,
@@ -87,7 +105,7 @@ mcs_0: microblaze_mcs
 reg_led : register_n
 	generic map (10)
 	Port map (
-			clk => Clk,
+			clk => CLKO,
          rst => Reset_n,
 			load => loadLeds,
          D => in_Leds,
@@ -97,7 +115,7 @@ reg_led : register_n
 reg_swi : register_n	  
 	generic map (8)
 	Port map (
-			clk => Clk,
+			clk => CLKO,
          rst => Reset_n,
 			load => loadSwitches,
          D => Switches,
@@ -110,6 +128,6 @@ in_Leds <= write_D (9 downto 0);
 
 ready <= '1';
 loadSwitches <= '1';
-loadLeds <= '1' when (addr_ready = '1' and ld_ready = '1' and addr = DIRLEDS ) else '0';
+loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIRLEDS) else '0';
 
 end rtl;

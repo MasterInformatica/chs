@@ -1,0 +1,505 @@
+Release 14.1 - xst P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: mcs_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mcs_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mcs_top"
+Output Format                      : NGC
+Target Device                      : xc3s1000-4-ft256
+
+---- Source Options
+Top Module Name                    : mcs_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3498 - No primary, secondary unit in the file "C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.vhd. Ignore this file from project file "C:/hlocal/chs/Pr1/MyHello/mcs_top_vhdl.prj".
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/divisor.vhd" in Library work.
+Architecture behavioral of Entity divisor is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/register_n.vhd" in Library work.
+Architecture behavioral of Entity register_n is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" in Library work.
+Entity <mcs_top> compiled.
+Entity <mcs_top> (Architecture <rtl>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <mcs_top> in library <work> (architecture <rtl>).
+
+Analyzing hierarchy for entity <divisor> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_n> in library <work> (architecture <behavioral>) with generics.
+	n = 10
+
+Analyzing hierarchy for entity <register_n> in library <work> (architecture <behavioral>) with generics.
+	n = 8
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <mcs_top> in library <work> (Architecture <rtl>).
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 81: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 81: Unconnected output port 'CLK0_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 81: Unconnected output port 'LOCKED_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 90: Unconnected output port 'IO_Byte_Enable' of component 'microblaze_mcs'.
+WARNING:Xst:2211 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 90: Instantiating black box module <microblaze_mcs>.
+Entity <mcs_top> analyzed. Unit <mcs_top> generated.
+
+Analyzing Entity <divisor> in library <work> (Architecture <behavioral>).
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <divisor>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <divisor>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <divisor>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN_IBUFG_INST> in unit <divisor>.
+    Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLKFX_DIVIDE =  1" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLKFX_MULTIPLY =  4" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLKIN_PERIOD =  10.0000000000000000" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "FACTORY_JF =  8080" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "SIM_MODE =  SAFE" for instance <DCM_INST> in unit <divisor>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_INST> in unit <divisor>.
+Entity <divisor> analyzed. Unit <divisor> generated.
+
+Analyzing generic Entity <register_n.1> in library <work> (Architecture <behavioral>).
+	n = 10
+Entity <register_n.1> analyzed. Unit <register_n.1> generated.
+
+Analyzing generic Entity <register_n.2> in library <work> (Architecture <behavioral>).
+	n = 8
+Entity <register_n.2> analyzed. Unit <register_n.2> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <register_n_1>.
+    Related source file is "C:/hlocal/chs/Pr1/MyHello/register_n.vhd".
+    Found 10-bit register for signal <OutD>.
+    Summary:
+	inferred  10 D-type flip-flop(s).
+Unit <register_n_1> synthesized.
+
+
+Synthesizing Unit <register_n_2>.
+    Related source file is "C:/hlocal/chs/Pr1/MyHello/register_n.vhd".
+    Found 8-bit register for signal <OutD>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <register_n_2> synthesized.
+
+
+Synthesizing Unit <divisor>.
+    Related source file is "C:/hlocal/chs/Pr1/MyHello/divisor.vhd".
+Unit <divisor> synthesized.
+
+
+Synthesizing Unit <mcs_top>.
+    Related source file is "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd".
+WARNING:Xst:646 - Signal <write_D<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ld_ready> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <mcs_top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 2
+ 10-bit register                                       : 1
+ 8-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/microblaze_mcs.ngc>.
+Loading core <microblaze_mcs> for timing and area information for instance <mcs_0>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 18
+ Flip-Flops                                            : 18
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[1].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[1].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[2].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[2].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[3].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[3].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[4].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[4].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[5].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[5].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[6].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[6].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[7].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[7].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+
+Optimizing unit <mcs_top> ...
+
+Optimizing unit <register_n_1> ...
+
+Optimizing unit <register_n_2> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mcs_top, actual ratio is 6.
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i> in Unit <mcs_0> is equivalent to the following 31 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+INFO:Xst:2260 - The FF/Latch <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0_1> 
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i> in Unit <mcs_0> is equivalent to the following 31 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+INFO:Xst:2260 - The FF/Latch <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0_1> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 18
+ Flip-Flops                                            : 18
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mcs_top.ngr
+Top Level Output File Name         : mcs_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 22
+
+Cell Usage :
+# BELS                             : 1135
+#      GND                         : 10
+#      INV                         : 22
+#      LUT1                        : 4
+#      LUT2                        : 65
+#      LUT2_D                      : 5
+#      LUT2_L                      : 3
+#      LUT3                        : 241
+#      LUT3_D                      : 4
+#      LUT3_L                      : 33
+#      LUT4                        : 394
+#      LUT4_D                      : 4
+#      LUT4_L                      : 12
+#      MULT_AND                    : 34
+#      MUXCY                       : 9
+#      MUXCY_L                     : 84
+#      MUXF5                       : 150
+#      MUXF6                       : 1
+#      VCC                         : 2
+#      XORCY                       : 58
+# FlipFlops/Latches                : 508
+#      FD                          : 76
+#      FDC                         : 8
+#      FDCE                        : 10
+#      FDE                         : 111
+#      FDR                         : 101
+#      FDRE                        : 161
+#      FDRS                        : 1
+#      FDRSE                       : 10
+#      FDS                         : 11
+#      FDSE                        : 19
+# RAMS                             : 136
+#      RAM16X1D                    : 128
+#      RAMB16                      : 8
+# Shift Registers                  : 48
+#      SRL16                       : 1
+#      SRL16E                      : 47
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 22
+#      IBUF                        : 10
+#      IBUFG                       : 1
+#      OBUF                        : 11
+# DCMs                             : 1
+#      DCM                         : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-4 
+
+ Number of Slices:                      486  out of   7680     6%  
+ Number of Slice Flip Flops:            508  out of  15360     3%  
+ Number of 4 input LUTs:               1091  out of  15360     7%  
+    Number used as logic:               787
+    Number used as Shift registers:      48
+    Number used as RAMs:                256
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    173    12%  
+ Number of BRAMs:                         8  out of     24    33%  
+ Number of GCLKs:                         2  out of      8    25%  
+ Number of DCMs:                          1  out of      4    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)      | Load  |
+-----------------------------------+----------------------------+-------+
+Clk                                | Inst_divisor/DCM_INST:CLKDV| 692   |
+-----------------------------------+----------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+Reset_n(Reset_n1_INV_0:O)          | NONE(reg_led/OutD_0)   | 18    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.877ns (Maximum Frequency: 170.165MHz)
+   Minimum input arrival time before clock: 3.826ns
+   Maximum output required time after clock: 7.165ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 5.877ns (frequency: 170.165MHz)
+  Total number of paths / destination ports: 107162 / 2765
+-------------------------------------------------------------------------
+Delay:               11.753ns (Levels of Logic = 17)
+  Source:            mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (FF)
+  Destination:       mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 (RAM)
+  Source Clock:      Clk rising 0.5X
+  Destination Clock: Clk rising 0.5X
+
+  Data Path: mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I to mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q             46   0.720   2.128  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (U0/microblaze_I/MicroBlaze_Core_I/buffer_Addr<1>)
+     LUT2:I1->O            2   0.551   0.903  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/buffer_Full_I1 (U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/buffer_Full)
+     LUT4:I3->O            1   0.551   1.140  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PC_Incr_0_and00001 (U0/microblaze_I/MicroBlaze_Core_I/pc_Incr)
+     LUT4:I0->O            1   0.551   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/SUM_I (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/xor_Sum)
+     MUXCY_L:S->LO         1   0.500   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<29>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<28>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<27>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<26>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<25>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<24>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<23>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<22>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<21>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<20>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<19>)
+     XORCY:CI->O           1   0.904   1.140  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/XOR_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_Sum)
+     LUT4:I0->O            9   0.551   1.124  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/NewPC_Mux (U0/lmb_bram_I/RAM_Inst/ADDRA<0>)
+     begin scope: 'U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1'
+     RAMB16:ADDRA13            0.350          U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1
+    ----------------------------------------
+    Total                     11.753ns (5.318ns logic, 6.435ns route)
+                                       (45.2% logic, 54.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              3.826ns (Levels of Logic = 3)
+  Source:            Reset (PAD)
+  Destination:       mcs_0/U0/reset_vec_0 (FF)
+  Destination Clock: Clk rising 0.5X
+
+  Data Path: Reset to mcs_0/U0/reset_vec_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.821   0.801  Reset_IBUF (Reset_IBUF)
+     INV:I->O             19   0.551   1.450  Reset_n1_INV_0 (Reset_n)
+     begin scope: 'mcs_0'
+     FD:D                      0.203          U0/reset_vec_0
+    ----------------------------------------
+    Total                      3.826ns (1.575ns logic, 2.251ns route)
+                                       (41.2% logic, 58.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              7.165ns (Levels of Logic = 2)
+  Source:            mcs_0/U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX (FF)
+  Destination:       UART_Tx (PAD)
+  Source Clock:      Clk rising 0.5X
+
+  Data Path: mcs_0/U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX to UART_Tx
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              1   0.720   0.801  U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX (UART_Tx)
+     end scope: 'mcs_0'
+     OBUF:I->O                 5.644          UART_Tx_OBUF (UART_Tx)
+    ----------------------------------------
+    Total                      7.165ns (6.364ns logic, 0.801ns route)
+                                       (88.8% logic, 11.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.27 secs
+ 
+--> 
+
+Total memory usage is 284812 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
+

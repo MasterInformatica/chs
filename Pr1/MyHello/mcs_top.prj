@@ -1,0 +1,4 @@
+vhdl work "ipcore_dir/microblaze_mcs.vhd"
+vhdl work "register_n.vhd"
+vhdl work "divisor.vhd"
+vhdl work "mcs_top.vhd"

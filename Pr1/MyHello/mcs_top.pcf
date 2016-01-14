@@ -1,0 +1,33 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Thu Jan 14 16:08:24 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "Switches<0>" LOCATE = SITE "P12" LEVEL 1;
+COMP "Switches<1>" LOCATE = SITE "J1" LEVEL 1;
+COMP "Switches<2>" LOCATE = SITE "H1" LEVEL 1;
+COMP "Switches<3>" LOCATE = SITE "H3" LEVEL 1;
+COMP "Switches<4>" LOCATE = SITE "G2" LEVEL 1;
+COMP "Switches<5>" LOCATE = SITE "K15" LEVEL 1;
+COMP "Switches<6>" LOCATE = SITE "K16" LEVEL 1;
+COMP "Switches<7>" LOCATE = SITE "F15" LEVEL 1;
+COMP "UART_Rx" LOCATE = SITE "G5" LEVEL 1;
+COMP "UART_Tx" LOCATE = SITE "J2" LEVEL 1;
+COMP "Clk" LOCATE = SITE "T9" LEVEL 1;
+COMP "Leds<0>" LOCATE = SITE "L5" LEVEL 1;
+COMP "Leds<1>" LOCATE = SITE "N2" LEVEL 1;
+COMP "Leds<2>" LOCATE = SITE "M3" LEVEL 1;
+COMP "Leds<3>" LOCATE = SITE "N1" LEVEL 1;
+COMP "Leds<4>" LOCATE = SITE "T13" LEVEL 1;
+COMP "Leds<5>" LOCATE = SITE "L15" LEVEL 1;
+COMP "Leds<6>" LOCATE = SITE "J13" LEVEL 1;
+COMP "Leds<7>" LOCATE = SITE "H15" LEVEL 1;
+COMP "Leds<8>" LOCATE = SITE "J16" LEVEL 1;
+COMP "Leds<9>" LOCATE = SITE "J14" LEVEL 1;
+COMP "Reset" LOCATE = SITE "E11" LEVEL 1;
+NET
+        "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/pc_write_I"
+        USELOWSKEWLINES;
+NET "Inst_divisor/CLKIN_IBUFG" PERIOD = 10 ns HIGH 50%;
+SCHEMATIC END;
+

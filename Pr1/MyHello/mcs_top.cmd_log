@@ -1,0 +1,58 @@
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 
+xst -intstyle ise -ifn "C:/hlocal/chs/Pr1/MyHello/mcs_top.xst" -ofn "C:/hlocal/chs/Pr1/MyHello/mcs_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc pines.ucf -p xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm "ipcore_dir/microblaze_mcs.bmm" 
+map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off -c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+par -w -intstyle ise -ol high -t 1 mcs_top_map.ncd mcs_top.ncd mcs_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml mcs_top.twx mcs_top.ncd -o mcs_top.twr mcs_top.pcf -ucf pines.ucf 
+bitgen -intstyle ise -f mcs_top.ut mcs_top.ncd 

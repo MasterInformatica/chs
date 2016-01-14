@@ -1,0 +1,1 @@
+vhdtdtfi -prj MyHello -o C:/hlocal/chs/Pr1/MyHello/divisor.vhi -module divisor -template C:/software/electronica/xilinx/14.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work divisor.vhd 

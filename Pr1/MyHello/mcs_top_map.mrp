@@ -1,0 +1,992 @@
+Release 14.1 Map P.15xf (nt64)
+Xilinx Mapping Report File for Design 'mcs_top'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s1000-ft256-4 -cm area -ir off -pr off
+-c 100 -o mcs_top_map.ncd mcs_top.ngd mcs_top.pcf 
+Target Device  : xc3s1000
+Target Package : ft256
+Target Speed   : -4
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Thu Jan 14 16:08:23 2016
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   16
+Logic Utilization:
+  Number of Slice Flip Flops:           356 out of  15,360    2%
+  Number of 4 input LUTs:             1,024 out of  15,360    6%
+Logic Distribution:
+  Number of occupied Slices:            615 out of   7,680    8%
+    Number of Slices containing only related logic:     615 out of     615 100%
+    Number of Slices containing unrelated logic:          0 out of     615   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       1,056 out of  15,360    6%
+    Number used as logic:               720
+    Number used as a route-thru:         32
+    Number used for Dual Port RAMs:     256
+      (Two LUTs used per Dual Port RAM)
+    Number used as Shift registers:      48
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 22 out of     173   12%
+  Number of RAMB16s:                      8 out of      24   33%
+  Number of BUFGMUXs:                     2 out of       8   25%
+  Number of DCMs:                         1 out of       4   25%
+
+Average Fanout of Non-Clock Nets:                4.05
+
+Peak Memory Usage:  242 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:43 - No license file was found in the standard Xilinx license
+directory.
+WARNING:Security:44 - Since no license file was found,
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[24].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[24].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[25].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[25].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[29].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[29].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[30].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[30].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[31].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[31].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[28].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[28].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[27].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[27].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[26].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[26].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[16].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[16].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[17].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[17].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[18].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[18].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[19].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[19].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[20].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[20].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[21].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[21].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[22].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[22].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[23].SRL16E_I/Use_unisim.MB_SRL16E_I1 failed to merge
+   with F5 multiplexer
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5.  The
+   function generator
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using
+   _FPGA.PreFetch_Buffers[23].SRL16E_I/Use_unisim.MB_SRL16E_I1 is unable to be
+   placed in the G position because the output signal doesn't match other
+   symbols' use of the G signal.  The signal
+   mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usi
+   ng_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/op2_Reg already uses G.  The
+   design will exhibit suboptimal timing.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
+'C:\software\electronica\xilinx\14.1\ISE_DS\common\licenses\xilinx.lic'.
+INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
+'1717@fdilicencias1;2100@fdilicencias1'.
+INFO:Security:54 - 'xc3s1000' is a WebPack part.
+INFO:LIT:243 - Logical network mcs_0/U0/iomodule_0/IO_Read_Strobe has no load.
+INFO:LIT:395 - The above info message is repeated 117 more times for the
+   following (max. 5 shown):
+   mcs_0/U0/iomodule_0/IO_Byte_Enable<3>,
+   mcs_0/U0/iomodule_0/IO_Byte_Enable<2>,
+   mcs_0/U0/iomodule_0/IO_Byte_Enable<1>,
+   mcs_0/U0/iomodule_0/IO_Byte_Enable<0>,
+   mcs_0/U0/iomodule_0/IO_Write_Data<31>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal Clk are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 105 block(s) removed
+  81 block(s) optimized away
+  61 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[18].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[19].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[20].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[21].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[22].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[23].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[24].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[25].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[26].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[27].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[28].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[29].PC_Bit_I/PC_EX_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[0].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[10].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[11].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[12].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[13].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[14].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[15].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[16].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[17].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[18].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[19].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[1].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[20].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[21].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[22].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[23].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[24].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[25].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[26].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[27].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[28].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[29].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[2].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[30].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[31].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[3].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[4].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[5].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[6].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[7].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[8].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPG
+A.Result_Mux_Bits[9].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
+Loadless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Ext_NM_BRK_FDR
+SE" (SFF) removed.
+The signal "mcs_0/U0/iomodule_0/IO_Read_Strobe" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<3>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<2>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<1>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<0>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<31>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<30>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<29>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<28>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<27>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<26>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<25>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<24>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<23>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<22>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<21>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<20>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<19>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<18>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<17>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<16>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<15>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<14>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<13>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<12>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<11>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IO_Write_Data<10>" is sourceless and has been
+removed.
+The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n" is
+sourceless and has been removed.
+ Sourceless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_3
+" (MUX) removed.
+  The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_3
+/O" is sourceless and has been removed.
+   Sourceless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_3
+/MUXCY_L_BUF" (BUF) removed.
+    The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_3
+/LO" is sourceless and has been removed.
+The signal "mcs_0/U0/iomodule_0/write_data<8>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<9>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<10>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<11>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<12>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<13>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<14>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<15>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<16>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<17>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<18>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<19>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<20>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<21>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<22>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<23>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<24>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<25>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<26>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<27>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<28>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<29>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<30>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<31>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/io_read_keep_not0001" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd" is
+sourceless and has been removed.
+The signal "mcs_0/N2" is sourceless and has been removed.
+ Sourceless block "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd"
+(ROM) removed.
+The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X/O" is sourceless and has been removed.
+ Sourceless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X/MUXCY_L_BUF" (BUF) removed.
+  The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X/LO" is sourceless and has been
+removed.
+The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
+PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/O" is sourceless and has been removed.
+ Sourceless block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
+PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/MUXCY_L_BUF" (BUF) removed.
+  The signal
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
+PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/LO" is sourceless and has been removed.
+Unused block "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd_SW0"
+(ROM) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_0" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_1" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_2" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_3" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Read_Strobe" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_10" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_11" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_12" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_13" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_14" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_15" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_16" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_17" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_18" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_19" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_20" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_21" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_22" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_23" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_24" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_25" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_26" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_27" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_28" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_29" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_30" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_31" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_10" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_11" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_12" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_13" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_14" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_15" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_16" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_17" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_18" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_19" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_20" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_21" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_22" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_23" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_24" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_25" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_26" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_27" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_28" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_29" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_30" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_31" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_8" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_9" (FF) removed.
+Unused block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n1_INV
+_0" (BUF) removed.
+Unused block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
+.Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X" (MUX) removed.
+Unused block
+"mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
+PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L" (MUX) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i
+   optimized to 0
+FDR
+		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_10
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_11
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_12
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_13
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_14
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_15
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_16
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_17
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_18
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_19
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_20
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_21
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_22
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_23
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_24
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_25
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_26
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_27
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_28
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_29
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_30
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_31
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_8
+   optimized to 0
+FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_9
+   optimized to 0
+LUT4 		mcs_0/U0/iomodule_0/io_read_keep_not00011
+   optimized to 1
+LUT3
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_
+Carry_Decoding.alu_carry_select_LUT
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT4
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/Using_LUT4_1.Both_PC_and_MSR.Op1_M
+ux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+LUT2
+		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Usin
+g_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
+   optimized to 0
+GND 		mcs_0/XST_GND
+VCC 		mcs_0/XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Leds<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<3>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<4>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<5>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<6>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<7>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<8>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Leds<9>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Reset                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<4>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<5>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<6>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Switches<7>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| UART_Rx                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| UART_Tx                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

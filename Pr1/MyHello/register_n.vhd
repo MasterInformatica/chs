@@ -38,7 +38,7 @@ begin
 register_n:
 process ( clk, rst)
 begin
-	if (rst = '0') then 
+	if (rst = '1') then 
 		 OutD <= (OTHERS=>'0');
 	elsif ( clk'EVENT and clk = '1' and load = '1') then
 		OutD <= D;
