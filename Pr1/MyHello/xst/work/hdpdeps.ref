@@ -1,20 +1,31 @@
-V3 17
+V3 25
 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd 2016/01/14.15:16:42 P.15xf
-EN work/divisor 1452784091 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd \
+EN work/divisor 1452786803 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/NUMERIC_STD 1335251627 LB UNISIM \
       PH unisim/VCOMPONENTS 1335251629
-AR work/divisor/BEHAVIORAL 1452784092 \
-      FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd EN work/divisor 1452784091 CP BUFG \
+AR work/divisor/BEHAVIORAL 1452786804 \
+      FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd EN work/divisor 1452786803 CP BUFG \
       CP IBUFG CP DCM
+FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd 2016/01/14.16:53:06 P.15xf
+EN work/fifo_interfaz 1452786801 FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
+AR work/fifo_interfaz/Behavioral 1452786802 \
+      FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd EN work/fifo_interfaz 1452786801 \
+      CP fifo
+FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd 2016/01/14.16:48:35 P.15xf
+EN work/fifo 1452786799 FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd \
+      PB ieee/std_logic_1164 1335251622
+AR work/fifo/fifo_a 1452786800 \
+      FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd EN work/fifo 1452786799
 FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd 2016/01/14.16:07:57 P.15xf
 EN work/mcs_top 1452784095 FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
 AR work/mcs_top/rtl 1452784096 \
       FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd EN work/mcs_top 1452784095 \
-      CP divisor CP microblaze_mcs CP register_n
+      CP fifo_interfaz CP divisor CP microblaze_mcs CP register_n
 FL C:/hlocal/chs/Pr1/MyHello/register.vhd 2016/01/14.15:26:31 P.15xf
 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd 2016/01/14.15:26:31 P.15xf
-EN work/register_n 1452784093 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd \
+EN work/register_n 1452786805 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
-AR work/register_n/Behavioral 1452784094 \
-      FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd EN work/register_n 1452784093
+AR work/register_n/Behavioral 1452786806 \
+      FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd EN work/register_n 1452786805

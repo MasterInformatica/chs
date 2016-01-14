@@ -1,4 +1,6 @@
 vhdl work "C:\hlocal\chs\Pr1\MyHello\ipcore_dir\microblaze_mcs.vhd"
+vhdl work "C:\hlocal\chs\Pr1\MyHello\ipcore_dir\fifo.vhd"
 vhdl work "C:\hlocal\chs\Pr1\MyHello\register_n.vhd"
+vhdl work "C:\hlocal\chs\Pr1\MyHello\fifo_interfaz.vhd"
 vhdl work "C:\hlocal\chs\Pr1\MyHello\divisor.vhd"
 vhdl work "C:\hlocal\chs\Pr1\MyHello\mcs_top.vhd"

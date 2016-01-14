@@ -51,6 +51,23 @@ END COMPONENT;
          OutD : out  STD_LOGIC_vector(n-1 downto 0)
 		);
 	END COMPONENT;
+	
+		COMPONENT fifo_interfaz
+	PORT(
+		clk : IN std_logic;
+		rst : IN std_logic;
+		din : IN std_logic_vector(7 downto 0);
+		wr_en : IN std_logic;
+		rd_en : IN std_logic;          
+		dout : OUT std_logic_vector(7 downto 0);
+		full : OUT std_logic;
+		empty : OUT std_logic;
+		data_count : OUT std_logic_vector(7 downto 0);
+		data_space : OUT std_logic_vector(7 downto 0)
+		);
+	END COMPONENT;
+	
+	
 	constant DIRLEDS : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000000";
 	constant DIRSWIT : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000004";
 	
@@ -77,6 +94,20 @@ begin
 
 
 Reset_n <= NOT Reset;
+
+	Inst_fifo_interfaz: fifo_interfaz PORT MAP(
+		clk => CLKO,
+		rst => Reset_n,
+		din => open,
+		wr_en => open,
+		rd_en => open,
+		dout => open,
+		full => open,
+		empty => open,
+		data_count => open,
+		data_space => open
+	);
+
 
 Inst_divisor: divisor PORT MAP(
 		CLKIN_IN => Clk ,

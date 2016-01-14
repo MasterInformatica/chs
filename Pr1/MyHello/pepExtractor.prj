@@ -1,1 +1,3 @@
-work	"divisor.vhd"
+work	"fifo_interfaz.vhd"
+work	"ipcore_dir/fifo.vhd"
+work	"ipcore_dir/microblaze_mcs.vhd"

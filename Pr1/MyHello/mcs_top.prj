@@ -1,4 +1,6 @@
 vhdl work "ipcore_dir/microblaze_mcs.vhd"
+vhdl work "ipcore_dir/fifo.vhd"
 vhdl work "register_n.vhd"
+vhdl work "fifo_interfaz.vhd"
 vhdl work "divisor.vhd"
 vhdl work "mcs_top.vhd"
