@@ -8,13 +8,10 @@
 <msg type="warning" file="HDLParsers" num="3498" delta="old" >No primary, secondary unit in the file &quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.vhd</arg>. Ignore this file from project file &quot;<arg fmt="%s" index="2">C:/hlocal/chs/Pr1/MyHello/mcs_top_vhdl.prj</arg>&quot;.
 </msg>
 
-<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">101</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">din</arg>&gt;.
+<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">173</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">datoAEnviar</arg>&gt;.
 </msg>
 
-<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">102</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">wr_en</arg>&gt;.
-</msg>
-
-<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">103</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">rd_en</arg>&gt;.
+<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">174</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">enviarDato</arg>&gt;.
 </msg>
 
 </messages>

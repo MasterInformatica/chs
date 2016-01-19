@@ -110,6 +110,14 @@ Cores Search Directories           : {"ipcore_dir"  }
 WARNING:HDLParsers:3498 - No primary, secondary unit in the file "C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.vhd. Ignore this file from project file "C:/hlocal/chs/Pr1/MyHello/mcs_top_vhdl.prj".
 Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd" in Library work.
 Architecture fifo_a of Entity fifo is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/timing.vhd" in Library work.
+Architecture timing of Entity timing is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/transmit.vhd" in Library work.
+Architecture arch of Entity transmit is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/receive.vhd" in Library work.
+Architecture arch of Entity receive is up to date.
+Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/RS232.vhd" in Library work.
+Architecture rtl of Entity rs232 is up to date.
 Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd" in Library work.
 Architecture behavioral of Entity fifo_interfaz is up to date.
 Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/divisor.vhd" in Library work.
@@ -118,14 +126,13 @@ Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/register_n.vhd" in Library work.
 Architecture behavioral of Entity register_n is up to date.
 Compiling vhdl file "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" in Library work.
 Entity <mcs_top> compiled.
-ERROR:HDLParsers:856 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" Line 101. No default value for unconnected port <din>.
-ERROR:HDLParsers:856 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" Line 102. No default value for unconnected port <wr_en>.
-ERROR:HDLParsers:856 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" Line 103. No default value for unconnected port <rd_en>.
+ERROR:HDLParsers:856 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" Line 173. No default value for unconnected port <datoAEnviar>.
+ERROR:HDLParsers:856 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" Line 174. No default value for unconnected port <enviarDato>.
 --> 
 
-Total memory usage is 252648 kilobytes
+Total memory usage is 254504 kilobytes
 
-Number of errors   :    3 (   0 filtered)
+Number of errors   :    2 (   0 filtered)
 Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

@@ -1,0 +1,3 @@
+vhdtdtfi -lib work transmit.vhd -lib work timing.vhd -lib work receive.vhd -lib work RS232.vhd -prj MyHello -o RS232.spl -module RS232 -template C:/software/electronica/xilinx/14.1/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+vhdtdtfi -prj MyHello -o C:/hlocal/chs/Pr1/MyHello/RS232.vhi -module RS232 -template C:/software/electronica/xilinx/14.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work transmit.vhd -lib work timing.vhd -lib work receive.vhd -lib work RS232.vhd 
+spl2sym -intstyle ise -family spartan3 RS232.spl C:/hlocal/chs/Pr1/MyHello/RS232.sym 

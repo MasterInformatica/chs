@@ -7,7 +7,7 @@
 -- \   \   \/     Version: P.15xf
 --  \   \         Application: netgen
 --  /   /         Filename: microblaze_mcs.vhd
--- /___/   /\     Timestamp: Thu Jan 14 15:50:41 2016
+-- /___/   /\     Timestamp: Tue Jan 19 16:00:14 2016
 -- \   \  /  \ 
 --  \___\/\___\
 --             
@@ -47,8 +47,6 @@ entity microblaze_mcs is
     Reset : in STD_LOGIC := 'X'; 
     IO_Addr_Strobe : out STD_LOGIC; 
     IO_Ready : in STD_LOGIC := 'X'; 
-    UART_Rx : in STD_LOGIC := 'X'; 
-    UART_Tx : out STD_LOGIC; 
     IO_Write_Strobe : out STD_LOGIC; 
     IO_Address : out STD_LOGIC_VECTOR ( 31 downto 0 ); 
     IO_Byte_Enable : out STD_LOGIC_VECTOR ( 3 downto 0 ); 
@@ -61,10 +59,10 @@ architecture STRUCTURE of microblaze_mcs is
   signal N0 : STD_LOGIC; 
   signal N1 : STD_LOGIC; 
   signal N101 : STD_LOGIC; 
-  signal N103 : STD_LOGIC; 
   signal N105 : STD_LOGIC; 
-  signal N109 : STD_LOGIC; 
-  signal N111 : STD_LOGIC; 
+  signal N107 : STD_LOGIC; 
+  signal N112 : STD_LOGIC; 
+  signal N114 : STD_LOGIC; 
   signal N116 : STD_LOGIC; 
   signal N118 : STD_LOGIC; 
   signal N12 : STD_LOGIC; 
@@ -82,35 +80,33 @@ architecture STRUCTURE of microblaze_mcs is
   signal N142 : STD_LOGIC; 
   signal N144 : STD_LOGIC; 
   signal N146 : STD_LOGIC; 
-  signal N147 : STD_LOGIC; 
   signal N148 : STD_LOGIC; 
-  signal N149 : STD_LOGIC; 
   signal N150 : STD_LOGIC; 
-  signal N151 : STD_LOGIC; 
   signal N152 : STD_LOGIC; 
-  signal N153 : STD_LOGIC; 
   signal N154 : STD_LOGIC; 
-  signal N155 : STD_LOGIC; 
   signal N156 : STD_LOGIC; 
-  signal N157 : STD_LOGIC; 
   signal N158 : STD_LOGIC; 
   signal N16 : STD_LOGIC; 
+  signal N160 : STD_LOGIC; 
+  signal N161 : STD_LOGIC; 
+  signal N162 : STD_LOGIC; 
+  signal N163 : STD_LOGIC; 
+  signal N164 : STD_LOGIC; 
+  signal N165 : STD_LOGIC; 
+  signal N166 : STD_LOGIC; 
+  signal N167 : STD_LOGIC; 
+  signal N168 : STD_LOGIC; 
+  signal N169 : STD_LOGIC; 
+  signal N170 : STD_LOGIC; 
+  signal N171 : STD_LOGIC; 
   signal N2 : STD_LOGIC; 
-  signal N20 : STD_LOGIC; 
+  signal N22 : STD_LOGIC; 
+  signal N24 : STD_LOGIC; 
   signal N26 : STD_LOGIC; 
-  signal N28 : STD_LOGIC; 
-  signal N30 : STD_LOGIC; 
   signal N32 : STD_LOGIC; 
-  signal N36 : STD_LOGIC; 
-  signal N38 : STD_LOGIC; 
-  signal N39 : STD_LOGIC; 
-  signal N57 : STD_LOGIC; 
-  signal N59 : STD_LOGIC; 
+  signal N34 : STD_LOGIC; 
+  signal N35 : STD_LOGIC; 
   signal N6 : STD_LOGIC; 
-  signal N61 : STD_LOGIC; 
-  signal N63 : STD_LOGIC; 
-  signal N65 : STD_LOGIC; 
-  signal N67 : STD_LOGIC; 
   signal N69 : STD_LOGIC; 
   signal N71 : STD_LOGIC; 
   signal N73 : STD_LOGIC; 
@@ -128,7 +124,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal N95 : STD_LOGIC; 
   signal N97 : STD_LOGIC; 
   signal N99 : STD_LOGIC; 
-  signal U0_LMB_Rst_105 : STD_LOGIC; 
+  signal U0_LMB_Rst_103 : STD_LOGIC; 
   signal U0_LMB_Rst_or0000 : STD_LOGIC; 
   signal U0_dlmb_LMB_Ready : STD_LOGIC; 
   signal U0_dlmb_LMB_Rst : STD_LOGIC; 
@@ -154,83 +150,33 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_dlmb_M_ABus_9_Q : STD_LOGIC; 
   signal U0_dlmb_M_ReadStrobe : STD_LOGIC; 
   signal U0_dlmb_M_WriteStrobe : STD_LOGIC; 
-  signal U0_dlmb_cntlr_Sl_Ready_i_169 : STD_LOGIC; 
-  signal U0_dlmb_cntlr_lmb_addrstrobe_i_170 : STD_LOGIC; 
+  signal U0_dlmb_cntlr_Sl_Ready_i_166 : STD_LOGIC; 
+  signal U0_dlmb_cntlr_lmb_addrstrobe_i_167 : STD_LOGIC; 
   signal U0_dlmb_cntlr_lmb_select : STD_LOGIC; 
   signal U0_ilmb_LMB_Rst : STD_LOGIC; 
   signal U0_ilmb_Sl_Ready : STD_LOGIC; 
-  signal U0_ilmb_cntlr_Sl_Ready_i_206 : STD_LOGIC; 
-  signal U0_ilmb_cntlr_lmb_addrstrobe_i_207 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_not0001 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_0_Q : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_Q : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_not0001 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_5_Q : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_6_Q : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_frame_error_281 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_overrun_error_282 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_previous_RX_304 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_recycle : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running_0_not0001 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_1_308 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_309 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or00001 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected_0_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_mux0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_not0001 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_334 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_339 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_div16 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_01 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_0123 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_23 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_45 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_4567 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_67 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_Out : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_serial_Data_363 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_370 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_372 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_or0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406 : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_rx_frame_error : STD_LOGIC; 
-  signal U0_iomodule_0_IOModule_Core_I1_rx_overrun_error : STD_LOGIC; 
-  signal U0_iomodule_0_IO_Addr_Strobe_409 : STD_LOGIC; 
+  signal U0_ilmb_cntlr_Sl_Ready_i_203 : STD_LOGIC; 
+  signal U0_ilmb_cntlr_lmb_addrstrobe_i_204 : STD_LOGIC; 
+  signal U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269 : STD_LOGIC; 
+  signal U0_iomodule_0_IO_Addr_Strobe_270 : STD_LOGIC; 
   signal U0_iomodule_0_IO_Addr_Strobe_or0000 : STD_LOGIC; 
   signal U0_iomodule_0_IO_Address_and0000 : STD_LOGIC; 
-  signal U0_iomodule_0_IO_Read_Strobe_448 : STD_LOGIC; 
-  signal U0_iomodule_0_IO_Write_Strobe_481 : STD_LOGIC; 
-  signal U0_iomodule_0_Sl_Ready_or00001_482 : STD_LOGIC; 
+  signal U0_iomodule_0_IO_Read_Strobe_309 : STD_LOGIC; 
+  signal U0_iomodule_0_IO_Write_Strobe_342 : STD_LOGIC; 
+  signal U0_iomodule_0_Sl_Ready_or00001_343 : STD_LOGIC; 
   signal U0_iomodule_0_gpo2_write_bdd2 : STD_LOGIC; 
   signal U0_iomodule_0_io_bus_read_data_and0000_inv : STD_LOGIC; 
-  signal U0_iomodule_0_io_read_keep_517 : STD_LOGIC; 
+  signal U0_iomodule_0_io_read_keep_378 : STD_LOGIC; 
   signal U0_iomodule_0_io_read_keep_mux0000 : STD_LOGIC; 
   signal U0_iomodule_0_io_read_keep_not0001 : STD_LOGIC; 
-  signal U0_iomodule_0_io_ready_Q_520 : STD_LOGIC; 
-  signal U0_iomodule_0_lmb_io_select_keep_527 : STD_LOGIC; 
+  signal U0_iomodule_0_io_ready_Q_381 : STD_LOGIC; 
+  signal U0_iomodule_0_lmb_io_select_keep_388 : STD_LOGIC; 
   signal U0_iomodule_0_lmb_io_select_keep_inv : STD_LOGIC; 
-  signal U0_iomodule_0_lmb_reg_read_529 : STD_LOGIC; 
-  signal U0_iomodule_0_lmb_reg_read_Q_530 : STD_LOGIC; 
+  signal U0_iomodule_0_lmb_reg_read_390 : STD_LOGIC; 
+  signal U0_iomodule_0_lmb_reg_read_Q_391 : STD_LOGIC; 
   signal U0_iomodule_0_lmb_reg_read_and00001 : STD_LOGIC; 
-  signal U0_iomodule_0_lmb_reg_write_532 : STD_LOGIC; 
+  signal U0_iomodule_0_lmb_reg_write_393 : STD_LOGIC; 
   signal U0_iomodule_0_lmb_reg_write_and00001 : STD_LOGIC; 
-  signal U0_iomodule_0_uart_status_read : STD_LOGIC; 
   signal U0_iomodule_0_uart_tx_write : STD_LOGIC; 
   signal U0_lmb_bram_I_RAM_Inst_ENA : STD_LOGIC; 
   signal U0_lmb_bram_I_RAM_Inst_ENB : STD_LOGIC; 
@@ -810,7 +756,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_8_Result_Mux_Bit_I_mul_ALU_Res : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_9_Result_Mux_Bit_I_data_Shift_Res : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_9_Result_Mux_Bit_I_mul_ALU_Res : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_16_Q : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Using_FPGA_Shift_Logic_Bits_0_Shift_Logic_Bit_I_logic_Res_i : STD_LOGIC;
  
@@ -945,11 +891,11 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_op1_shift_29_Q : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_sext_0_Q : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_sext_16_Q : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1375 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1235 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Carry_Select : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1594 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1454 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_mux0002 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1598 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1458 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N0 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N16 : STD_LOGIC; 
@@ -963,18 +909,19 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_reset_Buffer_Addr : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_N_i : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i11_1620 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i0 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i31_1481 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Write_Dbg : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Select_Logic_0_and0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1629 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1631 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1632 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1636 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1637 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1490 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1492 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1493 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1497 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1498 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_mux0001 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1639 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1640 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1641 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1500 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1501 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1502 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Write_DIV_result_0_or0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Write_Strobe_No_Dbg_and0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_buffer_Full : STD_LOGIC; 
@@ -983,8 +930,8 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_correct_Carry_I : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_correct_Carry_II : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_correct_Carry_Select : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1655 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1656 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1516 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1517 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_delay_slot_jump : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i_0_mux0000 : STD_LOGIC; 
@@ -992,7 +939,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_enable_Interrupts_I_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux000033 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1668 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1529 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force1_i : STD_LOGIC; 
@@ -1003,33 +950,33 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val1_i : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_N : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1679 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1540 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_jump1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_jump2 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_0_and0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_n : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ifetch_carry1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ifetch_carry2 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1688 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1549 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_intr_or_delay_slot_jump : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1703 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1705 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1564 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1566 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_not0001 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1708 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1569 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump_Carry1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump_Carry2 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump_carry3_sel : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i_0_mux0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1716 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1717 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1577 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1578 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000226 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0_not0001 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_not0001 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1726 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1587 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_mux0001 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_not0001 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_PipeRun_Select : STD_LOGIC; 
@@ -1053,7 +1000,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_BIP_I_0_mux0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_n : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry_0_mux0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1756 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1617 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_sub_Carry : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase_0_and0000 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_Now_I : STD_LOGIC; 
@@ -1065,16 +1012,20 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_use_Reg_Neg_S : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_use_Reg_Neg_S_i : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm_0_and0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1772 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1633 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_0_Q : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_1_Q : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_2_Q : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_4_Q : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1784 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1785 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1644 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1645 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux0000 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1788 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1789 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1790 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1791 : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1792 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1648 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1649 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1650 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1651 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1652 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_I_S : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Valid_Reg : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Valid_Reg_0_not0000 : STD_LOGIC; 
@@ -1082,7 +1033,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_LWX_SWX_Carry : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_LWX_SWX_Write_Carry : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_MTSMSR_Write : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1801 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1661 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Reg_Write_High : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_Reg_Write_Low : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_alu_Carry : STD_LOGIC; 
@@ -1107,7 +1058,7 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_res_Forward1 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_res_Forward2 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_set_BIP : STD_LOGIC; 
-  signal U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894 : STD_LOGIC; 
+  signal U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754 : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_valid_Fetch : STD_LOGIC; 
   signal U0_microblaze_I_MicroBlaze_Core_I_write_Carry : STD_LOGIC; 
   signal NLW_U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Register_File_I_Using_FPGA_Gen_RegFile_31_Register_File_Bit_I_Using_LUT4_RAM16x1D_Reg2_Low_SPO_UNCONNECTED : STD_LOGIC;
@@ -1334,24 +1285,9 @@ architecture STRUCTURE of microblaze_mcs is
  
   signal U0_dlmb_LMB_ReadDBus : STD_LOGIC_VECTOR ( 31 downto 0 ); 
   signal U0_dlmb_M_BE : STD_LOGIC_VECTOR ( 3 downto 0 ); 
-  signal U0_dlmb_Sl_Ready : STD_LOGIC_VECTOR ( 1 downto 0 ); 
+  signal U0_dlmb_Sl_Ready : STD_LOGIC_VECTOR ( 1 downto 1 ); 
   signal U0_dlmb_port_BRAM_Din : STD_LOGIC_VECTOR ( 31 downto 0 ); 
   signal U0_ilmb_port_BRAM_Din : STD_LOGIC_VECTOR ( 31 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data : STD_LOGIC_VECTOR ( 8 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running : STD_LOGIC_VECTOR ( 0 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel : STD_LOGIC_VECTOR ( 8 downto 1 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected : STD_LOGIC_VECTOR ( 0 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy : STD_LOGIC_VECTOR ( 3 downto 1 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt : STD_LOGIC_VECTOR ( 2 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel : STD_LOGIC_VECTOR ( 2 downto 0 ); 
-  signal U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt : STD_LOGIC_VECTOR ( 2 downto 0 ); 
   signal U0_iomodule_0_IOModule_Core_I1_intc_cipr : STD_LOGIC_VECTOR ( 31 downto 0 ); 
   signal U0_iomodule_0_IO_Address : STD_LOGIC_VECTOR ( 31 downto 0 ); 
   signal U0_iomodule_0_IO_Byte_Enable : STD_LOGIC_VECTOR ( 3 downto 0 ); 
@@ -1439,7 +1375,6 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase : STD_LOGIC_VECTOR ( 0 downto 0 ); 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm : STD_LOGIC_VECTOR ( 0 downto 0 ); 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I : STD_LOGIC_VECTOR ( 4 downto 0 ); 
-  signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003 : STD_LOGIC_VECTOR ( 4 downto 0 ); 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I : STD_LOGIC_VECTOR ( 0 downto 0 ); 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg : STD_LOGIC_VECTOR ( 0 downto 0 ); 
   signal U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing : STD_LOGIC_VECTOR ( 0 downto 0 ); 
@@ -1452,10 +1387,9 @@ architecture STRUCTURE of microblaze_mcs is
   signal U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr : STD_LOGIC_VECTOR ( 4 downto 0 ); 
   signal U0_reset_vec : STD_LOGIC_VECTOR ( 2 downto 0 ); 
 begin
-  IO_Read_Strobe <= U0_iomodule_0_IO_Read_Strobe_448;
-  IO_Addr_Strobe <= U0_iomodule_0_IO_Addr_Strobe_409;
-  UART_Tx <= U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_334;
-  IO_Write_Strobe <= U0_iomodule_0_IO_Write_Strobe_481;
+  IO_Read_Strobe <= U0_iomodule_0_IO_Read_Strobe_309;
+  IO_Addr_Strobe <= U0_iomodule_0_IO_Addr_Strobe_270;
+  IO_Write_Strobe <= U0_iomodule_0_IO_Write_Strobe_342;
   IO_Address(31) <= U0_iomodule_0_IO_Address(31);
   IO_Address(30) <= U0_iomodule_0_IO_Address(30);
   IO_Address(29) <= U0_iomodule_0_IO_Address(29);
@@ -1592,7 +1526,7 @@ begin
     port map (
       CI => N1,
       DI => N0,
-      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1375,
+      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1235,
       LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_zero_CI(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Register_File_I_Using_FPGA_Gen_RegFile_31_Register_File_Bit_I_Using_LUT4_RAM16x1D_Reg1_Low : 
@@ -7682,7 +7616,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(0),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_1 : FDRE
@@ -7690,7 +7624,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(1),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_2 : FDRE
@@ -7698,7 +7632,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(2),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(2)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_3 : FDRE
@@ -7706,7 +7640,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(3),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(3)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_4 : FDRE
@@ -7714,7 +7648,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(4),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(4)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_5 : FDRE
@@ -7722,7 +7656,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(5),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(5)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_6 : FDRE
@@ -7730,7 +7664,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(6),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(6)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_7 : FDRE
@@ -7738,7 +7672,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(7),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(7)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_8 : FDRE
@@ -7746,7 +7680,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(8),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(8)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_9 : FDRE
@@ -7754,7 +7688,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(9),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(9)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_10 : FDRE
@@ -7762,7 +7696,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(10),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(10)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_11 : FDRE
@@ -7770,7 +7704,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(11),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(11)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_12 : FDRE
@@ -7778,7 +7712,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(12),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(12)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_13 : FDRE
@@ -7786,7 +7720,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(13),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(13)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_14 : FDRE
@@ -7794,7 +7728,7 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(14),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(14)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg_15 : FDRE
@@ -7802,13 +7736,13 @@ LUT3
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(15),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_imm_Reg(15)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_FPGA_Target_ALL_Bits_0_ALU_Bit_I1_Using_FPGA_LUT4_Last_Bit_Pre_MUXCY_I : MUXCY_L
     port map (
       CI => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_alu_carry(1),
-      DI => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1637,
+      DI => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1498,
       S => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_FPGA_Target_ALL_Bits_0_ALU_Bit_I1_maintain_sign_n,
       LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_FPGA_Target_ALL_Bits_0_ALU_Bit_I1_invert_result
     );
@@ -10216,7 +10150,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(15),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(15),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_15_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10245,7 +10179,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(14),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(14),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_14_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10274,7 +10208,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(13),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(13),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_13_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10303,7 +10237,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(12),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(12),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_12_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10332,7 +10266,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(11),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(11),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_11_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10361,7 +10295,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(10),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(10),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_10_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10390,7 +10324,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(9),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(9),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_9_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10419,7 +10353,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(8),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(8),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_8_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10448,7 +10382,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(7),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(7),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_7_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10477,7 +10411,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(6),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(6),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_6_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10506,7 +10440,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(5),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(5),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_5_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10535,7 +10469,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(4),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(4),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_4_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10564,7 +10498,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(3),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(3),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_3_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10593,7 +10527,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(2),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(2),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_2_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10622,7 +10556,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(1),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(1),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_1_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -10651,7 +10585,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_Shift_Logic_Result_basic(0),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132,
       I3 => U0_dlmb_LMB_ReadDBus(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_Using_FPGA_Result_Mux_Bits_0_Result_Mux_Bit_I_data_Shift_Res
     );
@@ -11626,7 +11560,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(11),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_29_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_29_PC_Bit_I_PC_EX_DFF : FDE
@@ -11647,7 +11581,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(10),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_28_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_28_PC_Bit_I_PC_EX_DFF : FDE
@@ -11668,7 +11602,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(9),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_27_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_27_PC_Bit_I_PC_EX_DFF : FDE
@@ -11689,7 +11623,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(8),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_26_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_26_PC_Bit_I_PC_EX_DFF : FDE
@@ -11710,7 +11644,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(7),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_25_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_25_PC_Bit_I_PC_EX_DFF : FDE
@@ -11731,7 +11665,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(6),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_24_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_24_PC_Bit_I_PC_EX_DFF : FDE
@@ -11752,7 +11686,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(5),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_23_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_23_PC_Bit_I_PC_EX_DFF : FDE
@@ -11773,7 +11707,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(4),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_22_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_22_PC_Bit_I_PC_EX_DFF : FDE
@@ -11794,7 +11728,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(3),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_21_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_21_PC_Bit_I_PC_EX_DFF : FDE
@@ -11815,7 +11749,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(2),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_20_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_20_PC_Bit_I_PC_EX_DFF : FDE
@@ -11836,7 +11770,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(1),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_19_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_19_PC_Bit_I_PC_EX_DFF : FDE
@@ -11857,7 +11791,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_pc_write_I,
       D => U0_lmb_bram_I_RAM_Inst_ADDRA(0),
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_18_PC_Bit_I_pc_I
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_PC_Module_I_Using_FPGA_Not_All_Bits_PC_GEN_18_PC_Bit_I_PC_EX_DFF : FDE
@@ -11877,8 +11811,8 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_not0001,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1705,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1566,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_0 : FDRSE
@@ -11889,7 +11823,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_0_and0000,
       D => N0,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       S => U0_lmb_bram_I_RAM_Inst_ENA,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress(0)
     );
@@ -11901,7 +11835,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_not0001,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation_0 : FDRE
@@ -11932,15 +11866,15 @@ SRL16E
     port map (
       C => Clk,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I : FDR
     port map (
       C => Clk,
       D => N1,
-      R => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1656,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1655
+      R => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1517,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1516
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i_0 : FDRE
     generic map(
@@ -11950,7 +11884,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_not0001,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n : FDSE
@@ -11958,8 +11892,8 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_not0001,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_mux0001,
-      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727
+      S => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0 : FDRE
     generic map(
@@ -11969,7 +11903,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0_not0001,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0 : FDRE
@@ -11979,8 +11913,8 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_not0001,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1703,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1564,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0 : FDRE
@@ -11991,7 +11925,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing_0 : FDRE
@@ -12002,7 +11936,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Select_Logic_0 : FDRE
@@ -12010,15 +11944,15 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Select_Logic_0_and0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Select_Logic(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1631,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1492,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i_0 : FDRE
@@ -12029,7 +11963,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i_0 : FDRE
@@ -12040,7 +11974,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op : FDRE
@@ -12048,8 +11982,8 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_mux0001,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1637
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_1498
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0 : FDRE
     generic map(
@@ -12058,8 +11992,8 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1726,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1587,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0 : FDRE
@@ -12069,8 +12003,8 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1708,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1569,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0 : FDRE
@@ -12080,8 +12014,8 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1756,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1617,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0 : FDRE
@@ -12092,7 +12026,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm_0 : FDRE
@@ -12103,7 +12037,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm_0_and0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_enable_Interrupts_I_0 : FDRE
@@ -12114,7 +12048,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_enable_Interrupts_I_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_enable_Interrupts_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_BIP_I_0 : FDRE
@@ -12125,7 +12059,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_BIP_I_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_BIP_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase_0 : FDRE
@@ -12136,7 +12070,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase_0_and0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr : FDRE
@@ -12144,47 +12078,47 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_mux0002,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1594
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1454
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_4 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(4),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_4_Q,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(4)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_3 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(3),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i0,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(3)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_2 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(2),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_2_Q,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(2)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_1 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(1),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_1_Q,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(0),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_0_Q,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry_0 : FDRE
@@ -12195,7 +12129,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_1 : FDRE
@@ -12203,7 +12137,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001(1),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_0 : FDRE
@@ -12211,7 +12145,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001(0),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_decode_I_0 : FDRE
@@ -12222,7 +12156,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_mbar_decode,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_decode_I(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_quadlet_Read_i_0 : FDRE
@@ -12233,23 +12167,23 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_quadlet_Read_i_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_quadlet_Read_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1636,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1497,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1629,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1490,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i_0 : FDRE
@@ -12260,7 +12194,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i_0_mux0000,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0 : FDRSE
@@ -12270,7 +12204,7 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1688,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1549,
       R => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or0000,
       S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0)
@@ -12280,15 +12214,15 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_correct_Carry,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1632
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1493
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper_1 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(10),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper_0 : FDRE
@@ -12296,7 +12230,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(9),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Logic_Oper_1 : FDRE
@@ -12304,7 +12238,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Logic_Oper(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Logic_Oper_0 : FDRE
@@ -12312,7 +12246,7 @@ SRL16E
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Logic_Oper(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_ALU_OP0_FDE : FDE
@@ -12385,7 +12319,7 @@ SRL16E
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1679,
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1540,
       R => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
       S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_delay_slot_jump,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_N
@@ -12461,7 +12395,7 @@ SRL16E
     port map (
       CI => U0_ilmb_Sl_Ready,
       DI => N0,
-      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1641,
+      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1502,
       LO => U0_microblaze_I_MicroBlaze_Core_I_valid_Fetch
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_iFetch_MuxCY_1 : MUXCY_L
@@ -12677,13 +12611,13 @@ SRL16E
     port map (
       CI => U0_microblaze_I_MicroBlaze_Core_I_alu_Carry,
       DI => U0_microblaze_I_MicroBlaze_Core_I_Op1_Low(1),
-      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1639,
+      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1500,
       LO => U0_microblaze_I_MicroBlaze_Core_I_new_Carry
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Correct_Carry_MUXCY : MUXCY_L
     port map (
       CI => U0_microblaze_I_MicroBlaze_Core_I_new_Carry,
-      DI => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1598,
+      DI => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1458,
       S => U0_microblaze_I_MicroBlaze_Core_I_write_Carry,
       LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_correct_Carry
     );
@@ -12761,7 +12695,7 @@ SRL16E
     port map (
       CI => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_Now_I,
       DI => N0,
-      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1640,
+      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1501,
       LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_Now_II
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_3 : MUXCY_L
@@ -13355,7 +13289,7 @@ LUT3
       INIT => X"AB"
     )
     port map (
-      I0 => N156,
+      I0 => N169,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_sel_LSB(1)
@@ -13366,7 +13300,7 @@ LUT2
       INIT => X"B"
     )
     port map (
-      I0 => N158,
+      I0 => N171,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_sel_LSB(0)
     );
@@ -13948,7 +13882,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_31_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(0)
     );
   U0_iomodule_0_IO_Address_1 : FDRE
@@ -13956,7 +13890,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_30_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(1)
     );
   U0_iomodule_0_IO_Address_2 : FDRE
@@ -13964,7 +13898,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(11),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(2)
     );
   U0_iomodule_0_IO_Address_3 : FDRE
@@ -13972,7 +13906,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(10),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(3)
     );
   U0_iomodule_0_IO_Address_4 : FDRE
@@ -13980,7 +13914,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(9),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(4)
     );
   U0_iomodule_0_IO_Address_5 : FDRE
@@ -13988,7 +13922,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(8),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(5)
     );
   U0_iomodule_0_IO_Address_6 : FDRE
@@ -13996,7 +13930,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(7),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(6)
     );
   U0_iomodule_0_IO_Address_7 : FDRE
@@ -14004,7 +13938,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(6),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(7)
     );
   U0_iomodule_0_IO_Address_8 : FDRE
@@ -14012,7 +13946,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(5),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(8)
     );
   U0_iomodule_0_IO_Address_9 : FDRE
@@ -14020,7 +13954,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(4),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(9)
     );
   U0_iomodule_0_IO_Address_10 : FDRE
@@ -14028,7 +13962,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(3),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(10)
     );
   U0_iomodule_0_IO_Address_11 : FDRE
@@ -14036,7 +13970,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(2),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(11)
     );
   U0_iomodule_0_IO_Address_12 : FDRE
@@ -14044,7 +13978,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(1),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(12)
     );
   U0_iomodule_0_IO_Address_13 : FDRE
@@ -14052,7 +13986,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_ADDRB(0),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(13)
     );
   U0_iomodule_0_IO_Address_14 : FDRE
@@ -14060,7 +13994,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_17_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(14)
     );
   U0_iomodule_0_IO_Address_15 : FDRE
@@ -14068,7 +14002,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_16_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(15)
     );
   U0_iomodule_0_IO_Address_16 : FDRE
@@ -14076,7 +14010,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_15_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(16)
     );
   U0_iomodule_0_IO_Address_17 : FDRE
@@ -14084,7 +14018,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_14_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(17)
     );
   U0_iomodule_0_IO_Address_18 : FDRE
@@ -14092,7 +14026,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_13_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(18)
     );
   U0_iomodule_0_IO_Address_19 : FDRE
@@ -14100,7 +14034,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_12_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(19)
     );
   U0_iomodule_0_IO_Address_20 : FDRE
@@ -14108,7 +14042,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_11_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(20)
     );
   U0_iomodule_0_IO_Address_21 : FDRE
@@ -14116,7 +14050,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_10_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(21)
     );
   U0_iomodule_0_IO_Address_22 : FDRE
@@ -14124,7 +14058,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_9_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(22)
     );
   U0_iomodule_0_IO_Address_23 : FDRE
@@ -14132,7 +14066,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_8_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(23)
     );
   U0_iomodule_0_IO_Address_24 : FDRE
@@ -14140,7 +14074,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_7_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(24)
     );
   U0_iomodule_0_IO_Address_25 : FDRE
@@ -14148,7 +14082,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_6_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(25)
     );
   U0_iomodule_0_IO_Address_26 : FDRE
@@ -14156,7 +14090,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_5_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(26)
     );
   U0_iomodule_0_IO_Address_27 : FDRE
@@ -14164,7 +14098,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_4_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(27)
     );
   U0_iomodule_0_IO_Address_28 : FDRE
@@ -14172,7 +14106,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_3_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(28)
     );
   U0_iomodule_0_IO_Address_29 : FDRE
@@ -14180,7 +14114,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_2_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(29)
     );
   U0_iomodule_0_IO_Address_30 : FDRE
@@ -14188,7 +14122,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_1_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(30)
     );
   U0_iomodule_0_IO_Address_31 : FDRE
@@ -14196,7 +14130,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_ABus_0_Q,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Address(31)
     );
   U0_iomodule_0_io_bus_read_data_0 : FDR
@@ -14428,7 +14362,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_BE(3),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Byte_Enable(0)
     );
   U0_iomodule_0_IO_Byte_Enable_1 : FDRE
@@ -14436,7 +14370,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_BE(2),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Byte_Enable(1)
     );
   U0_iomodule_0_IO_Byte_Enable_2 : FDRE
@@ -14444,7 +14378,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_BE(1),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Byte_Enable(2)
     );
   U0_iomodule_0_IO_Byte_Enable_3 : FDRE
@@ -14452,7 +14386,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_dlmb_M_BE(0),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Byte_Enable(3)
     );
   U0_iomodule_0_lmb_io_select_keep : FDRSE
@@ -14460,9 +14394,9 @@ LUT3
       C => Clk,
       CE => IO_Ready,
       D => N0,
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       S => U0_iomodule_0_IO_Address_and0000,
-      Q => U0_iomodule_0_lmb_io_select_keep_527
+      Q => U0_iomodule_0_lmb_io_select_keep_388
     );
   U0_iomodule_0_lmb_abus_Q_5 : FD
     port map (
@@ -14505,7 +14439,7 @@ LUT3
       C => Clk,
       D => N1,
       R => U0_iomodule_0_IO_Addr_Strobe_or0000,
-      Q => U0_iomodule_0_IO_Addr_Strobe_409
+      Q => U0_iomodule_0_IO_Addr_Strobe_270
     );
   U0_iomodule_0_write_data_0 : FD
     port map (
@@ -14704,14 +14638,14 @@ LUT3
       C => Clk,
       D => U0_dlmb_M_WriteStrobe,
       R => U0_iomodule_0_IO_Addr_Strobe_or0000,
-      Q => U0_iomodule_0_IO_Write_Strobe_481
+      Q => U0_iomodule_0_IO_Write_Strobe_342
     );
   U0_iomodule_0_IO_Write_Data_0 : FDRE
     port map (
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(31),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(0)
     );
   U0_iomodule_0_IO_Write_Data_1 : FDRE
@@ -14719,7 +14653,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(30),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(1)
     );
   U0_iomodule_0_IO_Write_Data_2 : FDRE
@@ -14727,7 +14661,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(29),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(2)
     );
   U0_iomodule_0_IO_Write_Data_3 : FDRE
@@ -14735,7 +14669,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(28),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(3)
     );
   U0_iomodule_0_IO_Write_Data_4 : FDRE
@@ -14743,7 +14677,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(27),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(4)
     );
   U0_iomodule_0_IO_Write_Data_5 : FDRE
@@ -14751,7 +14685,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(26),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(5)
     );
   U0_iomodule_0_IO_Write_Data_6 : FDRE
@@ -14759,7 +14693,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(25),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(6)
     );
   U0_iomodule_0_IO_Write_Data_7 : FDRE
@@ -14767,7 +14701,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(24),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(7)
     );
   U0_iomodule_0_IO_Write_Data_8 : FDRE
@@ -14775,7 +14709,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(23),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(8)
     );
   U0_iomodule_0_IO_Write_Data_9 : FDRE
@@ -14783,7 +14717,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(22),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(9)
     );
   U0_iomodule_0_IO_Write_Data_10 : FDRE
@@ -14791,7 +14725,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(21),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(10)
     );
   U0_iomodule_0_IO_Write_Data_11 : FDRE
@@ -14799,7 +14733,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(20),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(11)
     );
   U0_iomodule_0_IO_Write_Data_12 : FDRE
@@ -14807,7 +14741,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(19),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(12)
     );
   U0_iomodule_0_IO_Write_Data_13 : FDRE
@@ -14815,7 +14749,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(18),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(13)
     );
   U0_iomodule_0_IO_Write_Data_14 : FDRE
@@ -14823,7 +14757,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(17),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(14)
     );
   U0_iomodule_0_IO_Write_Data_15 : FDRE
@@ -14831,7 +14765,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(16),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(15)
     );
   U0_iomodule_0_IO_Write_Data_16 : FDRE
@@ -14839,7 +14773,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(15),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(16)
     );
   U0_iomodule_0_IO_Write_Data_17 : FDRE
@@ -14847,7 +14781,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(14),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(17)
     );
   U0_iomodule_0_IO_Write_Data_18 : FDRE
@@ -14855,7 +14789,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(13),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(18)
     );
   U0_iomodule_0_IO_Write_Data_19 : FDRE
@@ -14863,7 +14797,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(12),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(19)
     );
   U0_iomodule_0_IO_Write_Data_20 : FDRE
@@ -14871,7 +14805,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(11),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(20)
     );
   U0_iomodule_0_IO_Write_Data_21 : FDRE
@@ -14879,7 +14813,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(10),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(21)
     );
   U0_iomodule_0_IO_Write_Data_22 : FDRE
@@ -14887,7 +14821,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(9),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(22)
     );
   U0_iomodule_0_IO_Write_Data_23 : FDRE
@@ -14895,7 +14829,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(8),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(23)
     );
   U0_iomodule_0_IO_Write_Data_24 : FDRE
@@ -14903,7 +14837,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(7),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(24)
     );
   U0_iomodule_0_IO_Write_Data_25 : FDRE
@@ -14911,7 +14845,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(6),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(25)
     );
   U0_iomodule_0_IO_Write_Data_26 : FDRE
@@ -14919,7 +14853,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(5),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(26)
     );
   U0_iomodule_0_IO_Write_Data_27 : FDRE
@@ -14927,7 +14861,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(4),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(27)
     );
   U0_iomodule_0_IO_Write_Data_28 : FDRE
@@ -14935,7 +14869,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(3),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(28)
     );
   U0_iomodule_0_IO_Write_Data_29 : FDRE
@@ -14943,7 +14877,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(2),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(29)
     );
   U0_iomodule_0_IO_Write_Data_30 : FDRE
@@ -14951,7 +14885,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(1),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(30)
     );
   U0_iomodule_0_IO_Write_Data_31 : FDRE
@@ -14959,7 +14893,7 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_IO_Address_and0000,
       D => U0_lmb_bram_I_RAM_Inst_DATA_INB(0),
-      R => U0_LMB_Rst_105,
+      R => U0_LMB_Rst_103,
       Q => U0_iomodule_0_IO_Write_Data(31)
     );
   U0_iomodule_0_io_read_keep : FDRE
@@ -14967,28 +14901,28 @@ LUT3
       C => Clk,
       CE => U0_iomodule_0_io_read_keep_not0001,
       D => U0_iomodule_0_io_read_keep_mux0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_io_read_keep_517
+      R => U0_LMB_Rst_103,
+      Q => U0_iomodule_0_io_read_keep_378
     );
   U0_iomodule_0_IO_Read_Strobe : FDR
     port map (
       C => Clk,
       D => U0_dlmb_M_ReadStrobe,
       R => U0_iomodule_0_IO_Addr_Strobe_or0000,
-      Q => U0_iomodule_0_IO_Read_Strobe_448
+      Q => U0_iomodule_0_IO_Read_Strobe_309
     );
   U0_iomodule_0_lmb_reg_read_Q : FD
     port map (
       C => Clk,
-      D => U0_iomodule_0_lmb_reg_read_529,
-      Q => U0_iomodule_0_lmb_reg_read_Q_530
+      D => U0_iomodule_0_lmb_reg_read_390,
+      Q => U0_iomodule_0_lmb_reg_read_Q_391
     );
   U0_iomodule_0_io_ready_Q : FDR
     port map (
       C => Clk,
       D => IO_Ready,
       R => U0_iomodule_0_lmb_io_select_keep_inv,
-      Q => U0_iomodule_0_io_ready_Q_520
+      Q => U0_iomodule_0_io_ready_Q_381
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_0_fdr_i : FDR
     generic map(
@@ -14997,7 +14931,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(0)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_1_fdr_i : FDR
@@ -15007,7 +14941,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(1)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_2_fdr_i : FDR
@@ -15017,7 +14951,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(2)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_3_fdr_i : FDR
@@ -15027,7 +14961,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(3)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_4_fdr_i : FDR
@@ -15037,7 +14971,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(4)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_5_fdr_i : FDR
@@ -15047,7 +14981,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(5)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_6_fdr_i : FDR
@@ -15057,7 +14991,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(6)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_7_fdr_i : FDR
@@ -15067,7 +15001,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(7)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_8_fdr_i : FDR
@@ -15077,7 +15011,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(8)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_9_fdr_i : FDR
@@ -15087,7 +15021,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(9)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_10_fdr_i : FDR
@@ -15097,7 +15031,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(10)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_11_fdr_i : FDR
@@ -15107,7 +15041,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(11)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_12_fdr_i : FDR
@@ -15117,7 +15051,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(12)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_13_fdr_i : FDR
@@ -15127,7 +15061,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(13)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_14_fdr_i : FDR
@@ -15137,7 +15071,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(14)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_15_fdr_i : FDR
@@ -15147,7 +15081,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(15)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_16_fdr_i : FDR
@@ -15157,7 +15091,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(16)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_17_fdr_i : FDR
@@ -15167,7 +15101,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(17)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_18_fdr_i : FDR
@@ -15177,7 +15111,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(18)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_19_fdr_i : FDR
@@ -15187,7 +15121,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(19)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_20_fdr_i : FDR
@@ -15197,7 +15131,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(20)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_21_fdr_i : FDR
@@ -15207,7 +15141,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(21)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_22_fdr_i : FDR
@@ -15217,7 +15151,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(22)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_23_fdr_i : FDR
@@ -15227,7 +15161,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(23)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_24_fdr_i : FDR
@@ -15237,7 +15171,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(24)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_25_fdr_i : FDR
@@ -15247,7 +15181,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(25)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_26_fdr_i : FDR
@@ -15257,7 +15191,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(26)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_27_fdr_i : FDR
@@ -15267,7 +15201,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(27)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_28_fdr_i : FDR
@@ -15277,7 +15211,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(28)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_29_fdr_i : FDR
@@ -15287,7 +15221,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(29)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_30_fdr_i : FDR
@@ -15297,7 +15231,7 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(30)
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_cipr_rd_dff_all_31_fdr_i : FDR
@@ -15307,700 +15241,28 @@ LUT3
     port map (
       C => Clk,
       D => N0,
-      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406,
+      R => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269,
       Q => U0_iomodule_0_IOModule_Core_I1_intc_cipr(31)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_not0001,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_7_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => N0,
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(7),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(7),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_7_XORCY_I1 : XORCY
-    port map (
-      CI => N0,
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(7),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_6_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(7),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(6),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(6),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_6_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(7),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(6),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_5_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(6),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(5),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(5),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_5_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(6),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(5),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_4_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(5),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(4),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(4),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_4_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(5),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(4),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_3_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(4),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(3),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(3),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_3_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(4),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(3),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_2_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(3),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(2),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(2),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_2_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(3),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(2),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_1_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(2),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(1),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(1),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_1_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(2),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_0_MUXCY_L_I1 : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(1),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(0),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(0),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Implement_FIT_Using_Counter_All_Bits_0_XORCY_I1 : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(1),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_1 : FDS
-    port map (
-      C => Clk,
-      D => UART_Rx,
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_1_308
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_not0001,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_mux0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected_0 : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected_0_and0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_and0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_2 : FDS
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_1_308,
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => N1,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or0000,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_309
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running_0 : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running_0_not0001,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected(0),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_previous_RX : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_previous_RX_304
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_0 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(8),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_1 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(7),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_2 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(6),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_3 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(5),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_4 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(4),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_5 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(3),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_6 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(2),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i_7 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(1),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_0 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(0),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_1 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(1),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_2 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(2),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_3 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(3),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_4 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(4),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_5 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(5),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_6 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(6),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data_7 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_i(7),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_1_First_Bit_First_Bit_I : FDSE
-    generic map(
-      INIT => '1'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(1),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_2_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(2),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_3_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(3),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_4_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(4),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_5_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(5),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_6_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(6),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_7_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(7),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Convert_Serial_To_Parallel_8_Rest_Bits_Others_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(8),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(8)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Mid_Start_Bit_SRL16 : SRL16E
-    generic map(
-      INIT => X"0000"
-    )
-    port map (
-      A0 => N0,
-      A1 => N1,
-      A2 => N1,
-      A3 => N0,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      CLK => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected(0),
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Delay_16 : SRL16E
-    generic map(
-      INIT => X"0000"
-    )
-    port map (
-      A0 => N1,
-      A1 => N1,
-      A2 => N1,
-      A3 => N1,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      CLK => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_recycle,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i : FDSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => N0,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_or0000,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_372
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_7 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(0),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_6 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(1),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_5 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(2),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_4 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(3),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_3 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(4),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_2 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(5),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_1 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(6),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut_0 : FDRE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_tx_write,
-      D => U0_iomodule_0_write_data(7),
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_and0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_370
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_and0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_339
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX : FDS
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_and0000,
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_334
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_and0000,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel_2 : FDSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(2),
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel_1 : FDSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(1),
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel_0 : FDSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(0),
-      S => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_serial_Data : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_Out,
-      R => U0_LMB_Rst_105,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_serial_Data_363
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_FDRE_I : FDRE
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_div16,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_DIV16_SRL16E : SRL16E
-    generic map(
-      INIT => X"0001"
-    )
-    port map (
-      A0 => N1,
-      A1 => N1,
-      A2 => N1,
-      A3 => N1,
-      CE => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      CLK => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_div16,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_div16
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_Counter_2_Used_MuxCY_MUXCY_L_I : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(3),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(2),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_Counter_2_XORCY_I : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(3),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(2),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_Counter_1_Used_MuxCY_MUXCY_L_I : MUXCY_L
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(2),
-      DI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1),
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(1),
-      LO => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_Counter_1_XORCY_I : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(2),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_Counter_0_XORCY_I : XORCY
-    port map (
-      CI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(1),
-      LI => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_sum_cnt(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_MUX_F5_1 : MUXF5
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_01,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_23,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_0123
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_MUX_F5_2 : MUXF5
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_45,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_67,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_4567
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_MUXF6_I : MUXF6
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_0123,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_4567,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_Out
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_not0001,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_Q
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_overrun_error : FDRSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_status_read,
-      D => N0,
-      R => U0_LMB_Rst_105,
-      S => U0_iomodule_0_IOModule_Core_I1_rx_overrun_error,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_overrun_error_282
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_0 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_309,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_0_Q
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_frame_error : FDRSE
-    port map (
-      C => Clk,
-      CE => U0_iomodule_0_uart_status_read,
-      D => N0,
-      R => U0_LMB_Rst_105,
-      S => U0_iomodule_0_IOModule_Core_I1_rx_frame_error,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_frame_error_281
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_5 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_overrun_error_282,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_5_Q
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_6 : FDR
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_frame_error_281,
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_6_Q
     );
   U0_dlmb_cntlr_lmb_addrstrobe_i : FDR
     port map (
       C => Clk,
       D => U0_lmb_bram_I_RAM_Inst_ENB,
       R => U0_dlmb_LMB_Rst,
-      Q => U0_dlmb_cntlr_lmb_addrstrobe_i_170
+      Q => U0_dlmb_cntlr_lmb_addrstrobe_i_167
     );
   U0_dlmb_cntlr_Sl_Ready_i : FDR
     port map (
       C => Clk,
       D => U0_dlmb_cntlr_lmb_select,
       R => U0_dlmb_LMB_Rst,
-      Q => U0_dlmb_cntlr_Sl_Ready_i_169
+      Q => U0_dlmb_cntlr_Sl_Ready_i_166
     );
   U0_dlmb_POR_FF_I : FDS
     port map (
       C => Clk,
       D => N0,
-      S => U0_LMB_Rst_105,
+      S => U0_LMB_Rst_103,
       Q => U0_dlmb_LMB_Rst
     );
   U0_ilmb_cntlr_lmb_addrstrobe_i : FDR
@@ -16008,20 +15270,20 @@ LUT3
       C => Clk,
       D => U0_lmb_bram_I_RAM_Inst_ENA,
       R => U0_ilmb_LMB_Rst,
-      Q => U0_ilmb_cntlr_lmb_addrstrobe_i_207
+      Q => U0_ilmb_cntlr_lmb_addrstrobe_i_204
     );
   U0_ilmb_cntlr_Sl_Ready_i : FDR
     port map (
       C => Clk,
       D => N1,
       R => U0_ilmb_LMB_Rst,
-      Q => U0_ilmb_cntlr_Sl_Ready_i_206
+      Q => U0_ilmb_cntlr_Sl_Ready_i_203
     );
   U0_ilmb_POR_FF_I : FDS
     port map (
       C => Clk,
       D => N0,
-      S => U0_LMB_Rst_105,
+      S => U0_LMB_Rst_103,
       Q => U0_ilmb_LMB_Rst
     );
   U0_reset_vec_2 : FD
@@ -16040,7 +15302,7 @@ LUT3
     port map (
       C => Clk,
       D => U0_LMB_Rst_or0000,
-      Q => U0_LMB_Rst_105
+      Q => U0_LMB_Rst_103
     );
   U0_reset_vec_0 : FD
     port map (
@@ -16088,6 +15350,28 @@ LUT3
       I2 => U0_dlmb_M_ABus_0_Q,
       O => U0_lmb_bram_I_RAM_Inst_WEB(0)
     );
+  U0_iomodule_0_uart_tx_write11 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => U0_iomodule_0_lmb_abus_Q(3),
+      I1 => U0_iomodule_0_lmb_abus_Q(2),
+      I2 => U0_iomodule_0_gpo2_write_bdd2,
+      I3 => U0_iomodule_0_lmb_abus_Q(4),
+      O => U0_iomodule_0_uart_tx_write
+    );
+  U0_iomodule_0_gpo2_write31 : LUT4
+    generic map(
+      INIT => X"FFBF"
+    )
+    port map (
+      I0 => U0_iomodule_0_lmb_abus_Q(0),
+      I1 => U0_iomodule_0_lmb_abus_Q(5),
+      I2 => U0_iomodule_0_lmb_reg_write_393,
+      I3 => U0_iomodule_0_lmb_abus_Q(1),
+      O => U0_iomodule_0_gpo2_write_bdd2
+    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation_0_mux00001 : LUT3
     generic map(
       INIT => X"7F"
@@ -16098,26 +15382,6 @@ LUT3
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation_0_mux0000
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_and00001 : LUT3
-    generic map(
-      INIT => X"51"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_370,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_serial_Data_363,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_TX_and0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected_0_and00001 : LUT3
-    generic map(
-      INIT => X"04"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_previous_RX_304,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected_0_and0000
-    );
   U0_LMB_Rst_or00001 : LUT3
     generic map(
       INIT => X"C8"
@@ -16127,79 +15391,6 @@ LUT3
       I1 => U0_reset_vec(1),
       I2 => U0_reset_vec(2),
       O => U0_LMB_Rst_or0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_and00001 : LUT4
-    generic map(
-      INIT => X"5510"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_372,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_370,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_and0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_and00001 : LUT4
-    generic map(
-      INIT => X"5540"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_339,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Start_370,
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_and0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_and00001 : LUT4
-    generic map(
-      INIT => X"0004"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_Data_Enable,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(0),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_and0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_671 : LUT3
-    generic map(
-      INIT => X"E4"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(6),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(7),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_67
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_451 : LUT3
-    generic map(
-      INIT => X"E4"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(4),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(5),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_45
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_231 : LUT3
-    generic map(
-      INIT => X"E4"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(2),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(3),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_23
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_011 : LUT3
-    generic map(
-      INIT => X"E4"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(0),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_fifo_DOut(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_01
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Set_BIP_0_and00001 : LUT2
     generic map(
@@ -16225,54 +15416,27 @@ LUT3
     )
     port map (
       I0 => IO_Ready,
-      I1 => U0_iomodule_0_io_read_keep_517,
+      I1 => U0_iomodule_0_io_read_keep_378,
       O => U0_iomodule_0_io_bus_read_data_and0000_inv
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_or00001 : LUT2
-    generic map(
-      INIT => X"E"
-    )
-    port map (
-      I0 => U0_LMB_Rst_105,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_data_is_sent_339,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_or0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Overrun_Error1 : LUT2
-    generic map(
-      INIT => X"8"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_309,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_302,
-      O => U0_iomodule_0_IOModule_Core_I1_rx_overrun_error
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_MSR_Reg_I_rst_Values_II_28_mux00001 : LUT3
     generic map(
       INIT => X"EA"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_BIP_I(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_MSR_Reg_I_rst_Values_II(28)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_lwx_swx_Carry_i1 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation(0),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation(0),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_LWX_SWX_Carry
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt1 : LUT2
-    generic map(
-      INIT => X"E"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      I1 => U0_LMB_Rst_105,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Read_Strobe_and00001 : LUT3
     generic map(
@@ -16289,7 +15453,7 @@ LUT3
       INIT => X"5702"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_Valid,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
       I3 => U0_ilmb_Sl_Ready,
@@ -16302,7 +15466,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_lmb_abus_Q(1),
       I1 => U0_iomodule_0_lmb_abus_Q(2),
-      I2 => U0_iomodule_0_lmb_reg_read_529,
+      I2 => U0_iomodule_0_lmb_reg_read_390,
       O => N2
     );
   U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd : LUT4
@@ -16314,7 +15478,7 @@ LUT3
       I1 => U0_iomodule_0_lmb_abus_Q(5),
       I2 => U0_iomodule_0_lmb_abus_Q(3),
       I3 => N2,
-      O => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_406
+      O => U0_iomodule_0_IOModule_Core_I1_intr_ctrl_I1_rst_cipr_rd_269
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_ii1 : LUT2
     generic map(
@@ -16335,28 +15499,6 @@ LUT3
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i(0),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_LWX_SWX_Write_Carry
-    );
-  U0_iomodule_0_uart_tx_write11 : LUT4
-    generic map(
-      INIT => X"0001"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(3),
-      I1 => U0_iomodule_0_lmb_abus_Q(2),
-      I2 => U0_iomodule_0_gpo2_write_bdd2,
-      I3 => U0_iomodule_0_lmb_abus_Q(4),
-      O => U0_iomodule_0_uart_tx_write
-    );
-  U0_iomodule_0_gpo2_write31 : LUT4
-    generic map(
-      INIT => X"FFBF"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(0),
-      I1 => U0_iomodule_0_lmb_abus_Q(5),
-      I2 => U0_iomodule_0_lmb_reg_write_532,
-      I3 => U0_iomodule_0_lmb_abus_Q(1),
-      O => U0_iomodule_0_gpo2_write_bdd2
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_S_and00001 : LUT2
     generic map(
@@ -16387,36 +15529,15 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_carry,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i(0),
       I3 => N6,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1598
-    );
-  U0_iomodule_0_uart_status_read_and0000_SW0 : LUT3
-    generic map(
-      INIT => X"EF"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(1),
-      I1 => U0_iomodule_0_lmb_abus_Q(2),
-      I2 => U0_iomodule_0_lmb_reg_read_529,
-      O => N8
-    );
-  U0_iomodule_0_uart_status_read_and0000 : LUT4
-    generic map(
-      INIT => X"0004"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(5),
-      I1 => U0_iomodule_0_lmb_abus_Q(4),
-      I2 => U0_iomodule_0_lmb_abus_Q(3),
-      I3 => N8,
-      O => U0_iomodule_0_uart_status_read
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_MSR_Carry_1458
     );
   U0_ilmb_cntlr_Sl_Ready1 : LUT2
     generic map(
       INIT => X"8"
     )
     port map (
-      I0 => U0_ilmb_cntlr_Sl_Ready_i_206,
-      I1 => U0_ilmb_cntlr_lmb_addrstrobe_i_207,
+      I0 => U0_ilmb_cntlr_Sl_Ready_i_203,
+      I1 => U0_ilmb_cntlr_lmb_addrstrobe_i_204,
       O => U0_ilmb_Sl_Ready
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PC_Write_0_or000011 : LUT3
@@ -16434,19 +15555,19 @@ LUT3
       INIT => X"A2"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1655,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_1516,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation(0),
       O => U0_lmb_bram_I_RAM_Inst_ENB
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_16_1 : LUT3
     generic map(
-      INIT => X"E4"
+      INIT => X"D8"
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i(0),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op1_i(24),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op1_i(24),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_Read_i(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_16_Q
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation_0_not00011 : LUT3
@@ -16557,18 +15678,18 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(3),
-      I2 => N12,
+      I2 => N8,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Write_Dbg,
       O => U0_microblaze_I_MicroBlaze_Core_I_Reg_Write_Low
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_4_1 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(10),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(4)
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(10),
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_4_Q
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_3_1 : LUT2
     generic map(
@@ -16577,7 +15698,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(9),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(3)
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i0
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_2_1 : LUT2
     generic map(
@@ -16586,7 +15707,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(8),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(2)
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_2_Q
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_1_1 : LUT2
     generic map(
@@ -16595,24 +15716,24 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(7),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(1)
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_1_Q
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_0_1 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(6),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(0)
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(6),
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_0_Q
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_mux00011 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(14),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(14),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Unsigned_Op_mux0001
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Select_Logic_0_and00001 : LUT2
@@ -16626,149 +15747,30 @@ LUT3
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001_1_1 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001_0_1 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Result_Sel_mux0001(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_mux000011 : LUT3
-    generic map(
-      INIT => X"08"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(8),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_mux0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_and00001 : LUT4
-    generic map(
-      INIT => X"8000"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data_write_and0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_8_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(7),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(8),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(8)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_7_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(6),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(7),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_6_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(5),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(6),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_5_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(4),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(5),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_4_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(3),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(4),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_3_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(2),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(3),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_2_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(1),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(2),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel_1_1 : LUT4
-    generic map(
-      INIT => X"FB40"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0),
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_serial_to_parallel(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Write_DIV_result_0_or00001 : LUT2
     generic map(
       INIT => X"E"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Write_DIV_result_0_or0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_recycle11 : LUT3
-    generic map(
-      INIT => X"54"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_mid_Start_Bit,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_recycle
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Write_High_or00002 : LUT2
     generic map(
@@ -16776,7 +15778,7 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(4),
-      I1 => N146,
+      I1 => N160,
       O => U0_microblaze_I_MicroBlaze_Core_I_Reg_Write_High
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_reset_Buffer_Addr_or00001 : LUT2
@@ -16785,7 +15787,7 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_jump,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_reset_Buffer_Addr
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_MSR_Reg_I_rst_Values_II_30_mux00001 : LUT2
@@ -16793,7 +15795,7 @@ LUT3
       INIT => X"E"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_MSR_Reg_I_rst_Values_II(30)
     );
@@ -16804,30 +15806,9 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reservation_0_or0000
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_not00011 : LUT3
-    generic map(
-      INIT => X"A2"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_not0001
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running_0_not00011 : LUT4
-    generic map(
-      INIT => X"AA80"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_start_Edge_Detected(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_running_0_not0001
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump_carry3_sel1 : LUT2
     generic map(
@@ -16844,9 +15825,9 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8(0),
-      I1 => N16,
+      I1 => N12,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op1_i(24),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1272
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_Q_1132
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_Now_Select_or00001 : LUT4
     generic map(
@@ -16869,17 +15850,6 @@ LUT3
       I2 => U0_microblaze_I_MicroBlaze_Core_I_reg_neg,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(1),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Frame_Error1 : LUT4
-    generic map(
-      INIT => X"2000"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_264,
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_new_rx_data(0),
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_sample_Point,
-      I3 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_stop_Bit_Position_331,
-      O => U0_iomodule_0_IOModule_Core_I1_rx_frame_error
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_Mxor_buffer_Addr_Sum_1_Result1 : LUT2
     generic map(
@@ -16917,7 +15887,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I2 => N148,
+      I2 => N162,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_doublet_i_0_mux0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_quadlet_Read_i_0_mux00001 : LUT4
@@ -16936,7 +15906,7 @@ LUT3
       INIT => X"FFBF"
     )
     port map (
-      I0 => N147,
+      I0 => N161,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
@@ -16961,8 +15931,8 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N8,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(15),
-      I3 => N157,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1631
+      I3 => N170,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_1492
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000 : LUT4
     generic map(
@@ -16972,8 +15942,8 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(15),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N8,
-      I3 => N20,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1629
+      I3 => N16,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16_0_mux0000_1490
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000 : LUT4
     generic map(
@@ -16983,8 +15953,8 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      I3 => N26,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1756
+      I3 => N22,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_1617
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_SW0 : LUT4
     generic map(
@@ -16995,7 +15965,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(5),
-      O => N28
+      O => N24
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000 : LUT4
     generic map(
@@ -17004,63 +15974,52 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N20,
-      I2 => N28,
+      I2 => N24,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1705
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_swx_I_0_mux0000_1566
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_SW0 : LUT4
-    generic map(
-      INIT => X"F7FF"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(5),
-      O => N30
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000 : LUT4
-    generic map(
-      INIT => X"0004"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N20,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
-      I3 => N30,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1703
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000 : LUT4
     generic map(
       INIT => X"FFBF"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N38,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N8,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
-      I3 => N32,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1636
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(5),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
+      O => N26
     );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i11 : LUT4
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000 : LUT4
     generic map(
-      INIT => X"F7FF"
+      INIT => X"0200"
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(9),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i11_1620
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N20,
+      I2 => N26,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_is_lwx_I_0_mux0000_1564
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i31 : LUT4
+    generic map(
+      INIT => X"7FFF"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i31_1481
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero_5_not00001 : LUT4
     generic map(
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(11),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(10),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(9),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(8),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(10),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(11),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(8),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(9),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(5)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_hold_I_0_not00011 : LUT2
@@ -17086,9 +16045,9 @@ LUT3
       INIT => X"D5"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_jump,
-      I2 => N149,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N4,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_not0001
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_not00012 : LUT3
@@ -17098,7 +16057,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_jump,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N4,
+      I2 => N163,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_not0001
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_i_AS_I_0_and00011 : LUT4
@@ -17117,10 +16076,10 @@ LUT3
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(15),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(14),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(13),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(12),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(14),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(15),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(12),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(13),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(4)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero_3_not00001 : LUT4
@@ -17128,10 +16087,10 @@ LUT3
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(19),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(18),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(17),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(16),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(18),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(19),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(16),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(17),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(3)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_FPGA_Target_ALL_Bits_0_ALU_Bit_I1_maintain_sign_n1 : LUT3
@@ -17139,7 +16098,7 @@ LUT3
       INIT => X"D7"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1594,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Compare_Instr_1454,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op2_i(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_op1_shift_0_Q,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_ALU_I_FPGA_Target_ALL_Bits_0_ALU_Bit_I1_maintain_sign_n
@@ -17151,7 +16110,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Oper(1),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1632,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Shift_Carry_In_1493,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_op1_shift_0_Q,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Shift_Logic_Module_I_msb
     );
@@ -17160,20 +16119,20 @@ LUT3
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(23),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(22),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(21),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(20),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(22),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(23),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(20),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(21),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(2)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_use_ALU_Carry_0_mux00001 : LUT3
     generic map(
-      INIT => X"04"
+      INIT => X"10"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_use_ALU_Carry
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero_1_not00001 : LUT4
@@ -17181,10 +16140,10 @@ LUT3
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(27),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(26),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(25),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(24),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(26),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(27),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(24),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(25),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero_0_not00001 : LUT4
@@ -17192,19 +16151,19 @@ LUT3
       INIT => X"0001"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(31),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(30),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(29),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(28),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(30),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(31),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(28),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_reg1(29),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_nibble_Zero(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or000011 : LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"4"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase_0_and0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000011 : LUT2
@@ -17218,25 +16177,36 @@ LUT3
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000 : LUT4
     generic map(
-      INIT => X"2000"
+      INIT => X"4000"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I1 => N36,
+      I0 => N32,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(1),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N18,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1726
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_1587
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_SW1 : LUT4
+    generic map(
+      INIT => X"FF47"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(6),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
+      O => N35
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000 : LUT4
     generic map(
-      INIT => X"3210"
+      INIT => X"082A"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
-      I2 => N38,
-      I3 => N39,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1708
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I2 => N35,
+      I3 => N34,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_1569
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_Mxor_buffer_Addr_Sum_2_Result1 : LUT2
     generic map(
@@ -17246,104 +16216,6 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_buffer_Addr(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_buffer_Addr_Sum(2)
-    );
-  U0_dlmb_or0030_SW0 : LUT3
-    generic map(
-      INIT => X"FE"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(1),
-      I1 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(1),
-      I2 => U0_iomodule_0_io_bus_read_data(1),
-      O => N57
-    );
-  U0_dlmb_or0030 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(30),
-      I1 => N57,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => N151,
-      O => U0_dlmb_LMB_ReadDBus(30)
-    );
-  U0_dlmb_or0029 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(29),
-      I1 => N59,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(29)
-    );
-  U0_dlmb_or0027 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(27),
-      I1 => N61,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(27)
-    );
-  U0_dlmb_or0024 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(24),
-      I1 => N63,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(24)
-    );
-  U0_dlmb_or0031 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(31),
-      I1 => N65,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(31)
-    );
-  U0_dlmb_or0028 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(28),
-      I1 => N67,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(28)
-    );
-  U0_dlmb_or0026 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(26),
-      I1 => N69,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(26)
-    );
-  U0_dlmb_or0025 : LUT4
-    generic map(
-      INIT => X"EAC0"
-    )
-    port map (
-      I0 => U0_dlmb_port_BRAM_Din(25),
-      I1 => N71,
-      I2 => U0_dlmb_Sl_Ready(1),
-      I3 => U0_dlmb_Sl_Ready(0),
-      O => U0_dlmb_LMB_ReadDBus(25)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_PreFetch_Buffer_I_Mxor_buffer_Addr_Sum_3_Result1 : LUT2
     generic map(
@@ -17415,11 +16287,11 @@ LUT3
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm_0_and00001 : LUT4
     generic map(
-      INIT => X"2000"
+      INIT => X"4000"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N18,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_using_Imm_0_and0000
@@ -17507,7 +16379,7 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I1 => N73,
+      I1 => N69,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_mbar_decode
@@ -17517,8 +16389,8 @@ LUT3
       INIT => X"EAC0"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1784,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1785,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1644,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1645,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N18,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry_0_mux0000,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux0000
@@ -17531,18 +16403,18 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(4),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1716
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1577
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221 : LUT4
     generic map(
       INIT => X"A2AA"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1716,
-      I1 => N150,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000216_1577,
+      I1 => N164,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1717
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1578
     );
   U0_dlmb_or0015 : LUT4
     generic map(
@@ -17551,8 +16423,8 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(16),
       I1 => U0_iomodule_0_io_bus_read_data(16),
-      I2 => N75,
-      I3 => U0_dlmb_Sl_Ready(1),
+      I2 => N71,
+      I3 => N165,
       O => U0_dlmb_LMB_ReadDBus(15)
     );
   U0_dlmb_or0014 : LUT4
@@ -17562,8 +16434,8 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(17),
       I1 => U0_iomodule_0_io_bus_read_data(17),
-      I2 => N77,
-      I3 => N152,
+      I2 => N73,
+      I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(14)
     );
   U0_dlmb_or0013 : LUT4
@@ -17573,7 +16445,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(18),
       I1 => U0_iomodule_0_io_bus_read_data(18),
-      I2 => N79,
+      I2 => N75,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(13)
     );
@@ -17584,7 +16456,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(19),
       I1 => U0_iomodule_0_io_bus_read_data(19),
-      I2 => N81,
+      I2 => N77,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(12)
     );
@@ -17595,7 +16467,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(20),
       I1 => U0_iomodule_0_io_bus_read_data(20),
-      I2 => N83,
+      I2 => N79,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(11)
     );
@@ -17606,7 +16478,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(21),
       I1 => U0_iomodule_0_io_bus_read_data(21),
-      I2 => N85,
+      I2 => N81,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(10)
     );
@@ -17617,7 +16489,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(22),
       I1 => U0_iomodule_0_io_bus_read_data(22),
-      I2 => N87,
+      I2 => N83,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(9)
     );
@@ -17628,7 +16500,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(23),
       I1 => U0_iomodule_0_io_bus_read_data(23),
-      I2 => N89,
+      I2 => N85,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(8)
     );
@@ -17639,7 +16511,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(24),
       I1 => U0_iomodule_0_io_bus_read_data(24),
-      I2 => N91,
+      I2 => N87,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(7)
     );
@@ -17650,7 +16522,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(25),
       I1 => U0_iomodule_0_io_bus_read_data(25),
-      I2 => N93,
+      I2 => N89,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(6)
     );
@@ -17661,7 +16533,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(26),
       I1 => U0_iomodule_0_io_bus_read_data(26),
-      I2 => N95,
+      I2 => N91,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(5)
     );
@@ -17672,7 +16544,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(27),
       I1 => U0_iomodule_0_io_bus_read_data(27),
-      I2 => N97,
+      I2 => N93,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(4)
     );
@@ -17683,7 +16555,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(28),
       I1 => U0_iomodule_0_io_bus_read_data(28),
-      I2 => N99,
+      I2 => N95,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(3)
     );
@@ -17694,7 +16566,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(29),
       I1 => U0_iomodule_0_io_bus_read_data(29),
-      I2 => N101,
+      I2 => N97,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(2)
     );
@@ -17705,7 +16577,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(30),
       I1 => U0_iomodule_0_io_bus_read_data(30),
-      I2 => N103,
+      I2 => N99,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(1)
     );
@@ -17716,7 +16588,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(31),
       I1 => U0_iomodule_0_io_bus_read_data(31),
-      I2 => N105,
+      I2 => N101,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(0)
     );
@@ -17830,13 +16702,13 @@ LUT3
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Imm_Instr_0_and00001 : LUT4
     generic map(
-      INIT => X"2000"
+      INIT => X"4000"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_Valid,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_Valid,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
-      I3 => N153,
+      I3 => N166,
       O => U0_microblaze_I_MicroBlaze_Core_I_imm_Instr
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_II_0_mux00011 : LUT3
@@ -17846,7 +16718,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
-      I2 => N155,
+      I2 => N168,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_II(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Operand_Select_I_Using_FPGA_OpSelect_Bits_14_Operand_Select_Bit_I_op2_Reg1 : LUT4
@@ -17922,15 +16794,15 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(1),
-      O => N109
+      O => N105
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_OpSel1_PC_0_mux0000 : LUT4
     generic map(
       INIT => X"FF51"
     )
     port map (
-      I0 => N154,
-      I1 => N109,
+      I0 => N167,
+      I1 => N105,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_opsel1_PC
@@ -18087,7 +16959,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(12),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(13),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(1),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1789
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1649
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033 : LUT2
     generic map(
@@ -18096,7 +16968,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1790
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1650
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047 : LUT4
     generic map(
@@ -18104,10 +16976,10 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1789,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1790,
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1792,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1791
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000029_1649,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000033_1650,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1652,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1651
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux0000100 : LUT4
     generic map(
@@ -18116,8 +16988,8 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1791,
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1788,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux000047_1651,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1648,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux0000
     );
   U0_iomodule_0_IO_Addr_Strobe_or00001 : LUT4
@@ -18125,7 +16997,7 @@ LUT3
       INIT => X"BFFF"
     )
     port map (
-      I0 => U0_LMB_Rst_105,
+      I0 => U0_LMB_Rst_103,
       I1 => U0_lmb_bram_I_RAM_Inst_ENB,
       I2 => U0_dlmb_M_ABus_1_Q,
       I3 => U0_dlmb_M_ABus_0_Q,
@@ -18223,7 +17095,7 @@ LUT3
       C => Clk,
       D => U0_iomodule_0_lmb_reg_read_and00001,
       R => U0_dlmb_M_ABus_1_Q,
-      Q => U0_iomodule_0_lmb_reg_read_529
+      Q => U0_iomodule_0_lmb_reg_read_390
     );
   U0_iomodule_0_lmb_reg_read_and000011 : LUT3
     generic map(
@@ -18240,7 +17112,7 @@ LUT3
       C => Clk,
       D => U0_iomodule_0_lmb_reg_write_and00001,
       R => U0_dlmb_M_ABus_1_Q,
-      Q => U0_iomodule_0_lmb_reg_write_532
+      Q => U0_iomodule_0_lmb_reg_write_393
     );
   U0_iomodule_0_lmb_reg_write_and000011 : LUT3
     generic map(
@@ -18252,86 +17124,6 @@ LUT3
       I2 => U0_lmb_bram_I_RAM_Inst_ENB,
       O => U0_iomodule_0_lmb_reg_write_and00001
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_7 : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(7),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(7)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_6 : FDS
-    generic map(
-      INIT => '1'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(6),
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_5 : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(5),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(5)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_4 : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(4),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(4)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_3 : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(3),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_2 : FDS
-    generic map(
-      INIT => '1'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(2),
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_1 : FDR
-    generic map(
-      INIT => '0'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(1),
-      R => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count_0 : FDS
-    generic map(
-      INIT => '1'
-    )
-    port map (
-      C => Clk,
-      D => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_rst_cnt,
-      S => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Cnt(0),
-      Q => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(0)
-    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_0 : FDRS
     generic map(
       INIT => '0'
@@ -18339,8 +17131,8 @@ LUT3
     port map (
       C => Clk,
       D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000226,
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1717,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000221_1578,
       Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt : LUT1
@@ -18349,15 +17141,15 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_reg_Test_Equal,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1375
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Zero_Detect_I_Using_FPGA_Part_Of_Zero_Carry_Start_rt_1235
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt : LUT1
     generic map(
       INIT => X"2"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1641
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_clean_iReady_MuxCY_rt_1502
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt : LUT1
     generic map(
@@ -18365,7 +17157,7 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_select_ALU_Carry(0),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1639
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_New_Carry_MUXCY_rt_1500
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt : LUT1
     generic map(
@@ -18373,7 +17165,7 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1640
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Using_FPGA_Using_Breakable_Pipe_Take_Intr_MUXCY_2_rt_1501
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_I_1_1_SW0 : LUT3
     generic map(
@@ -18383,7 +17175,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      O => N111
+      O => N107
     );
   U0_iomodule_0_io_read_keep_mux00002 : LUT4
     generic map(
@@ -18396,15 +17188,15 @@ LUT3
       I3 => U0_lmb_bram_I_RAM_Inst_ENB,
       O => U0_iomodule_0_io_read_keep_mux0000
     );
-  U0_dlmb_or0014_SW0 : LUT3
+  U0_dlmb_or0015_SW0 : LUT3
     generic map(
       INIT => X"80"
     )
     port map (
-      I0 => U0_dlmb_port_BRAM_Din(14),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      O => N77
+      I0 => U0_dlmb_port_BRAM_Din(15),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      O => N71
     );
   U0_iomodule_0_io_read_keep_not00011 : LUT4
     generic map(
@@ -18422,7 +17214,7 @@ LUT3
       INIT => X"AAEA"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_new_Carry,
@@ -18433,9 +17225,9 @@ LUT3
       INIT => X"F8"
     )
     port map (
-      I0 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I1 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      I2 => U0_iomodule_0_Sl_Ready_or00001_482,
+      I0 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I1 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      I2 => U0_iomodule_0_Sl_Ready_or00001_343,
       O => U0_dlmb_LMB_Ready
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_II_1_mux00021 : LUT4
@@ -18446,8 +17238,19 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I3 => N116,
+      I3 => N112,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_II(1)
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or00001 : LUT4
+    generic map(
+      INIT => X"2F22"
+    )
+    port map (
+      I0 => U0_ilmb_Sl_Ready,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1588,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_intr_or_delay_slot_jump_or00001 : LUT3
     generic map(
@@ -18475,33 +17278,11 @@ LUT3
       INIT => X"0103"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(10),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(9),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(9),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1785
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_SW0 : LUT4
-    generic map(
-      INIT => X"40C0"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_jump,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(0),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
-      O => N38
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or00001 : LUT4
-    generic map(
-      INIT => X"7350"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_nonvalid_IFetch_n_1727,
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
-      I2 => U0_ilmb_Sl_Ready,
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_or0000
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(10),
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux00006_1645
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_and00001 : LUT2
     generic map(
@@ -18512,6 +17293,17 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_delay_slot_jump
     );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000 : LUT4
+    generic map(
+      INIT => X"FFBF"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N38,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N8,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
+      I3 => N114,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_1497
+    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000 : LUT4
     generic map(
       INIT => X"FFEA"
@@ -18520,8 +17312,96 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_jump,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
-      I3 => N118,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1656
+      I3 => N116,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_1517
+    );
+  U0_dlmb_or0031 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(0),
+      I1 => U0_iomodule_0_io_bus_read_data(0),
+      I2 => N118,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(31)
+    );
+  U0_dlmb_or0030 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(1),
+      I1 => U0_iomodule_0_io_bus_read_data(1),
+      I2 => N120,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(30)
+    );
+  U0_dlmb_or0029 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(2),
+      I1 => U0_iomodule_0_io_bus_read_data(2),
+      I2 => N122,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(29)
+    );
+  U0_dlmb_or0028 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(3),
+      I1 => U0_iomodule_0_io_bus_read_data(3),
+      I2 => N124,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(28)
+    );
+  U0_dlmb_or0027 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(4),
+      I1 => U0_iomodule_0_io_bus_read_data(4),
+      I2 => N126,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(27)
+    );
+  U0_dlmb_or0026 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(5),
+      I1 => U0_iomodule_0_io_bus_read_data(5),
+      I2 => N128,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(26)
+    );
+  U0_dlmb_or0025 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(6),
+      I1 => U0_iomodule_0_io_bus_read_data(6),
+      I2 => N130,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(25)
+    );
+  U0_dlmb_or0024 : LUT4
+    generic map(
+      INIT => X"FEF0"
+    )
+    port map (
+      I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(7),
+      I1 => U0_iomodule_0_io_bus_read_data(7),
+      I2 => N132,
+      I3 => U0_dlmb_Sl_Ready(1),
+      O => U0_dlmb_LMB_ReadDBus(24)
     );
   U0_dlmb_or0023 : LUT4
     generic map(
@@ -18530,7 +17410,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(8),
       I1 => U0_iomodule_0_io_bus_read_data(8),
-      I2 => N120,
+      I2 => N134,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(23)
     );
@@ -18541,7 +17421,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(9),
       I1 => U0_iomodule_0_io_bus_read_data(9),
-      I2 => N122,
+      I2 => N136,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(22)
     );
@@ -18552,7 +17432,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(10),
       I1 => U0_iomodule_0_io_bus_read_data(10),
-      I2 => N124,
+      I2 => N138,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(21)
     );
@@ -18563,7 +17443,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(11),
       I1 => U0_iomodule_0_io_bus_read_data(11),
-      I2 => N126,
+      I2 => N140,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(20)
     );
@@ -18574,7 +17454,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(12),
       I1 => U0_iomodule_0_io_bus_read_data(12),
-      I2 => N128,
+      I2 => N142,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(19)
     );
@@ -18585,7 +17465,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(13),
       I1 => U0_iomodule_0_io_bus_read_data(13),
-      I2 => N130,
+      I2 => N144,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(18)
     );
@@ -18596,7 +17476,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(14),
       I1 => U0_iomodule_0_io_bus_read_data(14),
-      I2 => N132,
+      I2 => N146,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(17)
     );
@@ -18607,7 +17487,7 @@ LUT3
     port map (
       I0 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(15),
       I1 => U0_iomodule_0_io_bus_read_data(15),
-      I2 => N134,
+      I2 => N148,
       I3 => U0_dlmb_Sl_Ready(1),
       O => U0_dlmb_LMB_ReadDBus(16)
     );
@@ -18622,17 +17502,6 @@ LUT3
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_mbar_decode,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux000226
     );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i35 : LUT4
-    generic map(
-      INIT => X"FFF9"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(10),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(8),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i11_1620,
-      I3 => N136,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i
-    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux000015_SW0 : LUT3
     generic map(
       INIT => X"08"
@@ -18641,37 +17510,15 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump_Carry2,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_of_Valid,
-      O => N138
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv1 : LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(5),
-      I1 => U0_iomodule_0_lmb_abus_Q(4),
-      I2 => U0_iomodule_0_lmb_abus_Q(3),
-      I3 => N8,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_Read_RX_Data_inv
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv1 : LUT4
-    generic map(
-      INIT => X"FFEF"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(3),
-      I1 => U0_iomodule_0_lmb_abus_Q(5),
-      I2 => U0_iomodule_0_lmb_abus_Q(4),
-      I3 => N8,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_Read_inv
+      O => N150
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing_0_mux00001 : LUT4
     generic map(
-      INIT => X"2000"
+      INIT => X"4000"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing_0_mux0000
@@ -18682,8 +17529,8 @@ LUT3
     )
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress(0),
-      I1 => U0_ilmb_cntlr_Sl_Ready_i_206,
-      I2 => U0_ilmb_cntlr_lmb_addrstrobe_i_207,
+      I1 => U0_ilmb_cntlr_Sl_Ready_i_203,
+      I2 => U0_ilmb_cntlr_lmb_addrstrobe_i_204,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_0_and0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_mux00001 : LUT3
@@ -18691,8 +17538,8 @@ LUT3
       INIT => X"7F"
     )
     port map (
-      I0 => U0_ilmb_cntlr_Sl_Ready_i_206,
-      I1 => U0_ilmb_cntlr_lmb_addrstrobe_i_207,
+      I0 => U0_ilmb_cntlr_Sl_Ready_i_203,
+      I1 => U0_ilmb_cntlr_lmb_addrstrobe_i_204,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_mux0000
     );
@@ -18701,10 +17548,10 @@ LUT3
       INIT => X"0200"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N38,
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N38,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i_0_mux0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i_0_mux00001 : LUT4
@@ -18737,8 +17584,19 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_Now_II,
-      I3 => N140,
+      I3 => N152,
       O => U0_microblaze_I_MicroBlaze_Core_I_opsel2_Imm
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i34 : LUT4
+    generic map(
+      INIT => X"FFF9"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(10),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(8),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i31_1481,
+      I3 => N154,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_MSR_Reg_I_we_Bits_29_mux00021 : LUT3
     generic map(
@@ -18758,8 +17616,8 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      I3 => N142,
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1679
+      I3 => N156,
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_1540
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000 : LUT4
     generic map(
@@ -18768,36 +17626,26 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(6),
-      I2 => N144,
+      I2 => N158,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(0),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1688
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_1549
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1 : FDRE
     port map (
       C => Clk,
       CE => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003(0),
-      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1772
+      D => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_mux0003_0_Q,
+      R => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1633
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_n1_INV_0 : INV
     port map (
       I => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress_n
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_not00011_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_buffer_empty_i_372,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_not0001
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt_0_mux00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(0)
-    );
   U0_iomodule_0_lmb_io_select_keep_inv1_INV_0 : INV
     port map (
-      I => U0_iomodule_0_lmb_io_select_keep_527,
+      I => U0_iomodule_0_lmb_io_select_keep_388,
       O => U0_iomodule_0_lmb_io_select_keep_inv
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_sel_Write_Mux_MSB_0_not00001_INV_0 : INV
@@ -18805,79 +17653,19 @@ LUT3
       I => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_sel_Write_Mux_MSB(0)
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy_3_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_tx_DataBits_367,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_cnt_cy(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt_1_mux00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt_2_mux00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_mux_sel(2),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_TX_UART_TX_I1_h_Cnt(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_0_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(0)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_not00011_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Carry(0),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Interrupt_i_not0001
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_1_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(1),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(1)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_2_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(2),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(2)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_3_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(3),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(3)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_4_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(4),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(4)
-    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Carry_Select1_INV_0 : INV
     port map (
       I => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Carry_Select
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_5_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(5),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(5)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_dready_Valid_0_not00001_INV_0 : INV
     port map (
       I => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing(0),
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_dready_Valid
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_6_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(6),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(6)
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt_7_not00001_INV_0 : INV
-    port map (
-      I => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_Count(7),
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_UART_FIT_I_New_Cnt(7)
-    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_n1_INV_0 : INV
     port map (
-      I => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_reset_n
     );
   U0_dlmb_cntlr_pselect_mask_lmb_CS1_INV_0 : INV
@@ -18903,24 +17691,6 @@ LUT3
       S => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing(0),
       O => U0_dlmb_M_WriteStrobe
     );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or000011 : LUT4
-    generic map(
-      INIT => X"0001"
-    )
-    port map (
-      I0 => U0_iomodule_0_lmb_abus_Q(5),
-      I1 => U0_iomodule_0_lmb_abus_Q(4),
-      I2 => U0_iomodule_0_lmb_abus_Q(3),
-      I3 => N8,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or00001
-    );
-  U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or00001_f5 : MUXF5
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or00001,
-      I1 => N1,
-      S => U0_LMB_Rst_105,
-      O => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_rx_data_exists_i_or0000
-    );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Valid_Reg_0_not00001 : LUT4
     generic map(
       INIT => X"FFFE"
@@ -18929,7 +17699,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(3),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(2),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(1),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1772,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I_0_1_1633,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Valid_Reg_0_not0000
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Valid_Reg_0_not0000_f5 : MUXF5
@@ -18953,15 +17723,15 @@ LUT3
       INIT => X"FFBA"
     )
     port map (
-      I0 => N138,
+      I0 => N150,
       I1 => U0_dlmb_LMB_Ready,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_load_Store_i(0),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first(0),
-      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1668
+      O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1529
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux000033_f5 : MUXF5
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1668,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000331_1529,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux000033,
       S => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_0_mux0000
@@ -18974,7 +17744,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Addr_I(0),
-      LO => N12
+      LO => N8
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Write_High_or000011 : LUT4_D
     generic map(
@@ -18985,7 +17755,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_writing(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid(0),
       I3 => U0_dlmb_LMB_Ready,
-      LO => N146,
+      LO => N160,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Write_Dbg
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_Result_Mux_I_data_Read_Mask_0_SW0 : LUT3_L
@@ -18996,7 +17766,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext16(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_quadlet_Read_i(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op1_i(16),
-      LO => N16
+      LO => N12
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux000011 : LUT2_D
     generic map(
@@ -19005,7 +17775,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => N147,
+      LO => N161,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N38
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_byte_i_0_mux000011 : LUT3_D
@@ -19016,7 +17786,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      LO => N148,
+      LO => N162,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N16
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_set_BIP_I_0_mux0000_SW0 : LUT4_L
@@ -19028,18 +17798,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(2),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => N26
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_SW0 : LUT4_L
-    generic map(
-      INIT => X"FFEF"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
-      LO => N32
+      LO => N22
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_missed_IFetch_0_not000111 : LUT4_D
     generic map(
@@ -19048,9 +17807,9 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_iFetch_In_Progress(0),
       I1 => U0_ilmb_Sl_Ready,
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ifetch_carry2,
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N0,
-      LO => N149,
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N0,
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ifetch_carry2,
+      LO => N163,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N4
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not00011 : LUT2_D
@@ -19060,7 +17819,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_jump,
-      LO => N150,
+      LO => N164,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mtsmsr_write_i_0_mux0000_SW0 : LUT2_L
@@ -19070,92 +17829,17 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_imm_Value(15),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
-      LO => N36
+      LO => N32
     );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_SW1 : LUT4_L
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_jump2_I_0_mux0000_SW0 : LUT3_L
     generic map(
-      INIT => X"AC00"
+      INIT => X"BF"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(6),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
-      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_ex_Valid_1st_cycle_0_not0001,
-      LO => N39
-    );
-  U0_dlmb_or0029_SW0 : LUT3_L
-    generic map(
-      INIT => X"FE"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(2),
-      I1 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(2),
-      I2 => U0_iomodule_0_io_bus_read_data(2),
-      LO => N59
-    );
-  U0_dlmb_or0027_SW0 : LUT3_L
-    generic map(
-      INIT => X"FE"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(4),
-      I1 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(4),
-      I2 => U0_iomodule_0_io_bus_read_data(4),
-      LO => N61
-    );
-  U0_dlmb_or0024_SW0 : LUT3_L
-    generic map(
-      INIT => X"FE"
-    )
-    port map (
-      I0 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(7),
-      I1 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(7),
-      I2 => U0_iomodule_0_io_bus_read_data(7),
-      LO => N63
-    );
-  U0_dlmb_or0031_SW0 : LUT4_L
-    generic map(
-      INIT => X"FFFE"
-    )
-    port map (
-      I0 => U0_iomodule_0_io_bus_read_data(0),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_0_Q,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(0),
-      I3 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(0),
-      LO => N65
-    );
-  U0_dlmb_or0028_SW0 : LUT4_L
-    generic map(
-      INIT => X"FFFE"
-    )
-    port map (
-      I0 => U0_iomodule_0_io_bus_read_data(3),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_3_Q,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(3),
-      I3 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(3),
-      LO => N67
-    );
-  U0_dlmb_or0026_SW0 : LUT4_L
-    generic map(
-      INIT => X"FFFE"
-    )
-    port map (
-      I0 => U0_iomodule_0_io_bus_read_data(5),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_5_Q,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(5),
-      I3 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(5),
-      LO => N69
-    );
-  U0_dlmb_or0025_SW0 : LUT4_L
-    generic map(
-      INIT => X"FFFE"
-    )
-    port map (
-      I0 => U0_iomodule_0_io_bus_read_data(6),
-      I1 => U0_iomodule_0_IOModule_Core_I1_Using_UART_Uart_Control_Status_I1_UART_Status_6_Q,
-      I2 => U0_iomodule_0_IOModule_Core_I1_Using_UART_RX_UART_RX_I1_RX_Data(6),
-      I3 => U0_iomodule_0_IOModule_Core_I1_intc_cipr(6),
-      LO => N71
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(0),
+      LO => N34
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_mbar_first_mux00023_SW0 : LUT3_L
     generic map(
@@ -19165,7 +17849,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(3),
-      LO => N73
+      LO => N69
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014 : LUT2_L
     generic map(
@@ -19174,27 +17858,17 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1784
-    );
-  U0_dlmb_cntlr_Sl_Ready1 : LUT2_D
-    generic map(
-      INIT => X"8"
-    )
-    port map (
-      I0 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I1 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N151,
-      O => U0_dlmb_Sl_Ready(0)
+      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000014_1644
     );
   U0_iomodule_0_Sl_Ready_or00001 : LUT3_D
     generic map(
       INIT => X"FE"
     )
     port map (
-      I0 => U0_iomodule_0_io_ready_Q_520,
-      I1 => U0_iomodule_0_lmb_reg_write_532,
-      I2 => U0_iomodule_0_lmb_reg_read_Q_530,
-      LO => N152,
+      I0 => U0_iomodule_0_io_ready_Q_381,
+      I1 => U0_iomodule_0_lmb_reg_write_393,
+      I2 => U0_iomodule_0_lmb_reg_read_Q_391,
+      LO => N165,
       O => U0_dlmb_Sl_Ready(1)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Carry_I_0_mux000022 : LUT3_D
@@ -19205,7 +17879,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
       I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      LO => N153,
+      LO => N166,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N18
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_OF_brki_0x18_0_and000011 : LUT3_D
@@ -19216,7 +17890,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      LO => N154,
+      LO => N167,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002 : LUT2_L
@@ -19226,7 +17900,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1788
+      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00002_1648
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_OF_brki_0x18_0_and000021 : LUT2_D
     generic map(
@@ -19235,7 +17909,7 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => N155,
+      LO => N168,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N20
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_I_1_1 : LUT4_L
@@ -19245,19 +17919,19 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(1),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
-      I2 => N111,
+      I2 => N107,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
       LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N5
     );
-  U0_dlmb_or0015_SW0 : LUT3_L
+  U0_dlmb_or0014_SW0 : LUT3_L
     generic map(
       INIT => X"80"
     )
     port map (
-      I0 => U0_dlmb_port_BRAM_Din(15),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N75
+      I0 => U0_dlmb_port_BRAM_Din(14),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N73
     );
   U0_dlmb_or0013_SW0 : LUT3_L
     generic map(
@@ -19265,9 +17939,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(13),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N79
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N75
     );
   U0_dlmb_or0012_SW0 : LUT3_L
     generic map(
@@ -19275,9 +17949,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(12),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N81
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N77
     );
   U0_dlmb_or0011_SW0 : LUT3_L
     generic map(
@@ -19285,9 +17959,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(11),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N83
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N79
     );
   U0_dlmb_or0010_SW0 : LUT3_L
     generic map(
@@ -19295,9 +17969,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(10),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N85
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N81
     );
   U0_dlmb_or0009_SW0 : LUT3_L
     generic map(
@@ -19305,9 +17979,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(9),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N87
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N83
     );
   U0_dlmb_or0008_SW0 : LUT3_L
     generic map(
@@ -19315,9 +17989,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(8),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N89
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N85
     );
   U0_dlmb_or0007_SW0 : LUT3_L
     generic map(
@@ -19325,9 +17999,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(7),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N91
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N87
     );
   U0_dlmb_or0006_SW0 : LUT3_L
     generic map(
@@ -19335,9 +18009,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(6),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N93
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N89
     );
   U0_dlmb_or0005_SW0 : LUT3_L
     generic map(
@@ -19345,9 +18019,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(5),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N95
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N91
     );
   U0_dlmb_or0004_SW0 : LUT3_L
     generic map(
@@ -19355,9 +18029,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(4),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N97
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N93
     );
   U0_dlmb_or0003_SW0 : LUT3_L
     generic map(
@@ -19365,9 +18039,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(3),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N99
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N95
     );
   U0_dlmb_or0002_SW0 : LUT3_L
     generic map(
@@ -19375,9 +18049,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(2),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N101
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N97
     );
   U0_dlmb_or0001_SW0 : LUT3_L
     generic map(
@@ -19385,9 +18059,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(1),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N103
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N99
     );
   U0_dlmb_or0000_SW0 : LUT3_L
     generic map(
@@ -19395,9 +18069,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(0),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N105
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N101
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_byte_selects_0_1 : LUT4_D
     generic map(
@@ -19408,7 +18082,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op2_i(31),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Op1_Low(1),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Op1_Low(0),
-      LO => N156,
+      LO => N169,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_byte_selects(0)
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005 : LUT3_L
@@ -19419,7 +18093,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(2),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1792
+      LO => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_write_Reg_0_mux00005_1652
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_alu_Op_II_1_mux00021_SW0 : LUT3_L
     generic map(
@@ -19429,7 +18103,7 @@ LUT3
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_reg1_Addr(1),
-      LO => N116
+      LO => N112
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sext8_0_mux0000_SW0 : LUT4_D
     generic map(
@@ -19440,8 +18114,8 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => N157,
-      O => N20
+      LO => N170,
+      O => N16
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_byte_selects_1_1 : LUT2_D
     generic map(
@@ -19450,19 +18124,110 @@ LUT3
     port map (
       I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Data_Flow_I_op2_i(31),
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Op1_Low(1),
-      LO => N158,
+      LO => N171,
       O => U0_microblaze_I_MicroBlaze_Core_I_Area_Byte_Doublet_Handle_I_byte_selects(1)
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Sign_Extend_0_mux0000_SW0_SW0 : LUT4_L
+    generic map(
+      INIT => X"FFEF"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(2),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
+      I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_take_Intr_2nd_Phase(0),
+      LO => N114
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_d_AS_I_or0000_SW0_SW0 : LUT4_L
     generic map(
       INIT => X"BFFF"
     )
     port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894,
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754,
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_of_PipeRun,
+      LO => N116
+    );
+  U0_dlmb_or0031_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(31),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
       LO => N118
+    );
+  U0_dlmb_or0030_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(30),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N120
+    );
+  U0_dlmb_or0029_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(29),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N122
+    );
+  U0_dlmb_or0028_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(28),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N124
+    );
+  U0_dlmb_or0027_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(27),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N126
+    );
+  U0_dlmb_or0026_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(26),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N128
+    );
+  U0_dlmb_or0025_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(25),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N130
+    );
+  U0_dlmb_or0024_SW1 : LUT3_L
+    generic map(
+      INIT => X"80"
+    )
+    port map (
+      I0 => U0_dlmb_port_BRAM_Din(24),
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N132
     );
   U0_dlmb_or0023_SW1 : LUT3_L
     generic map(
@@ -19470,9 +18235,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(23),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N120
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N134
     );
   U0_dlmb_or0022_SW1 : LUT3_L
     generic map(
@@ -19480,9 +18245,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(22),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N122
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N136
     );
   U0_dlmb_or0021_SW1 : LUT3_L
     generic map(
@@ -19490,9 +18255,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(21),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N124
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N138
     );
   U0_dlmb_or0020_SW1 : LUT3_L
     generic map(
@@ -19500,9 +18265,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(20),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N126
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N140
     );
   U0_dlmb_or0019_SW1 : LUT3_L
     generic map(
@@ -19510,9 +18275,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(19),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N128
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N142
     );
   U0_dlmb_or0018_SW1 : LUT3_L
     generic map(
@@ -19520,9 +18285,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(18),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N130
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N144
     );
   U0_dlmb_or0017_SW1 : LUT3_L
     generic map(
@@ -19530,9 +18295,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(17),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N132
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N146
     );
   U0_dlmb_or0016_SW1 : LUT3_L
     generic map(
@@ -19540,19 +18305,9 @@ LUT3
     )
     port map (
       I0 => U0_dlmb_port_BRAM_Din(16),
-      I1 => U0_dlmb_cntlr_Sl_Ready_i_169,
-      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_170,
-      LO => N134
-    );
-  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i35_SW0 : LUT3_L
-    generic map(
-      INIT => X"FD"
-    )
-    port map (
-      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
-      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
-      I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      LO => N136
+      I1 => U0_dlmb_cntlr_Sl_Ready_i_166,
+      I2 => U0_dlmb_cntlr_lmb_addrstrobe_i_167,
+      LO => N148
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_OpSel2_Imm_0_and0000_SW1 : LUT4_L
     generic map(
@@ -19563,7 +18318,17 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(4),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(5),
-      LO => N140
+      LO => N152
+    );
+  U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_Reg_Test_Equal_i34_SW0 : LUT3_L
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(1),
+      I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(9),
+      I2 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
+      LO => N154
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_force_Val2_n_i_SW1 : LUT4_L
     generic map(
@@ -19574,7 +18339,7 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_instr_OF(3),
       I3 => U0_microblaze_I_MicroBlaze_Core_I_disable_Interrupts,
-      LO => N142
+      LO => N156
     );
   U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX_0_mux0000_SW1 : LUT4_L
     generic map(
@@ -19585,17 +18350,17 @@ LUT3
       I1 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_inHibit_EX(0),
       I2 => U0_microblaze_I_MicroBlaze_Core_I_jump,
       I3 => U0_microblaze_I_MicroBlaze_Core_I_Area_Decode_I_N14,
-      LO => N144
+      LO => N158
     );
   U0_iomodule_0_Sl_Ready_or00001_1 : LUT3_L
     generic map(
       INIT => X"FE"
     )
     port map (
-      I0 => U0_iomodule_0_io_ready_Q_520,
-      I1 => U0_iomodule_0_lmb_reg_write_532,
-      I2 => U0_iomodule_0_lmb_reg_read_Q_530,
-      LO => U0_iomodule_0_Sl_Ready_or00001_482
+      I0 => U0_iomodule_0_io_ready_Q_381,
+      I1 => U0_iomodule_0_lmb_reg_write_393,
+      I2 => U0_iomodule_0_lmb_reg_read_Q_391,
+      LO => U0_iomodule_0_Sl_Ready_or00001_343
     );
   U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset : SRL16
     generic map(
@@ -19608,7 +18373,7 @@ LUT3
       A3 => N0,
       CLK => Clk,
       D => U0_ilmb_LMB_Rst,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1801
+      Q => U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1661
     );
   U0_microblaze_I_MicroBlaze_Core_I_sync_reset : FD
     generic map(
@@ -19616,8 +18381,8 @@ LUT3
     )
     port map (
       C => Clk,
-      D => U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1801,
-      Q => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1894
+      D => U0_microblaze_I_MicroBlaze_Core_I_Mshreg_sync_reset_1661,
+      Q => U0_microblaze_I_MicroBlaze_Core_I_sync_reset_1754
     );
   U0_lmb_bram_I_RAM_Inst_Using_B16_S4_The_BRAMs_0_RAMB16_S4_1 : RAMB16_S4_S4
     generic map(

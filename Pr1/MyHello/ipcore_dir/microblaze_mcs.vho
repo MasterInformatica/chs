@@ -65,9 +65,7 @@ COMPONENT microblaze_mcs
     IO_Byte_Enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     IO_Write_Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     IO_Read_Data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    IO_Ready : IN STD_LOGIC;
-    UART_Rx : IN STD_LOGIC;
-    UART_Tx : OUT STD_LOGIC
+    IO_Ready : IN STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -87,9 +85,7 @@ your_instance_name : microblaze_mcs
     IO_Byte_Enable => IO_Byte_Enable,
     IO_Write_Data => IO_Write_Data,
     IO_Read_Data => IO_Read_Data,
-    IO_Ready => IO_Ready,
-    UART_Rx => UART_Rx,
-    UART_Tx => UART_Tx
+    IO_Ready => IO_Ready
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 

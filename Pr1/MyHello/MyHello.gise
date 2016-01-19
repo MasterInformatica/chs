@@ -23,6 +23,7 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_VHDL_INSTTEMPLATE" xil_pn:name="RS232.vhi"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -94,7 +95,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1452786769" xil_pn:in_ck="4246507968915481468" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1405460673403478932" xil_pn:start_ts="1452786769">
+    <transform xil_pn:end_ts="1453215623" xil_pn:in_ck="4246507968915481468" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1405460673403478932" xil_pn:start_ts="1453215623">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/fifo.ngc"/>
@@ -118,10 +119,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1452786800" xil_pn:in_ck="-1804047246905548167" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-7629041818747732234" xil_pn:start_ts="1452786797">
+    <transform xil_pn:end_ts="1453217485" xil_pn:in_ck="1944550775408347314" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-7629041818747732234" xil_pn:start_ts="1453217482">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="mcs_top.lso"/>
       <outfile xil_pn:name="mcs_top.ngc"/>
@@ -137,6 +140,8 @@
     <transform xil_pn:end_ts="1452782611" xil_pn:in_ck="162138854071659" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8279859657396032130" xil_pn:start_ts="1452782611">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
     </transform>
     <transform xil_pn:end_ts="1452784102" xil_pn:in_ck="-1492476438135090651" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-636495502482029257" xil_pn:start_ts="1452784098">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -156,8 +161,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="mcs_top.pcf"/>
@@ -172,7 +179,9 @@
     <transform xil_pn:end_ts="1452784118" xil_pn:in_ck="5895334496140545600" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="5592077876867041805" xil_pn:start_ts="1452784106">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="mcs_top.ncd"/>
       <outfile xil_pn:name="mcs_top.pad"/>
@@ -209,7 +218,9 @@
     <transform xil_pn:end_ts="1452784118" xil_pn:in_ck="2775733246343065603" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1452784115">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="mcs_top.twr"/>
       <outfile xil_pn:name="mcs_top.twx"/>

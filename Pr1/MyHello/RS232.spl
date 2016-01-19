@@ -1,0 +1,13 @@
+[Inputs]
+clk
+reset
+Rx
+enviarDato
+=datoAEnviar[7:0]=
+[Outputs]
+Tx
+TxBusy
+RxErr
+RxRdy
+=datoRecibido[7:0]=
+[BiDir]

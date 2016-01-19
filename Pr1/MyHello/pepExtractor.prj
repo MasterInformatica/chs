@@ -1,3 +1,4 @@
-work	"fifo_interfaz.vhd"
-work	"ipcore_dir/fifo.vhd"
-work	"ipcore_dir/microblaze_mcs.vhd"
+work	"RS232.vhd"
+work	"receive.vhd"
+work	"timing.vhd"
+work	"transmit.vhd"

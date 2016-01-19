@@ -8,7 +8,7 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
--- Description: 
+-- Description:  
 --
 -- Dependencies: 
 --
@@ -39,9 +39,7 @@ entity fifo_interfaz is
     rd_en : IN STD_LOGIC;
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
-    empty : OUT STD_LOGIC;
-    data_count : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-	 data_space : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    empty : OUT STD_LOGIC
   );
 end fifo_interfaz;
 
@@ -59,10 +57,6 @@ COMPONENT fifo
     data_count : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
 END COMPONENT;
-
-signal O_data_count : std_logic_vector (3 downto 0);
-signal space : std_logic_vector (7 downto 0);
-signal count : std_logic_vector (7 downto 0);
 begin
 f : fifo
   PORT MAP (
@@ -74,14 +68,8 @@ f : fifo
     dout => dout,
     full => full,
     empty => empty,
-    data_count => O_data_count
+    data_count => open
   );
-
-count(3 downto 0) <= O_data_count;
-count(7 downto 4) <= (OTHERS => '0');
-
-space(4 downto 0) <= "10000" - O_data_count;
-space(7 downto 5) <= (OTHERS => '0');
 
 end Behavioral;
 

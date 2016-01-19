@@ -1,31 +1,54 @@
-V3 25
+V3 41
 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd 2016/01/14.15:16:42 P.15xf
-EN work/divisor 1452786803 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd \
+EN work/divisor 1453217495 FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/NUMERIC_STD 1335251627 LB UNISIM \
       PH unisim/VCOMPONENTS 1335251629
-AR work/divisor/BEHAVIORAL 1452786804 \
-      FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd EN work/divisor 1452786803 CP BUFG \
+AR work/divisor/BEHAVIORAL 1453217496 \
+      FL C:/hlocal/chs/Pr1/MyHello/divisor.vhd EN work/divisor 1453217495 CP BUFG \
       CP IBUFG CP DCM
-FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd 2016/01/14.16:53:06 P.15xf
-EN work/fifo_interfaz 1452786801 FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd \
+FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd 2016/01/19.16:00:59 P.15xf
+EN work/fifo_interfaz 1453217493 FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
-AR work/fifo_interfaz/Behavioral 1452786802 \
-      FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd EN work/fifo_interfaz 1452786801 \
+AR work/fifo_interfaz/Behavioral 1453217494 \
+      FL C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd EN work/fifo_interfaz 1453217493 \
       CP fifo
 FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd 2016/01/14.16:48:35 P.15xf
-EN work/fifo 1452786799 FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd \
+EN work/fifo 1453217483 FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd \
       PB ieee/std_logic_1164 1335251622
-AR work/fifo/fifo_a 1452786800 \
-      FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd EN work/fifo 1452786799
+AR work/fifo/fifo_a 1453217484 \
+      FL C:/hlocal/chs/Pr1/MyHello/ipcore_dir/fifo.vhd EN work/fifo 1453217483
 FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd 2016/01/14.16:07:57 P.15xf
 EN work/mcs_top 1452784095 FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
 AR work/mcs_top/rtl 1452784096 \
-      FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd EN work/mcs_top 1452784095 \
+      FL C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd EN work/mcs_top 1452784095 CP RS232 \
       CP fifo_interfaz CP divisor CP microblaze_mcs CP register_n
+FL C:/hlocal/chs/Pr1/MyHello/receive.vhd 2016/01/19.15:20:59 P.15xf
+EN work/receive 1453217489 FL C:/hlocal/chs/Pr1/MyHello/receive.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/NUMERIC_STD 1335251627
+AR work/receive/arch 1453217490 \
+      FL C:/hlocal/chs/Pr1/MyHello/receive.vhd EN work/receive 1453217489
 FL C:/hlocal/chs/Pr1/MyHello/register.vhd 2016/01/14.15:26:31 P.15xf
 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd 2016/01/14.15:26:31 P.15xf
-EN work/register_n 1452786805 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd \
+EN work/register_n 1453217497 FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd \
       PB ieee/std_logic_1164 1335251622 PB ieee/STD_LOGIC_UNSIGNED 1335251625
-AR work/register_n/Behavioral 1452786806 \
-      FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd EN work/register_n 1452786805
+AR work/register_n/Behavioral 1453217498 \
+      FL C:/hlocal/chs/Pr1/MyHello/register_n.vhd EN work/register_n 1453217497
+FL C:/hlocal/chs/Pr1/MyHello/RS232.vhd 2016/01/19.15:20:54 P.15xf
+EN work/RS232 1453217491 FL C:/hlocal/chs/Pr1/MyHello/RS232.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/std_logic_arith 1335251623 \
+      PB ieee/STD_LOGIC_UNSIGNED 1335251625
+AR work/RS232/rtl 1453217492 \
+      FL C:/hlocal/chs/Pr1/MyHello/RS232.vhd EN work/RS232 1453217491 CP timing \
+      CP transmit CP receive
+FL C:/hlocal/chs/Pr1/MyHello/timing.vhd 2016/01/19.15:21:03 P.15xf
+EN work/timing 1453217485 FL C:/hlocal/chs/Pr1/MyHello/timing.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/NUMERIC_STD 1335251627 \
+      PB ieee/STD_LOGIC_UNSIGNED 1335251625 PB ieee/std_logic_arith 1335251623
+AR work/timing/timing 1453217486 \
+      FL C:/hlocal/chs/Pr1/MyHello/timing.vhd EN work/timing 1453217485
+FL C:/hlocal/chs/Pr1/MyHello/transmit.vhd 2016/01/19.15:21:06 P.15xf
+EN work/transmit 1453217487 FL C:/hlocal/chs/Pr1/MyHello/transmit.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/NUMERIC_STD 1335251627
+AR work/transmit/arch 1453217488 \
+      FL C:/hlocal/chs/Pr1/MyHello/transmit.vhd EN work/transmit 1453217487
