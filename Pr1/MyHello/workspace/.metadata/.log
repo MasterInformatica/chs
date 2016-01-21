@@ -154,3 +154,73 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
 	... 23 more
+!SESSION 2016-01-21 15:24:10.633 -----------------------------------------------
+eclipse.buildId=Release 14.1 Build SDK_P.15xf
+java.version=1.6.0_21
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 568 2016-01-21 15:29:26.057
+!MESSAGE Could not write metadata for '/hw_platform_0'.
+!STACK 0
+java.io.FileNotFoundException: C:\hlocal\chs\Pr1\MyHello\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\hw_platform_0\.markers.snap (El sistema no puede encontrar la ruta especificada)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1662)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1742)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1145)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1087)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2016-01-21 15:42:00.734
+!MESSAGE Could not write metadata for '/hw_platform_0'.
+!STACK 0
+java.io.FileNotFoundException: C:\hlocal\chs\Pr1\MyHello\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\hw_platform_0\.markers.snap (El sistema no puede encontrar la ruta especificada)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1662)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1742)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1145)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1087)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2016-01-21 15:49:28.363
+!MESSAGE Could not write metadata for '/hw_platform_0'.
+!STACK 0
+java.io.FileNotFoundException: C:\hlocal\chs\Pr1\MyHello\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\hw_platform_0\.markers.snap (El sistema no puede encontrar la ruta especificada)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1662)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1742)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1145)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1087)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2016-01-21 16:37:27.544
+!MESSAGE Could not write metadata for '/hw_platform_0'.
+!STACK 0
+java.io.FileNotFoundException: C:\hlocal\chs\Pr1\MyHello\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\hw_platform_0\.markers.snap (El sistema no puede encontrar la ruta especificada)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1662)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1742)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1145)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1087)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

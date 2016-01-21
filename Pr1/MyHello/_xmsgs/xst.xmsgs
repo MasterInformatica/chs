@@ -8,10 +8,72 @@
 <msg type="warning" file="HDLParsers" num="3498" delta="old" >No primary, secondary unit in the file &quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.vhd</arg>. Ignore this file from project file &quot;<arg fmt="%s" index="2">C:/hlocal/chs/Pr1/MyHello/mcs_top_vhdl.prj</arg>&quot;.
 </msg>
 
-<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">173</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">datoAEnviar</arg>&gt;.
+<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">159</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<arg fmt="%s" index="3">&lt;write_D&gt;, &lt;out_Switches&gt;, &lt;out_FR&gt;, &lt;emptyFR&gt;, &lt;fullFW&gt;</arg>
 </msg>
 
-<msg type="error" file="HDLParsers" num="856" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; Line <arg fmt="%d" index="2">174</arg>. No default value for unconnected port &lt;<arg fmt="%s" index="3">enviarDato</arg>&gt;.
+<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">205</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<arg fmt="%s" index="3">&lt;addr&gt;</arg>
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">247</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">RxErr</arg>&apos; of component &apos;<arg fmt="%s" index="4">RS232</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">284</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLKIN_IBUFG_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">284</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLK0_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">284</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">LOCKED_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">293</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">IO_Byte_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">293</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">microblaze_mcs</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd</arg>&quot; line <arg fmt="%d" index="2">61</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">data_count</arg>&apos; of component &apos;<arg fmt="%s" index="4">fifo</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd</arg>&quot; line <arg fmt="%d" index="2">61</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">write_D&lt;31:10&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">readFR</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">fullFR</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">RXOUT</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;7&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;6&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;5&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;4&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;3&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;2&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;1&gt;</arg>&gt;; this signal is connected to multiple drivers.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="old" >Multi-source in Unit &lt;<arg fmt="%s" index="1">mcs_top</arg>&gt; on signal &lt;<arg fmt="%s" index="2">out_FW&lt;0&gt;</arg>&gt;; this signal is connected to multiple drivers.
 </msg>
 
 </messages>

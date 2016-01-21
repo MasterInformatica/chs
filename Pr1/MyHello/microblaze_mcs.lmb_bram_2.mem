@@ -3,12 +3,12 @@
 // Release 13.4 - Data2MEM P.15xf, build 2.8 Mar 16, 2012
 // Copyright (c) 1995-2016 Xilinx, Inc.  All rights reserved.
 //
-// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/debug/hello_world_0.elf tag microblaze_mcs -bx . -u
+// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/Debug/hello_world_0.elf tag microblaze_mcs -bx . -u
 //
-// Created on Thursday January 14, 2016 - 04:08:55 pm, from:
+// Created on Thursday January 21, 2016 - 04:32:32 pm, from:
 //
 //     Map file     - C:\hlocal\chs\Pr1\MyHello\ipcore_dir\microblaze_mcs.bmm
-//     Data file(s) - workspace\hello_world_0\debug\hello_world_0.elf
+//     Data file(s) - workspace\hello_world_0\Debug\hello_world_0.elf
 //
 // Address space 'microblaze_mcs.lmb_bram', bit lane [23:20].
 //
@@ -23,49 +23,35 @@
 @00000014
     0 A 0 4 0 2 0 F 0 0 F A 0 0 6 2 E 6 2 C 0 C 0 8 0 6 9 6 6 7 7 9 A 6 8 8 8 0 6 F 0 0 6 9 4 6 0 6 0 0 A F 0 6 0 6 E 6 C 0 2 0 6 2
     0 E 0 A 0 C F 0 0 6 0 E 0 6 0 0 A F 0 E 0 2 2 E 0 C 0 E 4 7 0 C 4 9 0 C 0 E 4 7 0 C 4 9 0 F 0 0 F 0 C E 0 F A 6 0 F 0 0 F 0 E 7
-    0 2 2 E 6 6 0 F 0 0 A 0 F 0 7 A C 0 F 0 7 7 A 0 F 0 7 0 6 6 7 0 A D 0 F 0 0 6 9 8 0 2 E 6 6 0 F 0 0 F 0 E 3 6 2 0 0 2 E 6 6 0 F
-    0 0 F 0 E 3 6 2 0 0 2 6 6 3 6 2 0 0 2 E 6 6 F 0 F 0 E 3 6 2 0 0 2 E 6 6 F 0 E 3 6 2 0 0 2 6 6 E C A A 6 6 8 6 A E C 6 6 A B D 0
-    F A 7 6 4 E 6 C 0 2 2 6 E E 0 C 8 4 C 0 C E 6 C 0 C C 0 C 0 C 2 6 C 0 C 6 4 4 C 4 6 6 2 1 D D B D 0 F 1 6 6 B D 0 F 7 2 6 1 B 6
-    7 1 1 0 F 7 9 7 D A A A 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A F 6 7 4 B 7 0 F A 7 A B F D E 6 C E 0
-    2 4 6 0 2 6 1 6 A C E 0 2 4 2 C 0 E 6 E 2 4 6 8 A C A A 0 0 6 1 8 0 F 7 B A 0 D 6 2 E B 0 C 6 6 0 2 6 A 6 6 6 A 6 8 E 0 7 1 8 1
-    7 7 6 0 E A 6 2 E 8 8 E 8 2 7 8 D 8 E 2 7 8 8 0 6 6 8 4 6 6 6 0 B C E F 1 B A 2 D E 6 C E 0 2 4 6 8 A 0 2 D 1 0 F B 8 6 C A A A
-    6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 A F 6 7 0 6 8 2 8 1 A D 8 0 8 B 0 F A 7 2 6 A F C 1 B B D A 1 6
-    B C E F 1 1 B B 1 0 F A 1 B 6 2 0 F A B 0 C D A 1 6 B E D A 1 6 B 8 D A 1 6 0 F A 1 B 8 0 8 F E 8 8 8 0 A 8 7 2 E A 6 0 E 8 8 F
-    0 8 2 6 8 8 1 D 1 6 1 8 6 4 6 2 0 F A 1 B 6 0 6 0 0 F 0 1 B 0 F A 1 B 0 F A 0 F A 1 B 1 0 0 0 0 0 0 2 0 0 0 0 2 2 0 0 0 0 2 2 E
-    2 6 8 A C E 0 2 4 6 8 2 6 0 A 0 6 4 6 F 0 E 6 2 0 6 8 A C E 0 2 4 6 8 2 4 2 2 0 A 0 C 0 0 C 0 A 2 E 0 F 0 E 0 2 2 E 0 F 0 0 F 0
-    0 F 0 E 0 2 2 E 0 F 0 0 F 0 E 0 2 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 6 0 2 0 6 6 E 6 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 0 6 0
-    0 A 0 F C 6 0 6 E 0 2 6 E 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 0 A 0 0 0 F C E 6 0 6 6 0 2 0 A 0 F C E 6 0 6 6 0 2 2 0 E 0 A 0 0 0 F C
-    E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F
-    C E 6 0 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 0 8 A 2 6 0 6 0 0 2 0 E 0 A 0 0 0 F C E 6 0 6 6 0 2 0 A 0 F
-    C E 6 0 6 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 6 E 0 6 6 0 0 0 6 2 6 8 6 4 C 6 C C 6 E 6 0 2 0 A 0 F C
-    E 6 6 0 6 6 0 2 0 A 0 F C E 6 6 0 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 0 6 2 6 8 6 4 6 8 6 C 6 C E C E E 0 2 0 A 0 F C E 6 0 6
-    0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 0 8 0 0 C 0 6 E 6 0 2 0 A 0 F C 6 0 6 1 7 F A 8 6 6 6 C 8 6 2 0 0 2 9 9
-    3 8 2 8 8 3 2 8 8 A 2 E 0 8 6 9 E 6 0 2 2 6 E 0 6 8 0 0 0 8 0 6 0 6 6 0 6 E 6 0 2 0 A 0 F C 6 0 6 1 7 0 8 6 6 8 8 0 8 0 8 8 0 8
-    8 0 8 8 0 8 8 0 8 8 6 8 6 A 8 8 7 7 0 6 6 2 9 6 F B 0 8 6 9 0 8 9 E 6 0 2 2 0 E 6 0 0 6 4 6 0 6 0 6 0 A 0 F C 6 0 6 E 0 2 8 A C
-    C 8 C 8 A C 8 8 E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 6 4 6 0 6 0 6 0 A 0 F C 6 0 6 E 0 2 8 A C C C 8 A C
-    8 8 E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 6 0 0 6 4 6 0 6 0 C 0 A 0 F C 6 0 6 6 E 6 0 2 6 C C C 6 6 E 6 0 2
-    0 A 0 F C E 6 6 0 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 6 4 6 0 6 0 6 0 A 0 F C 6 0 6 E 0 2 8 6 6 C 8 6 C E C E E 0 2 0 A 0 F
-    C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 6 0 0 6 4 6 0 6 0 C 0 A 0 F C 6 0 6 6 E 6 0 2 C C 6 E 6 0 2 0 A 0 F C E 6 6 0 6 6 0
-    2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 6 4 6 0 6 2 6 6 8 2 C 8 C C C 8 E E 8 8 6 E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 0
-    A 0 F C 6 0 6 1 E 2 6 E C 0 6 6 0 0 6 4 6 0 6 2 6 6 C 1 6 8 8 2 6 6 C C C 6 C 6 8 6 8 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-    6 6 6 6 6 6 6 6 6 6 6 E 6 C 0 2 0 A 0 F C E 6 C 6 0 6 6 0 2 0 A 0 F C E 6 C 6 0 6 6 0 2 0 A 0 F C 6 0 6 1 7 0 A 0 F C 6 0 6 1 7
-    2 6 E 0 6 6 0 0 0 6 0 E 0 A 0 F C 6 0 6 6 E 6 0 2 6 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 6 E 0 6 6 0 0 0 6 0 E 0 A 0 F C 6 0 6 6 E 6 0
-    2 6 6 6 0 6 0 2 0 A 0 F C 6 0 6 1 7 2 6 E 0 6 6 0 0 0 6 0 E 0 A 0 F C 6 0 6 6 E 6 0 2 6 6 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0
-    0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E E 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E E 0 2 0 A 0 F C 6 0 6 1
-    E 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E E 0 2 0 A 0 F C 6 0 6 1 E 6 6 6 A A A A 0 6 6 0 0 0 6 A 0 0 0 0 C 0 0 0 6 A 2 6 6
-    C 6 C 6 C 0 E 0 0 0 0 8 6 6 2 C 0 0 8 6 6 0 6 0 6 0 6 2 0 E F 0 0 6 2 E 0 2 0 0 A 0 0 0 0 2 6 6 0 0 2 2 0 0 0 0 2 A C C 0 4 7 1
-    A 0 0 A C C 0 4 7 1 A 0 0 A C C 0 4 7 1 A 0 0 2 A C E 0 0 C A 4 1 6 4 B 6 4 0 4 5 8 1 6 4 A 8 B A D E 5 C 6 B 1 6 0 0 6 A C E 0
-    2 2 A C E 0 0 6 C A 4 1 4 B 6 4 0 4 9 8 6 0 4 A C 1 6 4 A A B A 6 E 5 6 D B 1 D 0 0 6 A C E 0 2 2 C 6 E 0 F 6 0 8 6 0 F A 0 F B
-    C 8 2 6 6 0 C 6 6 0 6 2 6 C 6 0 E C C 0 C 0 8 C 0 8 8 C 2 6 0 6 2 6 8 C 6 C 0 8 A E 6 C E 0 2 4 A F 1 E 7 6 5 3 1 C 1 6 D 6 D 6
-    D 1 1 7 7 D 0 1 7 6 2 5 D E 0 9 7 0 D 5 6 1 6 5 3 6 C 0 B 6 0 B F B 7 4 3 7 6 2 7 7 D 2 1 E 6 C E 0 2 4 6 8 A C 0 2 F 0 1 7 D 1
-    4 F D 1 7 1 D 5 D 0 6 5 D C 5 0 9 1 0 B 5 6 1 6 5 3 6 A 0 B 6 2 B F D 7 6 2 7 6 2 7 7 D 0 5 7 0 6 C 2 9 7 1 0 F 0 1 7 F B 1 7 D
-    D 0 6 8 0 B 1 0 F 0 7 6 2 7 6 2 7 7 0 D 1 7 7 1 0 0 6 2 E 8 0 6 0 6 F 7 7 8 2 E 6 0 2 2 E 0 6 0 0 6 0 0 F 0 0 F 0 E 0 2 2 E 0 F
-    0 E 0 2 F 0 F 0 6 6 6 6 6 7 6 6 4 7 0 6 2 0 3 3 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 7 6 2 2 2 2 2 2 2 2 1 1 1 1 0 0
-    0 1 4 4 0 0 0 0 0 1 4 4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 1 1 1 1 0 0 1 1 4 4 0 0 0 0 0 1 4 4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 2 2 E 6 6 0 F 0 7 A C 0 F 0 7 7 A 0 F 0 7 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 1 0 0 6 6 7 0 6 9 8 7 6 7 7 0 0 6 6 7 0 6 9
+    8 0 2 E 6 6 0 F 0 0 F 0 E 3 6 2 0 0 2 E 6 6 0 F 0 0 F 0 E 3 6 2 0 0 2 6 6 3 6 2 0 0 2 E 6 6 F 0 F 0 E 3 6 2 0 0 2 E 6 6 F 0 E 3
+    6 2 0 0 1 0 0 0 0 0 0 2 0 0 0 0 2 2 0 0 0 0 2 2 E 2 6 8 A C E 0 2 4 6 8 2 6 0 A 0 6 4 6 F 0 E 6 2 0 6 8 A C E 0 2 4 6 8 2 4 2 2
+    0 A 0 C 0 0 2 E 0 F 0 0 F 0 0 F 0 E 0 2 2 E 0 F 0 0 F 0 E 0 2 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 6 0 2 0 6 6 E 6 0 2 0 A 0 F C
+    6 0 6 1 E 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 0 A 0 0 0 F C E 6 0 6 6 0 2 0 A 0 F C E 6 0
+    6 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 0 E 0 A 0
+    0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 0 8 A 2 6 0 6 0 0 2 0 E 0 A 0 0
+    0 F C E 6 0 6 6 0 2 0 A 0 F C E 6 0 6 6 0 2 2 0 E 0 A 0 0 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 2 6 E 0 6 6 0 0 0 6 2 6 8 6 4
+    C 6 C C 6 E 6 0 2 0 A 0 F C E 6 6 0 6 6 0 2 0 A 0 F C E 6 6 0 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 0 6 2 6 8 6 4 6 8 6 C 6 C E
+    C E E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 0 8 0 0 C 0 6 E 6 0 2 0 A 0 F C 6 0 6 1 7 F
+    A 8 6 6 6 C 8 6 2 0 0 2 9 9 3 8 2 8 8 3 2 8 8 A 2 E 0 8 6 9 E 6 0 2 2 6 E 0 6 8 0 0 0 8 0 6 0 6 6 0 6 E 6 0 2 0 A 0 F C 6 0 6 1
+    7 0 8 6 6 8 8 0 8 0 8 8 0 8 8 0 8 8 0 8 8 0 8 8 6 8 6 A 8 8 7 7 0 6 6 2 9 6 F B 0 8 6 9 0 8 9 E 6 0 2 2 0 E 6 0 0 6 4 6 0 6 0 6
+    0 A 0 F C 6 0 6 E 0 2 8 A C C 8 C 8 A C 8 8 E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 6 4 6 0 6 0 6 0 A 0 F C
+    6 0 6 E 0 2 8 A C C C 8 A C 8 8 E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 6 0 0 6 4 6 0 6 0 C 0 A 0 F C 6 0 6 6
+    E 6 0 2 6 C C C 6 6 E 6 0 2 0 A 0 F C E 6 6 0 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 6 4 6 0 6 0 6 0 A 0 F C 6 0 6 E 0 2 8 6 6
+    C 8 6 C E C E E 0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E 0 6 6 0 0 6 4 6 0 6 0 C 0 A 0 F C 6 0 6 6 E 6 0 2 C C 6 E 6
+    0 2 0 A 0 F C E 6 6 0 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 0 E 6 0 0 6 4 6 0 6 2 6 6 8 2 C 8 C C C 8 E E 8 8 6 E 0 2 0 A 0 F C E 6 0 6
+    0 2 0 A 0 F C E 6 0 6 0 2 0 A 0 F C 6 0 6 1 E 2 6 E C 0 6 6 0 0 6 4 6 0 6 2 6 6 C 1 6 8 8 2 6 6 C C C 6 C 6 8 6 8 6 6 6 6 6 6 6
+    6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 E 6 C 0 2 0 A 0 F C E 6 C 6 0 6 6 0 2 0 A 0 F C E 6 C 6 0 6 6 0 2 0 A 0 F C 6
+    0 6 1 7 0 A 0 F C 6 0 6 1 7 2 6 E 0 6 6 0 0 0 6 0 E 0 A 0 F C 6 0 6 6 E 6 0 2 6 6 6 0 2 0 A 0 F C 6 0 6 1 7 2 6 E 0 6 6 0 0 0 6
+    0 E 0 A 0 F C 6 0 6 6 E 6 0 2 6 6 6 0 6 0 2 0 A 0 F C 6 0 6 1 7 2 6 E 0 6 6 0 0 0 6 0 E 0 A 0 F C 6 0 6 6 E 6 0 2 6 6 6 6 0 2 0
+    A 0 F C 6 0 6 1 7 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E E 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2
+    6 E E 0 2 0 A 0 F C 6 0 6 1 E 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 0 2 6 E E 0 2 0 A 0 F C 6 0 6 1 E 0 6 2 0 E F 0 0 6 2 E 0 2 0
+    0 A 0 0 0 0 2 6 6 0 0 2 2 0 0 0 0 2 A C C 0 4 7 1 A 0 0 A C C 0 4 7 1 A 0 0 A C C 0 4 7 1 A 0 0 2 C 6 E 0 F 6 0 8 6 0 F A 0 F B
+    2 6 8 C 6 C 0 8 A E 6 C E 0 2 4 A F 1 E 7 6 5 3 1 C 1 6 D 6 D 6 D 1 1 7 7 D 0 1 7 6 2 5 D E 0 9 7 0 D 5 6 1 6 5 3 6 C 0 B 6 0 B
+    F B 7 4 3 7 6 2 7 7 D 2 1 E 6 C E 0 2 4 6 8 A C 0 2 F 0 1 7 D 1 4 F D 1 7 1 D 5 D 0 6 5 D C 5 0 9 1 0 B 5 6 1 6 5 3 6 A 0 B 6 2
+    B F D 7 6 2 7 6 2 7 7 D 0 5 7 0 6 C 2 9 7 1 0 F 0 1 7 F B 1 7 D D 0 6 8 0 B 1 0 F 0 7 6 2 7 6 2 7 7 0 D 1 7 7 1 0 0 6 2 E 8 0 6
+    0 6 F 7 7 8 2 E 6 0 2 2 E 0 6 0 0 6 0 0 F 0 0 F 0 E 0 2 2 E 0 F 0 E 0 2 F 0 F 0 6 7 6 0
 
-@00000AEA
+@00000782
     0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0

@@ -6,7 +6,8 @@ Building file: ../src/helloworld.c
 Invoking: MicroBlaze gcc compiler
 mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../hello_world_bsp_0/microblaze_mcs/include -mno-xl-reorder -mlittle-endian -mcpu=v8.30.a -mxl-soft-mul -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o"src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:83:2: warning: implicit declaration of function 'xil_printf' [-Wimplicit-function-declaration]
+../src/helloworld.c:87:16: warning: unused variable 'ocupadas' [-Wunused-variable]
+../src/helloworld.c:86:16: warning: unused variable 'libres' [-Wunused-variable]
 Finished building: ../src/helloworld.c
 ' '
 Building target: hello_world_0.elf
@@ -17,7 +18,7 @@ Finished building target: hello_world_0.elf
 Invoking: MicroBlaze Print Size
 mb-size hello_world_0.elf  |tee "hello_world_0.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  11106	    352	   2094	  13552	   34f0	hello_world_0.elf
+   7618	    348	   2098	  10064	   2750	hello_world_0.elf
 Finished building: hello_world_0.elf.size
 ' '
 Invoking: Xilinx ELF Check

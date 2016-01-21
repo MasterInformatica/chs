@@ -59,9 +59,7 @@ END COMPONENT;
 		rd_en : IN std_logic;          
 		dout : OUT std_logic_vector(7 downto 0);
 		full : OUT std_logic;
-		empty : OUT std_logic;
-		data_count : OUT std_logic_vector(7 downto 0);
-		data_space : OUT std_logic_vector(7 downto 0)
+		empty : OUT std_logic
 		);
 	END COMPONENT;
 	
@@ -88,16 +86,19 @@ END COMPONENT;
 	-- DIRS
 	constant DIR_LEDS  : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000000";
 	constant DIR_SWIT  : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000004";
-	constant DIR_FR_DA : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000010";
-	constant DIR_FR_ST : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000014";
-	constant DIR_FW_DA : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000018";
-	constant DIR_FW_ST : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C000001C";
+	constant DIR_FR_DA : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000008";
+	constant DIR_FR_ST : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C000000C";
+	constant DIR_FW_DA : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000010";
+	constant DIR_FW_ST : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0000014";
 	
 	SIGNAL Reset_n : STD_LOGIC;
 	signal CLKO : std_logic;
 	-- UART signals
-	signal TxBusy : std_logic_vector(7 downto 0);
-	
+	signal TxBusy : std_logic;
+		signal RXOUT: std_logic;	
+	signal enviarDato: std_logic;
+	signal datoAEnviar: std_logic_vector(7 downto 0);
+
 	-- Register signals
 	SIGNAL loadSwitches  : STD_LOGIC;
 	SIGNAL loadLeds  : STD_LOGIC;
@@ -121,12 +122,17 @@ END COMPONENT;
 	signal readFW : std_logic;
 	signal in_FW  : std_logic_vector(7 downto 0);
 	signal out_FW : std_logic_vector(7 downto 0);
+	signal emptyFW : std_logic;
+	signal fullFW : std_logic;
 	
 	signal loadFR : std_logic;
 	signal readFR : std_logic;
 	signal in_FR  : std_logic_vector(7 downto 0);
 	signal out_FR : std_logic_vector(7 downto 0);
+	signal emptyFR : std_logic;
+	signal fullFR : std_logic;
 	
+	signal AA :  std_logic_vector(7 downto 0);
 	
 begin
 	Reset_n <= NOT Reset;
@@ -134,34 +140,105 @@ begin
   -- --------------------------------------------------------------------------
   -- PROCESS
   -- -------------------------------------------------------------------------- 
+AA <= out_FW;
+--datoAEnviar <= out_FW;
+ready <= '1';
+loadSwitches <= '1';
 
--- WRITE
-loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_LEDS ) else '0';
-loadFW   <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_FW_DA) else '0';
-in_FW <= write_D(7 downto 0);
+-- QUITAR ESTO CACA
 
+loadFR <= not emptyFW;
+---
 
--- READ MCB
-proc_read: process (addr_ready,addr,ld_ready)
+process(AA)
 begin
-	if( addr_ready ='1' and ld_ready ='1') then
-		if (addr = DIR_SWIT) then
+datoAEnviar <= AA;
+in_FR <= AA;
+end process;
+
+mcs_inOut: process (addr_ready,addr)
+begin
+	if ( addr_ready = '1' ) then
+		if ( addr = DIR_LEDS ) then
+			in_Leds <= write_D (9 downto 0);
+			in_FW <= (OTHERS =>'0');
+			read_D <= (OTHERS =>'0');
+		elsif ( addr = DIR_SWIT ) then
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= (OTHERS =>'0');
 			read_D (7 downto 0)  <= out_Switches;
 			read_D (31 downto 8) <= (OTHERS=> '0'); 
-		elsif (addr = DIR_FR_DA) then
+		elsif ( addr = DIR_FR_DA ) then
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= (OTHERS =>'0');
 			read_D (7 downto 0)  <= out_FR;
 			read_D (31 downto 8) <= (OTHERS=> '0');
+		elsif ( addr = DIR_FR_ST ) then
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= (OTHERS =>'0');
+			read_D (0)  <= emptyFR;
+			read_D (31 downto 1) <= (OTHERS=> '0');
+		elsif ( addr = DIR_FW_DA ) then
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= write_D (7 downto 0);
+			read_D <= (OTHERS=> '0');
+		elsif ( addr = DIR_FW_ST ) then
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= (OTHERS =>'0');
+			read_D (0)  <= fullFW;
+			read_D (31 downto 1) <= (OTHERS=> '0');
 		else
-			read_D <= (OTHERS => '0');
+			in_Leds <= (OTHERS =>'0');
+			in_FW <= (OTHERS =>'0');
+			read_D  <= (OTHERS=> '0');
 		end if;
 	else
-		read_D <= (OTHERS => '0');
+		in_Leds <= (OTHERS =>'0');
+		in_FW <= (OTHERS =>'0');
+		read_D  <= (OTHERS=> '0');
 	end if;
-end process proc_read;
+end process mcs_inOut;
+	
 
-proc_W2U: process (TxBusy)
+--loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_LEDS ) else '0';
+--loadFW   <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_FW_DA) else '0';	
+mcs_control: process (addr_ready,ld_ready,st_ready)
 begin
+	if ( ld_ready = '1' and addr = DIR_FR_DA ) then
+			loadLeds <='0';
+			loadFW <= '0';
+			--readFR <= '1';
+	elsif( st_ready = '1') then 
+		if ( addr = DIR_LEDS ) then
+			loadLeds <='1';
+			loadFW <= '0';
+			--readFR <= '0';
+		elsif ( addr = DIR_FW_DA ) then
+			loadLeds <='0';
+			loadFW <= '1';
+		--	readFR <= '0';
+		else
+			loadLeds <='0';
+			loadFW <= '0';
+			--readFR <= '0';
+		end if;
+	else
+		loadLeds <='0';
+		loadFW <= '0';
+		--readFR <= '0';
+	end if;
+end process mcs_control;
 
+
+proc_W2U: process (TxBusy,emptyFW)
+begin
+	if ( TxBusy='0') then 
+		readFW <= '1';
+		enviarDato <= '1';
+	else
+		readFW <= '0';
+		enviarDato <= '0';
+	end if;
 end process proc_W2U;
   -- --------------------------------------------------------------------------
   -- Instancias
@@ -175,12 +252,12 @@ end process proc_W2U;
 		reset => Reset_n,-- in
 		Rx => UART_Rx,-- in
 		Tx => UART_Tx, -- out
-		datoAEnviar => out_FW, -- in 7-0
-		enviarDato => open, -- in
+		datoAEnviar => datoAEnviar, -- in 7-0
+		enviarDato => enviarDato, -- in
 		TxBusy => TxBusy, -- out
 		datoRecibido => in_FR, -- out 7-0
 		RxErr => open, -- out
-		RxRdy => loadFR -- out
+		RxRdy => RXOUT -- out
 	);
 
 	read_fifo: fifo_interfaz PORT MAP(
@@ -190,8 +267,8 @@ end process proc_W2U;
 		wr_en => loadFR,
 		rd_en => readFR,
 		dout => out_FR,
-		full => open,
-		empty => open
+		full => fullFR,
+		empty => emptyFR
 	);
 	write_fifo: fifo_interfaz PORT MAP(
 		clk => CLKO,
@@ -200,8 +277,8 @@ end process proc_W2U;
 		wr_en => loadFW,
 		rd_en => readFW,
 		dout => out_FW,
-		full => open,
-		empty => open
+		full => fullFW,
+		empty => emptyFW
 	);
 
 	divisor_0: divisor PORT MAP(
@@ -250,13 +327,5 @@ reg_swi : register_n
          D => Switches,
          OutD => out_Switches
 		);
-
-
-
-in_Leds <= write_D (9 downto 0);
-
-ready <= '1';
-loadSwitches <= '1';
---loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_LEDS) else '0';
 
 end rtl;

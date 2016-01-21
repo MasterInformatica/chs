@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Thu Jan 14 16:08:24 2016
+// Written by: Map P.15xf on Thu Jan 21 16:29:54 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -28,6 +28,6 @@ COMP "Reset" LOCATE = SITE "E11" LEVEL 1;
 NET
         "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/pc_write_I"
         USELOWSKEWLINES;
-NET "Inst_divisor/CLKIN_IBUFG" PERIOD = 10 ns HIGH 50%;
+NET "divisor_0/CLKIN_IBUFG" PERIOD = 10 ns HIGH 50%;
 SCHEMATIC END;
 

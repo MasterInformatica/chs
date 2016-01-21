@@ -9,38 +9,38 @@ Target Device  : xc3s1000
 Target Package : ft256
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Thu Jan 14 16:08:23 2016
+Mapped Date    : Thu Jan 21 16:29:52 2016
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:   16
 Logic Utilization:
-  Number of Slice Flip Flops:           356 out of  15,360    2%
-  Number of 4 input LUTs:             1,024 out of  15,360    6%
+  Number of Slice Flip Flops:           485 out of  15,360    3%
+  Number of 4 input LUTs:             1,223 out of  15,360    7%
 Logic Distribution:
-  Number of occupied Slices:            615 out of   7,680    8%
-    Number of Slices containing only related logic:     615 out of     615 100%
-    Number of Slices containing unrelated logic:          0 out of     615   0%
+  Number of occupied Slices:            763 out of   7,680    9%
+    Number of Slices containing only related logic:     763 out of     763 100%
+    Number of Slices containing unrelated logic:          0 out of     763   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       1,056 out of  15,360    6%
-    Number used as logic:               720
-    Number used as a route-thru:         32
+  Total Number of 4 input LUTs:       1,348 out of  15,360    8%
+    Number used as logic:               922
+    Number used as a route-thru:        125
     Number used for Dual Port RAMs:     256
       (Two LUTs used per Dual Port RAM)
-    Number used as Shift registers:      48
+    Number used as Shift registers:      45
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 22 out of     173   12%
-  Number of RAMB16s:                      8 out of      24   33%
+  Number of RAMB16s:                     10 out of      24   41%
   Number of BUFGMUXs:                     2 out of       8   25%
   Number of DCMs:                         1 out of       4   25%
 
-Average Fanout of Non-Clock Nets:                4.05
+Average Fanout of Non-Clock Nets:                3.82
 
-Peak Memory Usage:  242 MB
+Peak Memory Usage:  244 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
@@ -321,14 +321,15 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
 '1717@fdilicencias1;2100@fdilicencias1'.
 INFO:Security:54 - 'xc3s1000' is a WebPack part.
-INFO:LIT:243 - Logical network mcs_0/U0/iomodule_0/IO_Read_Strobe has no load.
-INFO:LIT:395 - The above info message is repeated 117 more times for the
+INFO:LIT:243 - Logical network mcs_0/U0/iomodule_0/IO_Byte_Enable<3> has no
+   load.
+INFO:LIT:395 - The above info message is repeated 127 more times for the
    following (max. 5 shown):
-   mcs_0/U0/iomodule_0/IO_Byte_Enable<3>,
    mcs_0/U0/iomodule_0/IO_Byte_Enable<2>,
    mcs_0/U0/iomodule_0/IO_Byte_Enable<1>,
    mcs_0/U0/iomodule_0/IO_Byte_Enable<0>,
-   mcs_0/U0/iomodule_0/IO_Write_Data<31>
+   mcs_0/U0/iomodule_0/IO_Write_Data<31>,
+   mcs_0/U0/iomodule_0/IO_Write_Data<30>
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal Clk are pushed forward
@@ -339,9 +340,9 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 105 block(s) removed
-  81 block(s) optimized away
-  61 signal(s) removed
+ 144 block(s) removed
+  83 block(s) optimized away
+ 100 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -491,8 +492,6 @@ A.Result_Mux_Bits[9].Result_Mux_Bit_I/EX_Result_DFF" (FF) removed.
 Loadless block
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Ext_NM_BRK_FDR
 SE" (SFF) removed.
-The signal "mcs_0/U0/iomodule_0/IO_Read_Strobe" is sourceless and has been
-removed.
 The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<3>" is sourceless and has been
 removed.
 The signal "mcs_0/U0/iomodule_0/IO_Byte_Enable<2>" is sourceless and has been
@@ -560,6 +559,48 @@ sourceless and has been removed.
     The signal
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_3
 /LO" is sourceless and has been removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<5>" is sourceless and has been
+removed.
+ Sourceless block "mcs_0/U0/iomodule_0/gpo2_write31" (ROM) removed.
+  The signal "mcs_0/U0/iomodule_0/gpo2_write_bdd2" is sourceless and has been
+removed.
+   Sourceless block "mcs_0/U0/iomodule_0/uart_tx_write11" (ROM) removed.
+    The signal "mcs_0/U0/iomodule_0/uart_tx_write" is sourceless and has been
+removed.
+ Sourceless block "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd"
+(ROM) removed.
+  The signal "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd" is
+sourceless and has been removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<4>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<3>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<2>" is sourceless and has been
+removed.
+ Sourceless block
+"mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd_SW0" (ROM)
+removed.
+  The signal "mcs_0/N2" is sourceless and has been removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<1>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/lmb_abus_Q<0>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<0>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<1>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<2>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<3>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<4>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<5>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<6>" is sourceless and has been
+removed.
+The signal "mcs_0/U0/iomodule_0/write_data<7>" is sourceless and has been
+removed.
 The signal "mcs_0/U0/iomodule_0/write_data<8>" is sourceless and has been
 removed.
 The signal "mcs_0/U0/iomodule_0/write_data<9>" is sourceless and has been
@@ -610,11 +651,6 @@ The signal "mcs_0/U0/iomodule_0/write_data<31>" is sourceless and has been
 removed.
 The signal "mcs_0/U0/iomodule_0/io_read_keep_not0001" is sourceless and has been
 removed.
-The signal "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd" is
-sourceless and has been removed.
-The signal "mcs_0/N2" is sourceless and has been removed.
- Sourceless block "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd"
-(ROM) removed.
 The signal
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
 .Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X/O" is sourceless and has been removed.
@@ -634,13 +670,116 @@ PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/MUXCY_L_BUF" (BUF) removed.
   The signal
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
 PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/LO" is sourceless and has been removed.
-Unused block "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd_SW0"
-(ROM) removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.rsts/ram_empty_i" is sourceless and has been removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count<3>" is sourceless and has been removed.
+ Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_xor<3>11" (ROM) removed.
+  The signal "write_fifo/f/Result<3>" is sourceless and has been removed.
+   Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count_3" (FF) removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count<2>" is sourceless and has been removed.
+ Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_xor<2>11" (ROM) removed.
+  The signal "write_fifo/f/Result<2>" is sourceless and has been removed.
+   Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count_2" (FF) removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count<1>" is sourceless and has been removed.
+ Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_xor<1>11" (ROM) removed.
+  The signal "write_fifo/f/Result<1>" is sourceless and has been removed.
+   Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count_1" (FF) removed.
+ Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_cy<1>1" (ROM) removed.
+  The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_cy<1>1/O" is sourceless and has been removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count<0>" is sourceless and has been removed.
+ Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_xor<0>11_INV_0" (BUF) removed.
+  The signal "write_fifo/f/Result<0>" is sourceless and has been removed.
+   Sourceless block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/count_0" (FF) removed.
+The signal
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/cntr_en" is sourceless and has been removed.
+The signal "write_fifo/f/N14" is sourceless and has been removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/
+gwss.wsts/ram_full_i" is sourceless and has been removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count<3>" is sourceless and has been removed.
+ Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_xor<3>11" (ROM) removed.
+  The signal "read_fifo/f/Result<3>" is sourceless and has been removed.
+   Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count_3" (FF) removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count<2>" is sourceless and has been removed.
+ Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_xor<2>11" (ROM) removed.
+  The signal "read_fifo/f/Result<2>" is sourceless and has been removed.
+   Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count_2" (FF) removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count<1>" is sourceless and has been removed.
+ Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_xor<1>11" (ROM) removed.
+  The signal "read_fifo/f/Result<1>" is sourceless and has been removed.
+   Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count_1" (FF) removed.
+ Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_cy<1>1" (ROM) removed.
+  The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_cy<1>1/O" is sourceless and has been removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count<0>" is sourceless and has been removed.
+ Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_xor<0>11_INV_0" (BUF) removed.
+  The signal "read_fifo/f/Result<0>" is sourceless and has been removed.
+   Sourceless block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/count_0" (FF) removed.
+The signal
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/cntr_en" is sourceless and has been removed.
+The signal "read_fifo/f/N14" is sourceless and has been removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_0" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_1" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_2" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Byte_Enable_3" (SFF) removed.
-Unused block "mcs_0/U0/iomodule_0/IO_Read_Strobe" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_10" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_11" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_12" (SFF) removed.
@@ -663,6 +802,14 @@ Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_28" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_29" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_30" (SFF) removed.
 Unused block "mcs_0/U0/iomodule_0/IO_Write_Data_31" (SFF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_0" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_1" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_2" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_3" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_4" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/lmb_abus_Q_5" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_0" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_1" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_10" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_11" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_12" (FF) removed.
@@ -673,6 +820,7 @@ Unused block "mcs_0/U0/iomodule_0/write_data_16" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_17" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_18" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_19" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_2" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_20" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_21" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_22" (FF) removed.
@@ -683,13 +831,36 @@ Unused block "mcs_0/U0/iomodule_0/write_data_26" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_27" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_28" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_29" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_3" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_30" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_31" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_4" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_5" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_6" (FF) removed.
+Unused block "mcs_0/U0/iomodule_0/write_data_7" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_8" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_9" (FF) removed.
 Unused block
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n1_INV
 _0" (BUF) removed.
+Unused block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/Mxor_cntr_en_Result1" (ROM) removed.
+Unused block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
+grss.gdc.dc/dc/Mcount_count_xor<3>11_SW1" (ROM) removed.
+Unused block
+"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/
+gwss.wsts/ram_full_i" (FF) removed.
+Unused block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/Mxor_cntr_en_Result1" (ROM) removed.
+Unused block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.gdc.dc/dc/Mcount_count_xor<3>11_SW1" (ROM) removed.
+Unused block
+"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
+/grss.rsts/ram_empty_i" (FF) removed.
 Unused block
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
 .Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X" (MUX) removed.
@@ -916,6 +1087,8 @@ g_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Using_LUT4_1.Only_PC.Op1_Mux2_2
    optimized to 0
 GND 		mcs_0/XST_GND
 VCC 		mcs_0/XST_VCC
+GND 		read_fifo/f/XST_GND
+GND 		write_fifo/f/XST_GND
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.

@@ -8,6 +8,7 @@ xc3s1000-ft256-4 mcs_top.ngc mcs_top.ngd -bm ipcore_dir/microblaze_mcs.bmm
 
 Reading NGO file "C:/hlocal/chs/Pr1/MyHello/mcs_top.ngc" ...
 Loading design module "ipcore_dir/microblaze_mcs.ngc"...
+Loading design module "ipcore_dir/fifo.ngc"...
 Gathering constraint information from source properties...
 Done.
 
@@ -202,7 +203,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:  45
 
-Total memory usage is 159164 kilobytes
+Total memory usage is 160508 kilobytes
 
 Writing NGD file "mcs_top.ngd" ...
 Total REAL time to NGDBUILD completion:  2 sec

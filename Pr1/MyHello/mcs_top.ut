@@ -1,4 +1,4 @@
--bd "workspace/hello_world_0/debug/hello_world_0.elf" tag microblaze_mcs
+-bd "workspace/hello_world_0/Debug/hello_world_0.elf" tag microblaze_mcs
 -w
 -g DebugBitstream:No
 -g Binary:no
