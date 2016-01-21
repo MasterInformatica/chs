@@ -50,7 +50,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="helloworld.c" partName="helloworld.c" path="C:/hlocal/chs/Pr1/MyHello/workspace/hello_world_0/src/helloworld.c" title="helloworld.c" tooltip="hello_world_0/src/helloworld.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/hello_world_0/src/helloworld.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3352" selectionTopPixel="1122"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3824" selectionTopPixel="1610"/>
 </editor>
 </editors>
 <views>
@@ -62,8 +62,7 @@
 <view id="org.eclipse.tm.terminal.view.TerminalView" partName="Terminal"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (1 item)"/>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings (1 item)"/>
 <category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -204,6 +203,7 @@
 <editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\software\electronica\xilinx\14.1\ISE_DS\EDK\gnu\microblaze\nt64\microblaze-xilinx-elf\include\stdio.h" project="hello_world_0"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/hello_world_0/src/platform.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/hello_world_0/src/platform_config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/hello_world_0/src/campus.c"/>
 </editors>
 <item historyLabel="system.xml" index="0"/>
 <item historyLabel="system.mss" index="1"/>
@@ -253,8 +253,17 @@
 <item historyLabel="platform_config.h" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="helloworld.c" index="3">
+<item historyLabel="helloworld.c" index="3">
 <position info="not_deleted" x="4" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4249" y="0"/>
+</item>
+<item historyLabel="campus.c" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4249" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -273,6 +282,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="campus.c" tooltip="hello_world_0/src/campus.c">
+<persistable path="/hello_world_0/src/campus.c"/>
+</file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="C:\software\electronica\xilinx\14.1\ISE_DS\EDK\gnu\microblaze\nt64\microblaze-xilinx-elf\include\stdio.h">
 <persistable path="C:\software\electronica\xilinx\14.1\ISE_DS\EDK\gnu\microblaze\nt64\microblaze-xilinx-elf\include\stdio.h" project="hello_world_0"/>
 </file>
