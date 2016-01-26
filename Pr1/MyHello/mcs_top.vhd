@@ -140,95 +140,65 @@ begin
   -- --------------------------------------------------------------------------
   -- PROCESS
   -- -------------------------------------------------------------------------- 
-loadFR <= RXOUT;
-datoAEnviar <= out_FW;
-ready <= '1';
 loadSwitches <= '1';
 
-mcs_inOut: process (addr_ready,addr)
+loadFR <= '1' when (RXOUT='1' and fullFR = '0') else '0';
+
+readFW <= '1' when (TxBusy = '0' and emptyFW = '0' and enviarDato = '0') else '0';
+--enviarDato <= '1' when (TxBusy = '0' and emptyFW = '0') else '0';
+datoAEnviar <= out_FW;
+
+loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_LEDS ) else '0';
+in_Leds <= write_D (9 downto 0) when (addr_ready = '1' and addr = DIR_LEDS ) else (OTHERS =>'0');
+
+loadFW   <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_FW_DA) else '0';	
+in_FW <= write_D (7 downto 0) when (addr_ready = '1' and addr = DIR_FW_DA ) else (OTHERS =>'0');
+--WITH addr
+
+readFR 	<= '1' when (addr_ready = '1' and ld_ready = '1' and addr = DIR_FR_DA) else '0';
+
+read_D (31 DOWNTO 8) <= (OTHERS => '0');
+with addr select read_D (7 DOWNTO 0) <=
+    out_Switches when DIR_SWIT,
+    out_FR when DIR_FR_DA,
+    "0000000"&emptyFR when DIR_FR_ST,
+    "0000000"&fullFW when DIR_FW_ST,
+	 (OTHERS => '0') when OTHERS;
+
+biestable_ready:
+process ( CLKO, Reset_n)
 begin
-	if ( addr_ready = '1' ) then
-		if ( addr = DIR_LEDS ) then
-			in_Leds <= write_D (9 downto 0);
-			in_FW <= (OTHERS =>'0');
-			read_D <= (OTHERS =>'0');
-		elsif ( addr = DIR_SWIT ) then
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= (OTHERS =>'0');
-			read_D (7 downto 0)  <= out_Switches;
-			read_D (31 downto 8) <= (OTHERS=> '0'); 
-		elsif ( addr = DIR_FR_DA ) then
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= (OTHERS =>'0');
-			read_D (7 downto 0)  <= out_FR;
-			read_D (31 downto 8) <= (OTHERS=> '0');
-		elsif ( addr = DIR_FR_ST ) then
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= (OTHERS =>'0');
-			read_D (0)  <= emptyFR;
-			read_D (31 downto 1) <= (OTHERS=> '0');
-		elsif ( addr = DIR_FW_DA ) then
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= write_D (7 downto 0);
-			read_D <= (OTHERS=> '0');
-		elsif ( addr = DIR_FW_ST ) then
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= (OTHERS =>'0');
-			read_D (0)  <= fullFW;
-			read_D (31 downto 1) <= (OTHERS=> '0');
-		else
-			in_Leds <= (OTHERS =>'0');
-			in_FW <= (OTHERS =>'0');
-			read_D  <= (OTHERS=> '0');
-		end if;
-	else
-		in_Leds <= (OTHERS =>'0');
-		in_FW <= (OTHERS =>'0');
-		read_D  <= (OTHERS=> '0');
-	end if;
-end process mcs_inOut;
+	if (Reset_n = '1') then 
+		 ready <= '0';
+	elsif ( CLKO'EVENT and CLKO = '1') then
+		ready <= ld_ready OR st_ready;
+	end if;	
 	
+end process biestable_ready;	
 
---loadLeds <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_LEDS ) else '0';
---loadFW   <= '1' when (addr_ready = '1' and st_ready = '1' and addr = DIR_FW_DA) else '0';	
-mcs_control: process (addr_ready,ld_ready,st_ready)
+biestable_enviarDato:
+process ( CLKO, Reset_n)
 begin
-	if ( ld_ready = '1' and addr = DIR_FR_DA ) then
-			loadLeds <='0';
-			loadFW <= '0';
-			readFR <= '1';
-	elsif( st_ready = '1') then 
-		if ( addr = DIR_LEDS ) then
-			loadLeds <='1';
-			loadFW <= '0';
-			readFR <= '0';
-		elsif ( addr = DIR_FW_DA ) then
-			loadLeds <='0';
-			loadFW <= '1';
-			readFR <= '0';
-		else
-			loadLeds <='0';
-			loadFW <= '0';
-			readFR <= '0';
-		end if;
-	else
-		loadLeds <='0';
-		loadFW <= '0';
-		readFR <= '0';
-	end if;
-end process mcs_control;
+	if (Reset_n = '1') then 
+		 enviarDato <= '0';
+	elsif ( CLKO'EVENT and CLKO = '1') then
+		enviarDato <= readFW;
+	end if;	
+	
+end process biestable_enviarDato;	
 
 
-proc_W2U: process (TxBusy,emptyFW)
-begin
-	if ( TxBusy='0') then 
-		readFW <= '1';
-		enviarDato <= '1';
-	else
-		readFW <= '0';
-		enviarDato <= '0';
-	end if;
-end process proc_W2U;
+
+
+-- MCS CONTROL
+
+
+
+
+-- UART W 2 U
+
+
+
   -- --------------------------------------------------------------------------
   -- Instancias
   -- -------------------------------------------------------------------------- 

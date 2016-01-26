@@ -3,12 +3,12 @@
 // Release 13.4 - Data2MEM P.15xf, build 2.8 Mar 16, 2012
 // Copyright (c) 1995-2016 Xilinx, Inc.  All rights reserved.
 //
-// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/debug/hello_world_0.elf tag microblaze_mcs -bx . -u
+// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/Debug/hello_world_0.elf tag microblaze_mcs -bx . -u
 //
-// Created on Tuesday January 26, 2016 - 03:04:04 pm, from:
+// Created on Tuesday January 26, 2016 - 04:47:50 pm, from:
 //
 //     Map file     - C:\hlocal\chs\Pr1\MyHello\ipcore_dir\microblaze_mcs.bmm
-//     Data file(s) - workspace\hello_world_0\debug\hello_world_0.elf
+//     Data file(s) - workspace\hello_world_0\Debug\hello_world_0.elf
 //
 // Address space 'microblaze_mcs.lmb_bram', bit lane [3:0].
 //
@@ -23,8 +23,8 @@
 @00000014
     0 8 0 A 0 0 0 C 0 0 C 0 0 0 8 C 0 C 8 0 0 C 0 0 0 C 0 0 1 1 F 3 8 1 0 0 0 0 C 0 0 0 C 3 8 1 0 0 4 0 0 0 0 1 0 8 0 C 0 8 4 0 0 4
     0 0 0 0 0 0 0 0 0 4 8 0 0 0 8 0 4 0 0 0 8 C C 0 0 8 0 8 0 4 0 4 0 4 0 8 0 0 0 4 0 4 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 C 0 0 0
-    8 4 C 0 0 0 0 0 0 8 0 0 0 8 0 C 8 0 0 4 0 C 0 0 8 0 0 0 F 0 0 0 C 0 0 0 1 0 0 0 A 0 0 C 0 C C 0 0 4 0 C C 4 4 C 0 4 0 8 0 C 0 0
-    C 0 0 4 0 C 0 0 C 0 0 0 0 C 0 0 8 0 0 4 0 0 0 C 0 8 0 0 0 C 0 0 C 0 0 8 0 0 0 C 0 8 0 8 4 0 0 4 8 8 0 0 0 C 0 0 0 8 0 0 0 C 0 8
+    8 4 8 0 4 0 0 0 0 C 0 0 0 8 0 C C 0 0 4 0 C 0 0 8 0 0 0 F 0 0 0 C 0 0 0 1 0 0 0 A 0 0 C 0 C C 0 0 4 0 8 0 4 0 4 0 C C 8 8 4 0 0
+    4 0 0 4 0 C 0 0 C 0 0 0 0 C 0 0 8 0 0 4 0 0 0 C 0 8 0 0 0 C 0 0 C 0 0 8 0 0 0 C 0 8 0 8 4 0 0 4 8 8 0 0 0 C 0 0 0 8 0 0 0 C 0 8
     0 0 0 C 0 8 0 0 0 C 0 8 0 0 0 8 0 8 0 0 C 1 0 1 8 4 C 1 0 1 8 4 C 0 0 4 8 C 0 4 8 C 0 4 8 C 1 0 8 0 4 0 C 0 0 0 C 0 1 4 8 C 0 4
     8 C 0 4 8 C 0 0 4 0 4 0 8 8 0 4 0 0 4 0 0 0 0 0 C 0 0 8 C 4 0 0 C 0 0 8 0 0 8 C 4 C 0 4 0 C 1 1 4 0 4 0 C E 1 0 C 0 0 8 C 2 2 8
     0 0 8 C 0 4 0 0 D 1 0 C 8 0 4 C 0 4 0 C 1 1 0 0 4 0 4 D 1 0 C 0 8 C 8 0 8 C 0 4 0 8 C 1 0 C 8 0 4 0 0 0 4 0 C 0 C 4 0 1 0 C 0 8

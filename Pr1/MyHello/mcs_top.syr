@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> Reading design: mcs_top.prj
 
@@ -163,16 +163,12 @@ Analyzing hierarchy for entity <receive> in library <work> (architecture <arch>)
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <mcs_top> in library <work> (Architecture <rtl>).
-WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 148: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <write_D>, <out_Switches>, <out_FR>, <emptyFR>, <fullFW>
-WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 194: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <addr>
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 236: Unconnected output port 'RxErr' of component 'RS232'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'CLK0_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'LOCKED_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 282: Unconnected output port 'IO_Byte_Enable' of component 'microblaze_mcs'.
-WARNING:Xst:2211 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 282: Instantiating black box module <microblaze_mcs>.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 206: Unconnected output port 'RxErr' of component 'RS232'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 243: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 243: Unconnected output port 'CLK0_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 243: Unconnected output port 'LOCKED_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 252: Unconnected output port 'IO_Byte_Enable' of component 'microblaze_mcs'.
+WARNING:Xst:2211 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 252: Instantiating black box module <microblaze_mcs>.
 Entity <mcs_top> analyzed. Unit <mcs_top> generated.
 
 Analyzing generic Entity <RS232> in library <work> (Architecture <rtl>).
@@ -346,9 +342,11 @@ Unit <divisor> synthesized.
 Synthesizing Unit <mcs_top>.
     Related source file is "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd".
 WARNING:Xst:646 - Signal <write_D<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <fullFR> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <emptyFW> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <AA> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <enviarDato>.
+    Found 1-bit register for signal <ready>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
 Unit <mcs_top> synthesized.
 
 
@@ -362,8 +360,8 @@ Macro Statistics
 # Counters                                             : 2
  12-bit up counter                                     : 1
  32-bit up counter                                     : 1
-# Registers                                            : 15
- 1-bit register                                        : 6
+# Registers                                            : 17
+ 1-bit register                                        : 8
  10-bit register                                       : 1
  32-bit register                                       : 2
  4-bit register                                        : 1
@@ -415,8 +413,8 @@ Macro Statistics
  4-bit subtractor                                      : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 125
- Flip-Flops                                            : 125
+# Registers                                            : 127
+ Flip-Flops                                            : 127
 # Multiplexers                                         : 1
  32-bit 4-to-1 multiplexer                             : 1
 
@@ -481,8 +479,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 161
- Flip-Flops                                            : 161
+# Registers                                            : 163
+ Flip-Flops                                            : 163
 
 =========================================================================
 
@@ -511,28 +509,28 @@ Design Statistics
 # IOs                              : 22
 
 Cell Usage :
-# BELS                             : 1643
+# BELS                             : 1646
 #      GND                         : 14
-#      INV                         : 19
+#      INV                         : 18
 #      LUT1                        : 97
-#      LUT2                        : 116
-#      LUT2_D                      : 5
-#      LUT2_L                      : 3
-#      LUT3                        : 290
+#      LUT2                        : 127
+#      LUT2_D                      : 4
+#      LUT2_L                      : 4
+#      LUT3                        : 279
 #      LUT3_D                      : 5
-#      LUT3_L                      : 41
-#      LUT4                        : 503
-#      LUT4_D                      : 7
-#      LUT4_L                      : 16
+#      LUT3_L                      : 42
+#      LUT4                        : 507
+#      LUT4_D                      : 6
+#      LUT4_L                      : 17
 #      MULT_AND                    : 34
 #      MUXCY                       : 117
 #      MUXCY_L                     : 74
-#      MUXF5                       : 157
+#      MUXF5                       : 156
 #      VCC                         : 2
 #      XORCY                       : 143
-# FlipFlops/Latches                : 660
+# FlipFlops/Latches                : 662
 #      FD                          : 84
-#      FDC                         : 119
+#      FDC                         : 121
 #      FDCE                        : 71
 #      FDE                         : 111
 #      FDP                         : 29
@@ -564,10 +562,10 @@ Device utilization summary:
 
 Selected Device : 3s1000ft256-4 
 
- Number of Slices:                      648  out of   7680     8%  
- Number of Slice Flip Flops:            660  out of  15360     4%  
- Number of 4 input LUTs:               1403  out of  15360     9%  
-    Number used as logic:              1102
+ Number of Slices:                      650  out of   7680     8%  
+ Number of Slice Flip Flops:            662  out of  15360     4%  
+ Number of 4 input LUTs:               1407  out of  15360     9%  
+    Number used as logic:              1106
     Number used as Shift registers:      45
     Number used as RAMs:                256
  Number of IOs:                          22
@@ -597,7 +595,7 @@ Clock Information:
 -----------------------------------+-------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)   | Load  |
 -----------------------------------+-------------------------+-------+
-Clk                                | divisor_0/DCM_INST:CLKDV| 843   |
+Clk                                | divisor_0/DCM_INST:CLKDV| 845   |
 -----------------------------------+-------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -605,7 +603,7 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                                           | Buffer(FF name)                                                                                              | Load  |
 ---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-------+
-Reset_n(Reset_n1_INV_0:O)                                                                                                                                | NONE(UART/reception_i/ClrDiv)                                                                                | 173   |
+Reset_n(Reset_n1_INV_0:O)                                                                                                                                | NONE(UART/reception_i/ClrDiv)                                                                                | 175   |
 read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg<2>(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2:Q)  | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.gdc.dc/dc/count_0)  | 14    |
 write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg<2>(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2:Q)| NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.gdc.dc/dc/count_0) | 14    |
 read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg<1>(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg_1:Q)  | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_0)           | 8     |
@@ -623,7 +621,7 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 5.877ns (Maximum Frequency: 170.165MHz)
-   Minimum input arrival time before clock: 5.043ns
+   Minimum input arrival time before clock: 5.054ns
    Maximum output required time after clock: 7.241ns
    Maximum combinational path delay: No path found
 
@@ -634,7 +632,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
   Clock period: 5.877ns (frequency: 170.165MHz)
-  Total number of paths / destination ports: 113937 / 2899
+  Total number of paths / destination ports: 113805 / 2903
 -------------------------------------------------------------------------
 Delay:               11.753ns (Levels of Logic = 17)
   Source:            mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (FF)
@@ -673,7 +671,7 @@ Delay:               11.753ns (Levels of Logic = 17)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
   Total number of paths / destination ports: 14 / 13
 -------------------------------------------------------------------------
-Offset:              5.043ns (Levels of Logic = 3)
+Offset:              5.054ns (Levels of Logic = 3)
   Source:            Reset (PAD)
   Destination:       mcs_0/U0/reset_vec_0 (FF)
   Destination Clock: Clk rising 0.5X
@@ -683,11 +681,11 @@ Offset:              5.043ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   0.821   0.801  Reset_IBUF (Reset_IBUF)
-     INV:I->O            174   0.551   2.667  Reset_n1_INV_0 (Reset_n)
+     INV:I->O            176   0.551   2.678  Reset_n1_INV_0 (Reset_n)
      begin scope: 'mcs_0'
      FD:D                      0.203          U0/reset_vec_0
     ----------------------------------------
-    Total                      5.043ns (1.575ns logic, 3.468ns route)
+    Total                      5.054ns (1.575ns logic, 3.479ns route)
                                        (31.2% logic, 68.8% route)
 
 =========================================================================
@@ -713,13 +711,13 @@ Offset:              7.241ns (Levels of Logic = 1)
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.86 secs
+Total CPU time to Xst completion: 8.88 secs
  
 --> 
 
-Total memory usage is 300300 kilobytes
+Total memory usage is 299276 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   16 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
 Number of infos    :   28 (   0 filtered)
 

@@ -8,30 +8,22 @@
 <msg type="warning" file="HDLParsers" num="3498" delta="old" >No primary, secondary unit in the file &quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.vhd</arg>. Ignore this file from project file &quot;<arg fmt="%s" index="2">C:/hlocal/chs/Pr1/MyHello/mcs_top_vhdl.prj</arg>&quot;.
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">148</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;write_D&gt;, &lt;out_Switches&gt;, &lt;out_FR&gt;, &lt;emptyFR&gt;, &lt;fullFW&gt;</arg>
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">206</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">RxErr</arg>&apos; of component &apos;<arg fmt="%s" index="4">RS232</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">194</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;addr&gt;</arg>
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">243</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLKIN_IBUFG_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">236</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">RxErr</arg>&apos; of component &apos;<arg fmt="%s" index="4">RS232</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">243</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLK0_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">273</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLKIN_IBUFG_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">243</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">LOCKED_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">273</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">CLK0_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">252</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">IO_Byte_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">273</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">LOCKED_OUT</arg>&apos; of component &apos;<arg fmt="%s" index="4">divisor</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">282</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">IO_Byte_Enable</arg>&apos; of component &apos;<arg fmt="%s" index="4">microblaze_mcs</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">282</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">microblaze_mcs</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd</arg>&quot; line <arg fmt="%d" index="2">252</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">microblaze_mcs</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">C:/hlocal/chs/Pr1/MyHello/fifo_interfaz.vhd</arg>&quot; line <arg fmt="%d" index="2">61</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">data_count</arg>&apos; of component &apos;<arg fmt="%s" index="4">fifo</arg>&apos;.
@@ -41,12 +33,6 @@
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">write_D&lt;31:10&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">fullFR</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">emptyFW</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">AA</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.

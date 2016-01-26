@@ -9,22 +9,22 @@ Target Device  : xc3s1000
 Target Package : ft256
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Tue Jan 26 14:53:07 2016
+Mapped Date    : Tue Jan 26 16:47:18 2016
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:   16
 Logic Utilization:
-  Number of Slice Flip Flops:           485 out of  15,360    3%
-  Number of 4 input LUTs:             1,223 out of  15,360    7%
+  Number of Slice Flip Flops:           489 out of  15,360    3%
+  Number of 4 input LUTs:             1,230 out of  15,360    8%
 Logic Distribution:
-  Number of occupied Slices:            763 out of   7,680    9%
-    Number of Slices containing only related logic:     763 out of     763 100%
-    Number of Slices containing unrelated logic:          0 out of     763   0%
+  Number of occupied Slices:            770 out of   7,680   10%
+    Number of Slices containing only related logic:     770 out of     770 100%
+    Number of Slices containing unrelated logic:          0 out of     770   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       1,348 out of  15,360    8%
-    Number used as logic:               922
+  Total Number of 4 input LUTs:       1,355 out of  15,360    8%
+    Number used as logic:               929
     Number used as a route-thru:        125
     Number used for Dual Port RAMs:     256
       (Two LUTs used per Dual Port RAM)
@@ -38,11 +38,11 @@ Logic Distribution:
   Number of BUFGMUXs:                     2 out of       8   25%
   Number of DCMs:                         1 out of       4   25%
 
-Average Fanout of Non-Clock Nets:                3.82
+Average Fanout of Non-Clock Nets:                3.80
 
-Peak Memory Usage:  244 MB
-Total REAL time to MAP completion:  4 secs 
-Total CPU time to MAP completion:   2 secs 
+Peak Memory Usage:  245 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
 
 NOTES:
 
@@ -323,7 +323,7 @@ INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
 INFO:Security:54 - 'xc3s1000' is a WebPack part.
 INFO:LIT:243 - Logical network mcs_0/U0/iomodule_0/IO_Byte_Enable<3> has no
    load.
-INFO:LIT:395 - The above info message is repeated 127 more times for the
+INFO:LIT:395 - The above info message is repeated 125 more times for the
    following (max. 5 shown):
    mcs_0/U0/iomodule_0/IO_Byte_Enable<2>,
    mcs_0/U0/iomodule_0/IO_Byte_Enable<1>,
@@ -340,9 +340,9 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 144 block(s) removed
-  83 block(s) optimized away
- 100 signal(s) removed
+ 142 block(s) removed
+  82 block(s) optimized away
+  97 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -649,8 +649,6 @@ The signal "mcs_0/U0/iomodule_0/write_data<30>" is sourceless and has been
 removed.
 The signal "mcs_0/U0/iomodule_0/write_data<31>" is sourceless and has been
 removed.
-The signal "mcs_0/U0/iomodule_0/io_read_keep_not0001" is sourceless and has been
-removed.
 The signal
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
 .Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X/O" is sourceless and has been removed.
@@ -670,9 +668,6 @@ PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/MUXCY_L_BUF" (BUF) removed.
   The signal
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_F
 PGA.Buffer_DFFs[1].buffer_Addr_MUXCY_L/LO" is sourceless and has been removed.
-The signal
-"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
-/grss.rsts/ram_empty_i" is sourceless and has been removed.
 The signal
 "write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
 /grss.gdc.dc/dc/count<3>" is sourceless and has been removed.
@@ -723,9 +718,6 @@ The signal
 "write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
 /grss.gdc.dc/cntr_en" is sourceless and has been removed.
 The signal "write_fifo/f/N14" is sourceless and has been removed.
-The signal
-"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/
-gwss.wsts/ram_full_i" is sourceless and has been removed.
 The signal
 "read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
 grss.gdc.dc/dc/count<3>" is sourceless and has been removed.
@@ -850,17 +842,11 @@ Unused block
 "read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/
 grss.gdc.dc/dc/Mcount_count_xor<3>11_SW1" (ROM) removed.
 Unused block
-"read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/
-gwss.wsts/ram_full_i" (FF) removed.
-Unused block
 "write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
 /grss.gdc.dc/Mxor_cntr_en_Result1" (ROM) removed.
 Unused block
 "write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
 /grss.gdc.dc/dc/Mcount_count_xor<3>11_SW1" (ROM) removed.
-Unused block
-"write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd
-/grss.rsts/ram_empty_i" (FF) removed.
 Unused block
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA
 .Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X" (MUX) removed.
@@ -1006,8 +992,6 @@ FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_8
    optimized to 0
 FDR 		mcs_0/U0/iomodule_0/io_bus_read_data_9
    optimized to 0
-LUT4 		mcs_0/U0/iomodule_0/io_read_keep_not00011
-   optimized to 1
 LUT3
 		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_
 Carry_Decoding.alu_carry_select_LUT

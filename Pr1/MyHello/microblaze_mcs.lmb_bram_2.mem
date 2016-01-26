@@ -3,12 +3,12 @@
 // Release 13.4 - Data2MEM P.15xf, build 2.8 Mar 16, 2012
 // Copyright (c) 1995-2016 Xilinx, Inc.  All rights reserved.
 //
-// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/debug/hello_world_0.elf tag microblaze_mcs -bx . -u
+// Command: C:\software\electronica\xilinx\14.1\ISE_DS\ISE\bin\nt64\data2mem.EXE -p "xc3s1000ft256-4" -bm C:/hlocal/chs/Pr1/MyHello/ipcore_dir/microblaze_mcs.bmm -bd workspace/hello_world_0/Debug/hello_world_0.elf tag microblaze_mcs -bx . -u
 //
-// Created on Tuesday January 26, 2016 - 03:04:04 pm, from:
+// Created on Tuesday January 26, 2016 - 04:47:50 pm, from:
 //
 //     Map file     - C:\hlocal\chs\Pr1\MyHello\ipcore_dir\microblaze_mcs.bmm
-//     Data file(s) - workspace\hello_world_0\debug\hello_world_0.elf
+//     Data file(s) - workspace\hello_world_0\Debug\hello_world_0.elf
 //
 // Address space 'microblaze_mcs.lmb_bram', bit lane [23:20].
 //
@@ -23,7 +23,7 @@
 @00000014
     0 A 0 4 0 2 0 F 0 0 F A 0 0 6 2 E 6 2 C 0 C 0 8 0 6 9 6 6 7 7 9 A 6 8 8 8 0 6 F 0 0 6 9 4 6 0 6 0 0 A F 0 6 0 6 E 6 C 0 2 0 6 2
     0 E 0 A 0 C F 0 0 6 0 E 0 6 0 0 A F 0 E 0 2 2 E 0 C 0 E 4 7 0 C 4 9 0 C 0 E 4 7 0 C 4 9 0 F 0 0 F 0 C E 0 F A 6 0 F 0 0 F 0 E 7
-    0 2 2 E 6 6 0 F 0 7 A C 0 F 0 7 7 A 0 F 0 7 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 0 6 6 7 7 7 0 6 6 7 7 7 7 0 7 2 0 6 6 7 0 6
+    0 2 2 E 6 6 0 F 0 7 A C 0 F 0 7 7 A 0 F 0 7 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 0 6 8 8 0 6 6 7 7 7 7 2 0 6 6 7 0 6 6 7 7 7 7 2 0 6
     9 8 0 6 6 7 0 6 9 8 0 2 E 6 6 0 F 0 0 F 0 E 3 6 2 0 0 2 E 6 6 0 F 0 0 F 0 E 3 6 2 0 0 2 6 6 3 6 2 0 0 2 E 6 6 F 0 F 0 E 3 6 2 0
     0 2 E 6 6 F 0 E 3 6 2 0 0 1 0 0 0 0 0 0 2 0 0 0 0 2 2 0 0 0 0 2 2 E 2 6 8 A C E 0 2 4 6 8 2 6 0 A 0 6 4 6 F 0 E 6 2 0 6 8 A C E
     0 2 4 6 8 2 4 2 2 0 A 0 C 0 0 2 E 0 F 0 0 F 0 0 F 0 E 0 2 2 E 0 F 0 0 F 0 E 0 2 2 0 E 6 0 0 0 6 0 0 A 0 F C 6 0 6 E 6 0 2 0 6 6
