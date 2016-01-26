@@ -6,8 +6,7 @@ Building file: ../src/helloworld.c
 Invoking: MicroBlaze gcc compiler
 mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../hello_world_bsp_0/microblaze_mcs/include -mno-xl-reorder -mlittle-endian -mcpu=v8.30.a -mxl-soft-mul -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o"src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:87:16: warning: unused variable 'ocupadas' [-Wunused-variable]
-../src/helloworld.c:86:16: warning: unused variable 'libres' [-Wunused-variable]
+../src/helloworld.c:88:16: warning: unused variable 'i' [-Wunused-variable]
 Finished building: ../src/helloworld.c
 ' '
 Building target: hello_world_0.elf
@@ -18,7 +17,7 @@ Finished building target: hello_world_0.elf
 Invoking: MicroBlaze Print Size
 mb-size hello_world_0.elf  |tee "hello_world_0.elf.size"
    text	   data	    bss	    dec	    hex	filename
-   7618	    348	   2098	  10064	   2750	hello_world_0.elf
+   7654	    348	   2088	  10090	   276a	hello_world_0.elf
 Finished building: hello_world_0.elf.size
 ' '
 Invoking: Xilinx ELF Check

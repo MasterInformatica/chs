@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> Reading design: mcs_top.prj
 
@@ -163,16 +163,16 @@ Analyzing hierarchy for entity <receive> in library <work> (architecture <arch>)
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <mcs_top> in library <work> (Architecture <rtl>).
-WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 159: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 148: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <write_D>, <out_Switches>, <out_FR>, <emptyFR>, <fullFW>
-WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 205: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 194: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <addr>
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 247: Unconnected output port 'RxErr' of component 'RS232'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 284: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 284: Unconnected output port 'CLK0_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 284: Unconnected output port 'LOCKED_OUT' of component 'divisor'.
-WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 293: Unconnected output port 'IO_Byte_Enable' of component 'microblaze_mcs'.
-WARNING:Xst:2211 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 293: Instantiating black box module <microblaze_mcs>.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 236: Unconnected output port 'RxErr' of component 'RS232'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'CLK0_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 273: Unconnected output port 'LOCKED_OUT' of component 'divisor'.
+WARNING:Xst:753 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 282: Unconnected output port 'IO_Byte_Enable' of component 'microblaze_mcs'.
+WARNING:Xst:2211 - "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd" line 282: Instantiating black box module <microblaze_mcs>.
 Entity <mcs_top> analyzed. Unit <mcs_top> generated.
 
 Analyzing generic Entity <RS232> in library <work> (Architecture <rtl>).
@@ -346,9 +346,9 @@ Unit <divisor> synthesized.
 Synthesizing Unit <mcs_top>.
     Related source file is "C:/hlocal/chs/Pr1/MyHello/mcs_top.vhd".
 WARNING:Xst:646 - Signal <write_D<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <readFR> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <fullFR> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <RXOUT> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <emptyFW> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <AA> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 Unit <mcs_top> synthesized.
 
 
@@ -425,56 +425,301 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[1].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[1].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[2].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[2].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[3].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[3].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[4].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[4].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[5].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[5].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[6].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[6].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[7].RAMB16_S4_1 in unit U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[7].RAMB16_S4_1 of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram in unit U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram of type RAMB16_S36_S36 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram in unit U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram of type RAMB16_S36_S36 has been replaced by RAMB16
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<7>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_7>
-   Output port RAMB16_S36_S36:DOB25 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <mcs_top> ...
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<6>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_6>
-   Output port RAMB16_S36_S36:DOB24 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <register_n_1> ...
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<5>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_5>
-   Output port RAMB16_S36_S36:DOB17 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <register_n_2> ...
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<4>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_4>
-   Output port RAMB16_S36_S36:DOB16 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <timing> ...
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<3>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_3>
-   Output port RAMB16_S36_S36:DOB9 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <transmit> ...
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<2>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_2>
-   Output port RAMB16_S36_S36:DOB8 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Optimizing unit <receive> ...
+WARNING:Xst:2677 - Node <UART/reception_i/RxErr> of sequential type is unconnected in block <mcs_top>.
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<1>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_1>
-   Output port RAMB16_S36_S36:DOB1 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mcs_top, actual ratio is 8.
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i> in Unit <mcs_0> is equivalent to the following 31 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+INFO:Xst:2260 - The FF/Latch <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0_1> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i> in Unit <mcs_0> is equivalent to the following 31 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+INFO:Xst:2260 - The FF/Latch <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0> in Unit <mcs_0> is equivalent to the following FF/Latch : <U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_0_1> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i> in Unit <write_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i> in Unit <read_fifo/f> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i> 
 
-ERROR:Xst:528 - Multi-source in Unit <mcs_top> on signal <out_FW<0>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of FDCE instance <UART/reception_i/Dout_0>
-   Output port RAMB16_S36_S36:DOB0 of instance <write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram>
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 161
+ Flip-Flops                                            : 161
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mcs_top.ngr
+Top Level Output File Name         : mcs_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 22
+
+Cell Usage :
+# BELS                             : 1643
+#      GND                         : 14
+#      INV                         : 19
+#      LUT1                        : 97
+#      LUT2                        : 116
+#      LUT2_D                      : 5
+#      LUT2_L                      : 3
+#      LUT3                        : 290
+#      LUT3_D                      : 5
+#      LUT3_L                      : 41
+#      LUT4                        : 503
+#      LUT4_D                      : 7
+#      LUT4_L                      : 16
+#      MULT_AND                    : 34
+#      MUXCY                       : 117
+#      MUXCY_L                     : 74
+#      MUXF5                       : 157
+#      VCC                         : 2
+#      XORCY                       : 143
+# FlipFlops/Latches                : 660
+#      FD                          : 84
+#      FDC                         : 119
+#      FDCE                        : 71
+#      FDE                         : 111
+#      FDP                         : 29
+#      FDPE                        : 8
+#      FDR                         : 78
+#      FDRE                        : 132
+#      FDRS                        : 1
+#      FDRSE                       : 8
+#      FDS                         : 5
+#      FDSE                        : 14
+# RAMS                             : 138
+#      RAM16X1D                    : 128
+#      RAMB16                      : 10
+# Shift Registers                  : 45
+#      SRL16                       : 1
+#      SRL16E                      : 44
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 22
+#      IBUF                        : 10
+#      IBUFG                       : 1
+#      OBUF                        : 11
+# DCMs                             : 1
+#      DCM                         : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-4 
+
+ Number of Slices:                      648  out of   7680     8%  
+ Number of Slice Flip Flops:            660  out of  15360     4%  
+ Number of 4 input LUTs:               1403  out of  15360     9%  
+    Number used as logic:              1102
+    Number used as Shift registers:      45
+    Number used as RAMs:                256
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    173    12%  
+ Number of BRAMs:                        10  out of     24    41%  
+ Number of GCLKs:                         2  out of      8    25%  
+ Number of DCMs:                          1  out of      4    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.60 secs
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)   | Load  |
+-----------------------------------+-------------------------+-------+
+Clk                                | divisor_0/DCM_INST:CLKDV| 843   |
+-----------------------------------+-------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                                                                           | Buffer(FF name)                                                                                              | Load  |
+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-------+
+Reset_n(Reset_n1_INV_0:O)                                                                                                                                | NONE(UART/reception_i/ClrDiv)                                                                                | 173   |
+read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg<2>(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2:Q)  | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.gdc.dc/dc/count_0)  | 14    |
+write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg<2>(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_2:Q)| NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.gdc.dc/dc/count_0) | 14    |
+read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg<1>(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg_1:Q)  | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_0)           | 8     |
+write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg<1>(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg_1:Q)| NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_0)          | 8     |
+read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_comb(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_comb1:O)    | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0)                              | 2     |
+read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rst_d2(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rst_d2:Q)               | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i) | 2     |
+write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_comb(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_comb1:O)  | NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg_0)                             | 2     |
+write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rst_d2(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/rst_d2:Q)             | NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i)| 2     |
+read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_comb(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_comb1:O)    | NONE(read_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg_1)                              | 1     |
+write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_comb(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_comb1:O)  | NONE(write_fifo/f/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/wr_rst_reg_1)                             | 1     |
+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.877ns (Maximum Frequency: 170.165MHz)
+   Minimum input arrival time before clock: 5.043ns
+   Maximum output required time after clock: 7.241ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 5.877ns (frequency: 170.165MHz)
+  Total number of paths / destination ports: 113937 / 2899
+-------------------------------------------------------------------------
+Delay:               11.753ns (Levels of Logic = 17)
+  Source:            mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (FF)
+  Destination:       mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1 (RAM)
+  Source Clock:      Clk rising 0.5X
+  Destination Clock: Clk rising 0.5X
+
+  Data Path: mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I to mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1/U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q             46   0.720   2.128  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (U0/microblaze_I/MicroBlaze_Core_I/buffer_Addr<1>)
+     LUT2:I1->O            2   0.551   0.903  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/buffer_Full_I1 (U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/buffer_Full)
+     LUT4:I3->O            1   0.551   1.140  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PC_Incr_0_and00001 (U0/microblaze_I/MicroBlaze_Core_I/pc_Incr)
+     LUT4:I0->O            1   0.551   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/SUM_I (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/xor_Sum)
+     MUXCY_L:S->LO         1   0.500   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<29>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<28>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<27>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<26>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<25>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<24>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<23>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<22>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<21>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<20>)
+     MUXCY_L:CI->LO        1   0.064   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/MUXCY_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Carry<19>)
+     XORCY:CI->O           1   0.904   1.140  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/XOR_X (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_Sum)
+     LUT4:I0->O            9   0.551   1.124  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/NewPC_Mux (U0/lmb_bram_I/RAM_Inst/ADDRA<0>)
+     begin scope: 'U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1'
+     RAMB16:ADDRA13            0.350          U0/lmb_bram_I/RAM_Inst/Using_B16_S4.The_BRAMs[0].RAMB16_S4_1
+    ----------------------------------------
+    Total                     11.753ns (5.318ns logic, 6.435ns route)
+                                       (45.2% logic, 54.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 14 / 13
+-------------------------------------------------------------------------
+Offset:              5.043ns (Levels of Logic = 3)
+  Source:            Reset (PAD)
+  Destination:       mcs_0/U0/reset_vec_0 (FF)
+  Destination Clock: Clk rising 0.5X
+
+  Data Path: Reset to mcs_0/U0/reset_vec_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.821   0.801  Reset_IBUF (Reset_IBUF)
+     INV:I->O            174   0.551   2.667  Reset_n1_INV_0 (Reset_n)
+     begin scope: 'mcs_0'
+     FD:D                      0.203          U0/reset_vec_0
+    ----------------------------------------
+    Total                      5.043ns (1.575ns logic, 3.468ns route)
+                                       (31.2% logic, 68.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              7.241ns (Levels of Logic = 1)
+  Source:            UART/transmission_i/Tx_Reg_0 (FF)
+  Destination:       UART_Tx (PAD)
+  Source Clock:      Clk rising 0.5X
+
+  Data Path: UART/transmission_i/Tx_Reg_0 to UART_Tx
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              2   0.720   0.877  UART/transmission_i/Tx_Reg_0 (UART/transmission_i/Tx_Reg_0)
+     OBUF:I->O                 5.644          UART_Tx_OBUF (UART_Tx)
+    ----------------------------------------
+    Total                      7.241ns (6.364ns logic, 0.877ns route)
+                                       (87.9% logic, 12.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.86 secs
  
 --> 
 
-Total memory usage is 283596 kilobytes
+Total memory usage is 300300 kilobytes
 
-Number of errors   :    8 (   0 filtered)
-Number of warnings :   15 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
 

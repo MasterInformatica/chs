@@ -140,21 +140,10 @@ begin
   -- --------------------------------------------------------------------------
   -- PROCESS
   -- -------------------------------------------------------------------------- 
-AA <= out_FW;
---datoAEnviar <= out_FW;
+loadFR <= RXOUT;
+datoAEnviar <= out_FW;
 ready <= '1';
 loadSwitches <= '1';
-
--- QUITAR ESTO CACA
-
-loadFR <= not emptyFW;
----
-
-process(AA)
-begin
-datoAEnviar <= AA;
-in_FR <= AA;
-end process;
 
 mcs_inOut: process (addr_ready,addr)
 begin
@@ -207,25 +196,25 @@ begin
 	if ( ld_ready = '1' and addr = DIR_FR_DA ) then
 			loadLeds <='0';
 			loadFW <= '0';
-			--readFR <= '1';
+			readFR <= '1';
 	elsif( st_ready = '1') then 
 		if ( addr = DIR_LEDS ) then
 			loadLeds <='1';
 			loadFW <= '0';
-			--readFR <= '0';
+			readFR <= '0';
 		elsif ( addr = DIR_FW_DA ) then
 			loadLeds <='0';
 			loadFW <= '1';
-		--	readFR <= '0';
+			readFR <= '0';
 		else
 			loadLeds <='0';
 			loadFW <= '0';
-			--readFR <= '0';
+			readFR <= '0';
 		end if;
 	else
 		loadLeds <='0';
 		loadFW <= '0';
-		--readFR <= '0';
+		readFR <= '0';
 	end if;
 end process mcs_control;
 

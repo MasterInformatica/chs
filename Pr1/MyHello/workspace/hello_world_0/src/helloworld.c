@@ -73,10 +73,10 @@ void print(char *str);
 
 #define DIR_LEDS						(*(volatile u32 *) 0xC0000000)
 #define DIR_SWITCHES					(*(volatile u32 *) 0xC0000004)
-#define DIR_FIFO_LECTURA_DATO			(*(volatile u32 *) 0xC0000008)
-#define DIR_FIFO_LECTURA_NUM_ELEM		(*(volatile u32 *) 0xC000000C)
-#define DIR_FIFO_ESCRITURA_DATO			(*(volatile u32 *) 0xC0000010)
-#define DIR_FIFO_ESCRITURA_NUM_ELEM  	(*(volatile u32 *) 0xC0000014)
+#define DIR_FIFO_LECTURA_DT				(*(volatile u32 *) 0xC0000008)
+#define DIR_FIFO_LECTURA_ST				(*(volatile u32 *) 0xC000000C)
+#define DIR_FIFO_ESCRITURA_DT			(*(volatile u32 *) 0xC0000010)
+#define DIR_FIFO_ESCRITURA_ST		  	(*(volatile u32 *) 0xC0000014)
 
 int main()
 {
@@ -91,27 +91,26 @@ int main()
 		data = XIOModule_Initialize(&iomodule, XPAR_IOMODULE_0_DEVICE_ID);
 		data = XIOModule_Start(&iomodule);
 
-		DIR_FIFO_ESCRITURA_DATO = (u32) 'H';
-		DIR_FIFO_ESCRITURA_DATO = (u32) 'O';
-		DIR_FIFO_ESCRITURA_DATO = (u32) 'L';
-		DIR_FIFO_ESCRITURA_DATO = (u32) 'A';
-		DIR_FIFO_ESCRITURA_DATO = (u32) '\n';
+		DIR_FIFO_ESCRITURA_DT = (u32) 'H';
+		DIR_FIFO_ESCRITURA_DT = (u32) 'O';
+		DIR_FIFO_ESCRITURA_DT = (u32) 'L';
+		DIR_FIFO_ESCRITURA_DT = (u32) 'A';
+		DIR_FIFO_ESCRITURA_DT = (u32) '\n';
 
 
 		while (1) {
-			/*
-			data = DIR_FIFO_LECTURA_NUM_ELEM;
-			ocupadas = (unsigned int) data;
 
-			data = DIR_FIFO_ESCRITURA_NUM_ELEM;
-			libres = (unsigned int) data;
+			do{
+				data = DIR_FIFO_LECTURA_ST;
+				libres = (unsigned int) data;
+				data = DIR_FIFO_ESCRITURA_ST;
+				ocupadas = (unsigned int) data;
+			}while(ocupadas != 0 && libres != 0);
 
-			while(libres < ocupadas){}
-			 */
-			for (i=0; i < 1; i++){
-				data = DIR_FIFO_LECTURA_DATO;
-				DIR_FIFO_ESCRITURA_DATO = data;
-			}
+
+				data = DIR_FIFO_LECTURA_DT;
+				DIR_FIFO_ESCRITURA_DT = data;
+
 
 			data = DIR_SWITCHES;
 			DIR_LEDS = data;

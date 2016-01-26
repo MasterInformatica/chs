@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="20" version="2.0">
+<workbench progressCount="21" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="75" y="75">
 <fastViewData fastViewLocation="1024"/>
@@ -50,7 +50,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="helloworld.c" partName="helloworld.c" path="C:/hlocal/chs/Pr1/MyHello/workspace/hello_world_0/src/helloworld.c" title="helloworld.c" tooltip="hello_world_0/src/helloworld.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/hello_world_0/src/helloworld.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3824" selectionTopPixel="1610"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3873" selectionTopPixel="1530"/>
 </editor>
 </editors>
 <views>
@@ -262,8 +262,11 @@
 <item historyLabel="campus.c" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="helloworld.c" index="3">
+<item historyLabel="helloworld.c" index="3">
 <position info="not_deleted" x="4249" y="0"/>
+</item>
+<item active="true" historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
